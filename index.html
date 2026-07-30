@@ -7,7 +7,7 @@
   <title>Ondřej Křapka | Finance, které dávají smysl</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   <style>
 :root {
   --navy: #07131f;
@@ -179,8 +179,8 @@ select {
 .hero-content {
   position: relative;
   z-index: 2;
-  width: min(920px, 90%);
-  padding: 180px clamp(22px, 7vw, 112px) 110px;
+  width: min(820px, 88%);
+  padding: 180px clamp(22px, 5vw, 86px) 108px;
 }
 
 .eyebrow,
@@ -204,22 +204,37 @@ select {
 }
 
 .hero h1 {
-  max-width: 780px;
-  font-size: clamp(3.4rem, 7vw, 7.5rem);
+  max-width: 720px;
+  font-family: "Instrument Serif", "Playfair Display", serif;
+  font-size: clamp(3.25rem, 5.2vw, 6rem);
+  font-weight: 400;
+  line-height: .94;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
 .hero-lead {
-  max-width: 680px;
-  margin: 28px 0 0;
-  color: rgba(255,255,255,.72);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  max-width: 610px;
+  margin: 30px 0 0;
+  color: rgba(255,255,255,.7);
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
+  line-height: 1.65;
+}
+
+.hero-lead strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.hero-actions-wrap {
+  margin-top: 38px;
 }
 
 .hero-actions {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 .button {
@@ -241,12 +256,14 @@ select {
 }
 
 .button-primary {
-  background: var(--cream);
+  background: linear-gradient(135deg, #f7f3eb 0%, #ffffff 100%);
   color: var(--navy);
+  box-shadow: 0 12px 36px rgba(255,255,255,.12);
 }
 
 .button-primary:hover {
   background: var(--white);
+  box-shadow: 0 16px 44px rgba(255,255,255,.2);
 }
 
 .button-ghost {
@@ -256,6 +273,15 @@ select {
 
 .button-ghost:hover {
   border-color: var(--white);
+}
+
+.hero-action-note {
+  display: block;
+  margin-top: 12px;
+  color: rgba(255,255,255,.48);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
 }
 
 .button-dark {
@@ -751,6 +777,26 @@ select {
   font-size: .75rem;
 }
 
+.hero-content .eyebrow,
+.hero-content h1,
+.hero-content .hero-lead,
+.hero-content .hero-actions-wrap {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroEnter .9s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+.hero-content h1 { animation-delay: .12s; }
+.hero-content .hero-lead { animation-delay: .34s; }
+.hero-content .hero-actions-wrap { animation-delay: .56s; }
+
+@keyframes heroEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(32px);
@@ -862,7 +908,14 @@ select {
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 15vw, 4.9rem);
+    max-width: 620px;
+    font-size: clamp(3rem, 13vw, 4.75rem);
+    line-height: .96;
+  }
+
+  .hero-lead {
+    max-width: 520px;
+    font-size: 1rem;
   }
 
   .section {
@@ -963,11 +1016,14 @@ select {
         <h1>Každý má před sebou dvě verze své budoucnosti.</h1>
         <p class="hero-lead">
           Jednu, která vznikne náhodou.<br><br>
-          <strong style="color:#fff;">A druhou, kterou vytvoří správná rozhodnutí.</strong>
+          <strong>A druhou, kterou vytvoří správná rozhodnutí.</strong>
         </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#kontakt">Začněme dnes</a>
-          <a class="button button-ghost" href="#o-mne">Můj příběh</a>
+        <div class="hero-actions-wrap">
+          <div class="hero-actions">
+            <a class="button button-primary" href="#kontakt">Začněme dnes</a>
+            <a class="button button-ghost" href="#o-mne">Můj příběh</a>
+          </div>
+          <small class="hero-action-note">Nezávazná úvodní konzultace</small>
         </div>
       </div>
       <div class="hero-badge reveal">
