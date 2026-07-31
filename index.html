@@ -29,11 +29,12 @@
     button,input,textarea,select{font:inherit}
 
     .site-header{position:fixed;top:-10px;left:0;right:0;z-index:100;display:flex;align-items:flex-start;justify-content:space-between;padding:18px clamp(22px,4vw,72px) 0;transition:.35s ease}
-    .site-header.scrolled{padding-top:6px;padding-bottom:6px;background:rgba(5,6,6,.58);backdrop-filter:blur(12px);border-bottom:1px solid rgba(205,164,94,.08)}
+    .site-header.scrolled{top:0;align-items:center;padding:4px clamp(22px,4vw,72px);background:rgba(5,6,6,.68);backdrop-filter:blur(12px);border-bottom:1px solid rgba(205,164,94,.08)}
     .brand{display:block;width:clamp(270px,21vw,380px);margin-top:-2px;opacity:0;transform:translateY(10px);animation:brandEnter .8s cubic-bezier(.2,.7,.2,1) .08s forwards;transition:transform .35s ease,width .35s ease}
     .brand img{width:100%;height:auto;mix-blend-mode:screen;filter:drop-shadow(0 0 10px rgba(237,199,127,.2));transition:transform .3s ease,filter .3s ease}.brand:hover img{transform:scale(1.03);filter:drop-shadow(0 0 16px rgba(237,199,127,.34))}
-    .site-header.scrolled .brand{transform:scale(.92);transform-origin:left top}
+    .site-header.scrolled .brand{width:clamp(210px,16vw,285px);margin-top:0;transform:none}
     .main-nav{display:flex;align-items:center;gap:32px;margin-top:8px;font-size:.86rem;font-weight:600;transform:none;opacity:0;animation:navEnter .8s cubic-bezier(.2,.7,.2,1) .18s forwards}
+    .site-header.scrolled .main-nav{margin-top:0}
     .main-nav a{color:rgba(255,255,255,.8);transition:.25s ease}
     .main-nav a:hover{color:var(--gold-light)}
     .main-nav .nav-cta{margin-top:-2px;padding:13px 19px;border:1px solid rgba(205,164,94,.72);border-radius:12px;color:var(--gold-light)}
