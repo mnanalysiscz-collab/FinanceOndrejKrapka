@@ -92,6 +92,63 @@
     .service-card p{margin:0;color:var(--muted)}
     .service-card a{margin-top:26px;color:var(--gold-light);font-weight:700}
 
+
+
+    .calculators{background:linear-gradient(180deg,#080909 0%,#0d0e0f 100%);border-top:1px solid rgba(205,164,94,.14);border-bottom:1px solid rgba(205,164,94,.14)}
+    .calculator-shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.9fr);gap:28px;margin-top:54px}
+    .calculator-panel,.calculator-result{background:#101112;border:1px solid rgba(205,164,94,.2);border-radius:18px;padding:clamp(24px,3vw,42px);box-shadow:0 20px 60px rgba(0,0,0,.28)}
+    .calculator-panel h3,.calculator-result h3{margin:0 0 8px;font-family:"Instrument Serif",serif;font-size:clamp(2rem,3vw,3rem);font-weight:400}
+    .calculator-intro{margin:0 0 30px;color:var(--muted)}
+    .calc-field{display:grid;gap:10px;margin-bottom:24px}
+    .calc-field-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .calc-field label{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.72)}
+    .calc-value-wrap{position:relative;display:flex;align-items:center}
+    .calc-value-wrap input{width:100%;padding:14px 54px 14px 15px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:#080909;color:#fff;outline:none;font-weight:700}
+    .calc-value-wrap input:focus{border-color:var(--gold)}
+    .calc-value-wrap span{position:absolute;right:15px;color:rgba(255,255,255,.45);font-size:.78rem;font-weight:700;pointer-events:none}
+    .calc-range{width:100%;accent-color:var(--gold);cursor:pointer}
+    .calc-scale{display:flex;justify-content:space-between;color:rgba(255,255,255,.34);font-size:.7rem}
+    .calc-derived{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:17px 18px;border:1px solid rgba(205,164,94,.2);border-radius:12px;background:rgba(205,164,94,.05);margin-bottom:24px}
+    .calc-derived span{color:var(--muted);font-size:.8rem}.calc-derived strong{color:var(--gold-light);font-size:1.1rem}
+    .result-kicker{color:var(--gold-light);font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .monthly-payment{margin:12px 0 30px;font-family:"Instrument Serif",serif;font-size:clamp(3.6rem,6vw,6.4rem);line-height:.9;color:var(--gold-light);letter-spacing:-.04em}
+    .monthly-payment small{display:block;margin-top:12px;font-family:"Manrope",sans-serif;font-size:.78rem;color:rgba(255,255,255,.45);letter-spacing:0}
+    .result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:30px}
+    .result-item{padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#0a0b0b}
+    .result-item span{display:block;color:rgba(255,255,255,.45);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em}.result-item strong{display:block;margin-top:6px;font-size:1.05rem}
+    .ltv-bar{margin:24px 0 28px}.ltv-track{height:9px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}.ltv-fill{height:100%;width:80%;border-radius:inherit;background:linear-gradient(90deg,#cda45e,#edc77f);transition:width .35s ease}.ltv-labels{display:flex;justify-content:space-between;margin-top:8px;color:rgba(255,255,255,.38);font-size:.68rem}
+    .chart-wrap{padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:#090a0a}.chart-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:16px}.chart-head h4{margin:0;font-family:"Instrument Serif",serif;font-size:1.6rem;font-weight:400}.chart-legend{display:flex;gap:14px;flex-wrap:wrap;color:rgba(255,255,255,.5);font-size:.7rem}.chart-legend span::before{content:"";display:inline-block;width:9px;height:9px;margin-right:6px;border-radius:50%;background:var(--gold)}.chart-legend span:last-child::before{background:rgba(255,255,255,.24)}
+    #mortgageChart{display:block;width:100%;height:250px}
+    .calculator-disclaimer{margin:18px 0 0;color:rgba(255,255,255,.36);font-size:.7rem}
+    .calculator-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08)}.calculator-cta p{margin:0;color:var(--muted);font-size:.84rem}
+
+
+    .nav-dropdown{position:relative;display:flex;align-items:center}
+    .nav-dropdown>a{display:inline-flex;align-items:center;gap:7px}
+    .nav-dropdown>a::after{content:"⌄";font-size:.75rem;transition:.25s ease}
+    .nav-dropdown:hover>a::after,.nav-dropdown:focus-within>a::after{transform:rotate(180deg)}
+    .nav-dropdown-menu{position:absolute;top:calc(100% + 14px);left:50%;width:285px;padding:10px;transform:translate(-50%,10px);border:1px solid rgba(205,164,94,.22);border-radius:14px;background:rgba(8,9,9,.97);box-shadow:0 22px 60px rgba(0,0,0,.45);backdrop-filter:blur(18px);opacity:0;visibility:hidden;transition:.25s ease}
+    .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translate(-50%,0)}
+    .nav-dropdown-menu a{display:block;padding:11px 13px;border-radius:9px;color:rgba(255,255,255,.72);font-size:.78rem}
+    .nav-dropdown-menu a:hover{background:rgba(205,164,94,.08);color:var(--gold-light)}
+
+    .calculator-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 28px}
+    .calculator-tab{padding:12px 16px;border:1px solid rgba(205,164,94,.22);border-radius:999px;background:transparent;color:rgba(255,255,255,.62);font-size:.76rem;font-weight:800;cursor:pointer;transition:.25s ease}
+    .calculator-tab:hover,.calculator-tab.active{background:linear-gradient(135deg,#d3aa62,#efcc89);border-color:transparent;color:#0a0b0b}
+    .calculator-view{display:none}.calculator-view.active{display:block}
+    .calculator-shell{align-items:start}
+    .compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .compact-grid .calc-field{margin-bottom:6px}
+    .select-wrap select{width:100%;padding:14px 15px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:#080909;color:#fff;outline:none;font-weight:700}
+    .select-wrap select:focus{border-color:var(--gold)}
+    .metric-highlight{padding:22px;border:1px solid rgba(205,164,94,.2);border-radius:14px;background:rgba(205,164,94,.055);margin-bottom:24px}
+    .metric-highlight span{display:block;color:rgba(255,255,255,.5);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em}
+    .metric-highlight strong{display:block;margin-top:7px;font-family:"Instrument Serif",serif;color:var(--gold-light);font-size:clamp(2.6rem,5vw,4.8rem);font-weight:400;line-height:1}
+    .scenario-note{padding:14px 16px;border-left:2px solid var(--gold);background:rgba(205,164,94,.05);color:var(--muted);font-size:.78rem;margin:18px 0 0}
+    .chart-canvas{display:block;width:100%;height:250px}
+    .result-status{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:8px 11px;border:1px solid rgba(205,164,94,.22);border-radius:999px;color:var(--gold-light);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+    .result-status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-light);box-shadow:0 0 12px rgba(237,199,127,.65)}
+
     .contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(50px,8vw,120px);background:#070808}
     .contact p{color:var(--muted)}
     .contact-direct{display:grid;gap:6px;margin-top:30px;font-weight:700;color:var(--gold-light)}
@@ -112,15 +169,15 @@
     .hero-content>*{opacity:0;transform:translateY(18px);animation:enter .9s ease forwards}.hero-content h1{animation-delay:.12s}.hero-lead{animation-delay:.3s}.hero-actions,.hero-note{animation-delay:.48s}@keyframes enter{to{opacity:1;transform:none}}
 
     @media(max-width:980px){
-      .main-nav{position:fixed;inset:0;z-index:-1;flex-direction:column;align-items:center;justify-content:center;padding-top:0;background:#070808;opacity:0;visibility:hidden;transition:.3s ease;font-size:1.25rem}.main-nav.open{opacity:1;visibility:visible;z-index:5}
+      .main-nav{position:fixed;inset:0;z-index:-1;flex-direction:column;align-items:center;justify-content:center;padding:70px 24px 30px;background:#070808;opacity:0;visibility:hidden;transition:.3s ease;font-size:1.15rem;overflow-y:auto}.main-nav.open{opacity:1;visibility:visible;z-index:5}.nav-dropdown{display:block;text-align:center}.nav-dropdown-menu{position:static;width:min(320px,86vw);margin:10px auto 0;transform:none!important;opacity:1;visibility:visible;background:rgba(255,255,255,.025);box-shadow:none}.nav-dropdown>a::after{display:none}
       .menu-toggle{position:relative;z-index:10;display:grid;place-content:center;gap:6px;width:44px;height:44px;border:0;background:transparent}.menu-toggle span{width:24px;height:2px;background:white}.menu-toggle.active span:first-child{transform:translateY(4px) rotate(45deg)}.menu-toggle.active span:last-child{transform:translateY(-4px) rotate(-45deg)}
       .benefits{grid-template-columns:repeat(2,1fr)}.benefit:nth-child(2){border-right:0}.benefit:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.08)}
-      .about-showcase,.contact{grid-template-columns:1fr}.about-photo{min-height:520px}.hero-badge{display:none}
+      .about-showcase,.contact,.calculator-shell{grid-template-columns:1fr}.about-photo{min-height:520px}.hero-badge{display:none}
     }
     @media(max-width:700px){
       .site-header{top:-4px;align-items:center;padding:14px 18px 0}.brand{width:205px;margin-top:-4px}.main-nav{margin-top:0;transform:none}.hero-content{width:100%;padding:170px 20px 90px}.hero h1{font-size:clamp(3.2rem,15vw,5rem)}.hero-image{object-position:38% center}.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.48)),linear-gradient(0deg,rgba(0,0,0,.95),transparent 55%)}
-      .benefits{grid-template-columns:1fr}.benefit{border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}
-      .service-grid{grid-template-columns:1fr}.section-heading{display:block}.section-heading p{margin-top:20px}.form-row{grid-template-columns:1fr;gap:0}.site-footer{grid-template-columns:1fr}.footer-links{text-align:left}.site-footer img{width:190px}
+      .benefits{grid-template-columns:1fr}.benefit{border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}.result-grid{grid-template-columns:1fr}.calculator-panel,.calculator-result{padding:22px}.monthly-payment{font-size:3.4rem}.calculator-cta{align-items:flex-start;flex-direction:column}
+      .service-grid{grid-template-columns:1fr}.compact-grid{grid-template-columns:1fr}.calculator-tabs{display:grid;grid-template-columns:1fr 1fr}.section-heading{display:block}.section-heading p{margin-top:20px}.form-row{grid-template-columns:1fr;gap:0}.site-footer{grid-template-columns:1fr}.footer-links{text-align:left}.site-footer img{width:190px}
     }
     @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
   </style>
@@ -130,7 +187,7 @@
     <a href="#top" class="brand" aria-label="Ondřej Křapka – úvod"><img src="logoHlavicka.png" alt="Ondřej Křapka – Finance & Leadership"></a>
     <button class="menu-toggle" type="button" aria-label="Otevřít menu" aria-expanded="false"><span></span><span></span></button>
     <nav class="main-nav" aria-label="Hlavní navigace">
-      <a href="#sluzby">Služby</a><a href="#spoluprace">Spolupráce</a><a href="#o-mne">O mně</a><a href="#kontakt">Kariéra</a><a href="#kontakt" class="nav-cta">Nezávazná konzultace</a>
+      <a href="#sluzby">Služby</a><div class="nav-dropdown"><a href="#kalkulacky">Kalkulačky</a><div class="nav-dropdown-menu"><a href="#kalkulacky" data-open-calculator="mortgage">Hypoteční kalkulačka</a><a href="#kalkulacky" data-open-calculator="investment">Investiční kalkulačka</a><a href="#kalkulacky" data-open-calculator="insurance">Kalkulačka životního pojištění</a><a href="#kalkulacky" data-open-calculator="pension">Penzijní kalkulačka</a><a href="#kalkulacky" data-open-calculator="rentbuy">Nájem versus hypotéka</a><a href="#kalkulacky" data-open-calculator="freedom">Finanční svoboda</a></div></div><a href="#spoluprace">Spolupráce</a><a href="#o-mne">O mně</a><a href="#kontakt">Kariéra</a><a href="#kontakt" class="nav-cta">Nezávazná konzultace</a>
     </nav>
   </header>
 
@@ -172,6 +229,96 @@
       </div>
     </section>
 
+
+
+    <section id="kalkulacky" class="calculators section">
+      <div class="section-heading">
+        <div><span class="section-label">Finanční nástroje</span><h2>Kalkulačky pro lepší rozhodnutí.</h2></div>
+        <p>Vyberte si oblast, nastavte vlastní scénář a ihned uvidíte orientační výsledek i jeho vývoj v čase.</p>
+      </div>
+
+      <div class="calculator-tabs" role="tablist" aria-label="Výběr kalkulačky">
+        <button class="calculator-tab active" type="button" data-calculator="mortgage">Hypotéka</button>
+        <button class="calculator-tab" type="button" data-calculator="investment">Investice</button>
+        <button class="calculator-tab" type="button" data-calculator="insurance">Životní pojištění</button>
+        <button class="calculator-tab" type="button" data-calculator="pension">Penzijní plán</button>
+        <button class="calculator-tab" type="button" data-calculator="rentbuy">Nájem vs. hypotéka</button>
+        <button class="calculator-tab" type="button" data-calculator="freedom">Finanční svoboda</button>
+      </div>
+
+      <div class="calculator-view active" data-view="mortgage">
+        <div class="calculator-shell">
+          <div class="calculator-panel reveal">
+            <h3>Hypoteční kalkulačka</h3><p class="calculator-intro">Spočítejte si měsíční splátku, LTV a celkové náklady úvěru.</p>
+            <div class="calc-field"><div class="calc-field-head"><label for="mPrice">Cena nemovitosti</label></div><div class="calc-value-wrap"><input id="mPrice" type="number" min="500000" step="50000" value="6500000"><span>Kč</span></div></div>
+            <div class="calc-field"><div class="calc-field-head"><label for="mOwn">Vlastní prostředky</label></div><div class="calc-value-wrap"><input id="mOwn" type="number" min="0" step="50000" value="1300000"><span>Kč</span></div></div>
+            <div class="compact-grid"><div class="calc-field"><label for="mRate">Úroková sazba</label><div class="calc-value-wrap"><input id="mRate" type="number" min="0" step="0.01" value="4.49"><span>% p.a.</span></div></div><div class="calc-field"><label for="mYears">Doba splácení</label><div class="calc-value-wrap"><input id="mYears" type="number" min="1" max="40" value="30"><span>let</span></div></div></div>
+          </div>
+          <div class="calculator-result reveal" aria-live="polite"><div class="result-status">Aktuální výpočet</div><span class="result-kicker">Měsíční splátka</span><div class="monthly-payment" id="mPayment">—</div><div class="result-grid"><div class="result-item"><span>Výše hypotéky</span><strong id="mLoan">—</strong></div><div class="result-item"><span>LTV</span><strong id="mLtv">—</strong></div><div class="result-item"><span>Celkem zaplatíte</span><strong id="mTotal">—</strong></div><div class="result-item"><span>Zaplacené úroky</span><strong id="mInterest">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Vývoj zbývajícího dluhu</h4></div><canvas class="chart-canvas" id="mortgageChart"></canvas></div><p class="calculator-disclaimer">Orientační výpočet bez poplatků, pojištění a individuálních podmínek banky.</p><div class="calculator-cta"><p>Chcete znát reálné možnosti financování?</p><a class="button button-primary" href="#kontakt">Probrat hypotéku →</a></div></div>
+        </div>
+      </div>
+
+      <div class="calculator-view" data-view="investment">
+        <div class="calculator-shell">
+          <div class="calculator-panel"><h3>Investiční kalkulačka</h3><p class="calculator-intro">Zjistěte, jak může pravidelné investování pracovat v čase.</p>
+            <div class="calc-field"><label for="iInitial">Počáteční vklad</label><div class="calc-value-wrap"><input id="iInitial" type="number" min="0" step="10000" value="200000"><span>Kč</span></div></div>
+            <div class="calc-field"><label for="iMonthly">Měsíční investice</label><div class="calc-value-wrap"><input id="iMonthly" type="number" min="0" step="500" value="5000"><span>Kč</span></div></div>
+            <div class="compact-grid"><div class="calc-field"><label for="iReturn">Očekávaný výnos</label><div class="calc-value-wrap"><input id="iReturn" type="number" step="0.1" value="7"><span>% p.a.</span></div></div><div class="calc-field"><label for="iYears">Doba investování</label><div class="calc-value-wrap"><input id="iYears" type="number" min="1" max="50" value="25"><span>let</span></div></div></div>
+            <div class="calc-field"><label for="iInflation">Očekávaná inflace</label><div class="calc-value-wrap"><input id="iInflation" type="number" min="0" step="0.1" value="2.5"><span>% p.a.</span></div></div>
+          </div>
+          <div class="calculator-result" aria-live="polite"><div class="result-status">Dlouhodobý scénář</div><span class="result-kicker">Odhadovaná hodnota portfolia</span><div class="monthly-payment" id="iFinal">—</div><div class="result-grid"><div class="result-item"><span>Celkem vložíte</span><strong id="iInvested">—</strong></div><div class="result-item"><span>Odhadovaný výnos</span><strong id="iProfit">—</strong></div><div class="result-item"><span>Reálná hodnota</span><strong id="iReal">—</strong></div><div class="result-item"><span>Násobek vkladů</span><strong id="iMultiple">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Růst portfolia</h4></div><canvas class="chart-canvas" id="investmentChart"></canvas></div><p class="calculator-disclaimer">Výnos není garantovaný. Výpočet nezahrnuje poplatky, daně ani změny tržních podmínek.</p><div class="calculator-cta"><p>Chcete sestavit investiční plán na míru?</p><a class="button button-primary" href="#kontakt">Probrat investice →</a></div></div>
+        </div>
+      </div>
+
+      <div class="calculator-view" data-view="insurance">
+        <div class="calculator-shell">
+          <div class="calculator-panel"><h3>Kalkulačka životního pojištění</h3><p class="calculator-intro">Orientační odhad kapitálu pro ochranu rodiny při dlouhodobém výpadku příjmu.</p>
+            <div class="calc-field"><label for="lIncome">Čistý měsíční příjem</label><div class="calc-value-wrap"><input id="lIncome" type="number" min="0" step="1000" value="55000"><span>Kč</span></div></div>
+            <div class="calc-field"><label for="lExpenses">Měsíční výdaje domácnosti</label><div class="calc-value-wrap"><input id="lExpenses" type="number" min="0" step="1000" value="38000"><span>Kč</span></div></div>
+            <div class="calc-field"><label for="lDebt">Nesplacené dluhy</label><div class="calc-value-wrap"><input id="lDebt" type="number" min="0" step="50000" value="3500000"><span>Kč</span></div></div>
+            <div class="compact-grid"><div class="calc-field"><label for="lChildren">Počet nezaopatřených dětí</label><div class="calc-value-wrap"><input id="lChildren" type="number" min="0" max="10" value="2"><span>dětí</span></div></div><div class="calc-field"><label for="lReserve">Současné úspory</label><div class="calc-value-wrap"><input id="lReserve" type="number" min="0" step="10000" value="300000"><span>Kč</span></div></div></div>
+          </div>
+          <div class="calculator-result" aria-live="polite"><div class="result-status">Orientační ochrana</div><div class="metric-highlight"><span>Doporučené krytí pro úmrtí</span><strong id="lDeath">—</strong></div><div class="result-grid"><div class="result-item"><span>Invalidita III. stupně</span><strong id="lInvalidity">—</strong></div><div class="result-item"><span>Pracovní neschopnost / měsíc</span><strong id="lSick">—</strong></div><div class="result-item"><span>Krytí dluhů</span><strong id="lDebtCover">—</strong></div><div class="result-item"><span>Rezerva rodiny</span><strong id="lFamily">—</strong></div></div><div class="scenario-note">Výsledek je pouze první orientace. Skutečné nastavení se odvíjí od rodinné situace, věku, zdravotního stavu a existujícího zabezpečení.</div><div class="calculator-cta"><p>Chcete zjistit, zda je vaše současná ochrana dostatečná?</p><a class="button button-primary" href="#kontakt">Prověřit ochranu →</a></div></div>
+        </div>
+      </div>
+
+      <div class="calculator-view" data-view="pension">
+        <div class="calculator-shell">
+          <div class="calculator-panel"><h3>Penzijní kalkulačka</h3><p class="calculator-intro">Spočítejte si kapitál potřebný pro vlastní rentu v důchodu.</p>
+            <div class="compact-grid"><div class="calc-field"><label for="pAge">Současný věk</label><div class="calc-value-wrap"><input id="pAge" type="number" min="18" max="70" value="35"><span>let</span></div></div><div class="calc-field"><label for="pRetire">Věk odchodu do důchodu</label><div class="calc-value-wrap"><input id="pRetire" type="number" min="40" max="80" value="65"><span>let</span></div></div></div>
+            <div class="calc-field"><label for="pRent">Požadovaná vlastní renta</label><div class="calc-value-wrap"><input id="pRent" type="number" min="0" step="1000" value="25000"><span>Kč / měs.</span></div></div>
+            <div class="calc-field"><label for="pCurrent">Současné penzijní úspory</label><div class="calc-value-wrap"><input id="pCurrent" type="number" min="0" step="10000" value="250000"><span>Kč</span></div></div>
+            <div class="compact-grid"><div class="calc-field"><label for="pReturn">Výnos do důchodu</label><div class="calc-value-wrap"><input id="pReturn" type="number" step="0.1" value="6"><span>% p.a.</span></div></div><div class="calc-field"><label for="pDrawYears">Doba čerpání renty</label><div class="calc-value-wrap"><input id="pDrawYears" type="number" min="5" max="40" value="25"><span>let</span></div></div></div>
+          </div>
+          <div class="calculator-result" aria-live="polite"><div class="result-status">Vlastní penzijní plán</div><span class="result-kicker">Potřebná měsíční investice</span><div class="monthly-payment" id="pMonthly">—</div><div class="result-grid"><div class="result-item"><span>Cílový kapitál</span><strong id="pCapital">—</strong></div><div class="result-item"><span>Doba do důchodu</span><strong id="pYearsLeft">—</strong></div><div class="result-item"><span>Budoucí hodnota úspor</span><strong id="pFutureCurrent">—</strong></div><div class="result-item"><span>Celkové nové vklady</span><strong id="pContributions">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Cesta k penzijnímu kapitálu</h4></div><canvas class="chart-canvas" id="pensionChart"></canvas></div><p class="calculator-disclaimer">Výpočet nezohledňuje státní důchod, inflaci, poplatky ani daňové dopady.</p><div class="calculator-cta"><p>Chcete konkrétní penzijní strategii?</p><a class="button button-primary" href="#kontakt">Naplánovat důchod →</a></div></div>
+        </div>
+      </div>
+
+      <div class="calculator-view" data-view="rentbuy">
+        <div class="calculator-shell">
+          <div class="calculator-panel"><h3>Nájem versus hypotéka</h3><p class="calculator-intro">Porovnejte odhadované náklady a majetek po zvolené době.</p>
+            <div class="calc-field"><label for="rPrice">Cena nemovitosti</label><div class="calc-value-wrap"><input id="rPrice" type="number" min="500000" step="50000" value="6500000"><span>Kč</span></div></div>
+            <div class="compact-grid"><div class="calc-field"><label for="rRent">Měsíční nájem</label><div class="calc-value-wrap"><input id="rRent" type="number" min="0" step="500" value="22000"><span>Kč</span></div></div><div class="calc-field"><label for="rOwn">Vlastní prostředky</label><div class="calc-value-wrap"><input id="rOwn" type="number" min="0" step="50000" value="1300000"><span>Kč</span></div></div></div>
+            <div class="compact-grid"><div class="calc-field"><label for="rRate">Úrok hypotéky</label><div class="calc-value-wrap"><input id="rRate" type="number" step="0.01" value="4.49"><span>% p.a.</span></div></div><div class="calc-field"><label for="rYears">Doba porovnání</label><div class="calc-value-wrap"><input id="rYears" type="number" min="1" max="40" value="20"><span>let</span></div></div></div>
+            <div class="compact-grid"><div class="calc-field"><label for="rGrowth">Růst ceny nemovitosti</label><div class="calc-value-wrap"><input id="rGrowth" type="number" step="0.1" value="3"><span>% p.a.</span></div></div><div class="calc-field"><label for="rInvest">Výnos investic nájemníka</label><div class="calc-value-wrap"><input id="rInvest" type="number" step="0.1" value="6"><span>% p.a.</span></div></div></div>
+          </div>
+          <div class="calculator-result" aria-live="polite"><div class="result-status">Porovnání scénářů</div><div class="metric-highlight"><span>Finančně silnější varianta po zvolené době</span><strong id="rWinner">—</strong></div><div class="result-grid"><div class="result-item"><span>Čistý majetek při koupi</span><strong id="rBuyWealth">—</strong></div><div class="result-item"><span>Majetek při nájmu</span><strong id="rRentWealth">—</strong></div><div class="result-item"><span>Měsíční splátka</span><strong id="rPayment">—</strong></div><div class="result-item"><span>Rozdíl měsíčních nákladů</span><strong id="rDifference">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Vývoj čistého majetku</h4></div><canvas class="chart-canvas" id="rentBuyChart"></canvas></div><p class="calculator-disclaimer">Zjednodušený model nezahrnuje daně, opravy, pojištění, transakční náklady ani změny nájmu a sazeb.</p><div class="calculator-cta"><p>Chcete porovnat konkrétní nemovitost?</p><a class="button button-primary" href="#kontakt">Probrat bydlení →</a></div></div>
+        </div>
+      </div>
+
+      <div class="calculator-view" data-view="freedom">
+        <div class="calculator-shell">
+          <div class="calculator-panel"><h3>Kalkulačka finanční svobody</h3><p class="calculator-intro">Zjistěte, kdy může váš majetek pokrývat požadované životní náklady.</p>
+            <div class="calc-field"><label for="fIncome">Požadovaný měsíční příjem</label><div class="calc-value-wrap"><input id="fIncome" type="number" min="0" step="1000" value="50000"><span>Kč</span></div></div>
+            <div class="calc-field"><label for="fCurrent">Současný investovaný kapitál</label><div class="calc-value-wrap"><input id="fCurrent" type="number" min="0" step="10000" value="500000"><span>Kč</span></div></div>
+            <div class="calc-field"><label for="fMonthly">Měsíční investice</label><div class="calc-value-wrap"><input id="fMonthly" type="number" min="0" step="500" value="15000"><span>Kč</span></div></div>
+            <div class="compact-grid"><div class="calc-field"><label for="fReturn">Očekávaný výnos</label><div class="calc-value-wrap"><input id="fReturn" type="number" step="0.1" value="7"><span>% p.a.</span></div></div><div class="calc-field"><label for="fWithdrawal">Bezpečná míra čerpání</label><div class="calc-value-wrap"><input id="fWithdrawal" type="number" min="1" max="10" step="0.1" value="4"><span>% ročně</span></div></div></div>
+          </div>
+          <div class="calculator-result" aria-live="polite"><div class="result-status">Cesta k nezávislosti</div><span class="result-kicker">Odhadovaný čas do cíle</span><div class="monthly-payment" id="fYears">—</div><div class="result-grid"><div class="result-item"><span>Potřebný kapitál</span><strong id="fTarget">—</strong></div><div class="result-item"><span>Současné pokrytí cíle</span><strong id="fProgress">—</strong></div><div class="result-item"><span>Pasivní příjem dnes</span><strong id="fCurrentIncome">—</strong></div><div class="result-item"><span>Vloženo do dosažení cíle</span><strong id="fContributed">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Růst kapitálu k cíli</h4></div><canvas class="chart-canvas" id="freedomChart"></canvas></div><p class="calculator-disclaimer">Model je orientační a nezohledňuje daně, poplatky, kolísání výnosů ani inflaci.</p><div class="calculator-cta"><p>Chcete vytvořit konkrétní plán finanční svobody?</p><a class="button button-primary" href="#kontakt">Vytvořit plán →</a></div></div>
+        </div>
+      </div>
+    </section>
+
     <section id="kontakt" class="contact section">
       <div class="reveal"><span class="section-label">Kontakt</span><h2>Pojďme probrat, kam se chcete posunout.</h2><p>Ať řešíte vlastní finance, nebo kariéru ve finančním poradenství, první rozhovor je nezávazný.</p><div class="contact-direct"><a href="tel:+420601360355">601 360 355</a><a href="mailto:ondrej.krapka@bidli.cz">ondrej.krapka@bidli.cz</a></div></div>
       <form class="contact-form reveal" action="mailto:ondrej.krapka@bidli.cz" method="post" enctype="text/plain">
@@ -199,6 +346,67 @@
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
     document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
     document.getElementById('year').textContent=new Date().getFullYear();
+
+    const currency=new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'CZK',maximumFractionDigits:0});
+    const decimal=new Intl.NumberFormat('cs-CZ',{maximumFractionDigits:1});
+    const get=id=>Math.max(Number(document.getElementById(id)?.value)||0,0);
+    const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
+    const money=value=>currency.format(Number.isFinite(value)?value:0);
+    const pct=value=>decimal.format(Number.isFinite(value)?value:0)+' %';
+    const clamp=(v,min,max)=>Math.min(Math.max(v,min),max);
+
+    const tabs=[...document.querySelectorAll('.calculator-tab')];
+    const views=[...document.querySelectorAll('.calculator-view')];
+    function openCalculator(name){tabs.forEach(t=>t.classList.toggle('active',t.dataset.calculator===name));views.forEach(v=>v.classList.toggle('active',v.dataset.view===name));requestAnimationFrame(calculateAll)}
+    tabs.forEach(tab=>tab.addEventListener('click',()=>openCalculator(tab.dataset.calculator)));
+    document.querySelectorAll('[data-open-calculator]').forEach(link=>link.addEventListener('click',()=>openCalculator(link.dataset.openCalculator)));
+
+    function drawLineChart(id,series,target){
+      const canvas=document.getElementById(id);if(!canvas||canvas.offsetParent===null)return;
+      const rect=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1,w=Math.max(rect.width,320),h=250;
+      canvas.width=Math.floor(w*dpr);canvas.height=Math.floor(h*dpr);const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);ctx.clearRect(0,0,w,h);
+      const pad={l:12,r:12,t:18,b:28},values=series.flatMap(s=>s.data.map(p=>p.v)).concat(target?[target]:[]),max=Math.max(...values,1),count=Math.max(...series.map(s=>s.data.length),2);
+      const x=i=>pad.l+i/(count-1)*(w-pad.l-pad.r),y=v=>pad.t+(1-v/max)*(h-pad.t-pad.b);
+      ctx.strokeStyle='rgba(255,255,255,.08)';ctx.lineWidth=1;for(let i=0;i<4;i++){const yy=pad.t+i*(h-pad.t-pad.b)/3;ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke()}
+      const colors=['#edc77f','rgba(255,255,255,.38)'];
+      series.forEach((s,si)=>{ctx.beginPath();s.data.forEach((p,i)=>i?ctx.lineTo(x(i),y(p.v)):ctx.moveTo(x(i),y(p.v)));ctx.strokeStyle=colors[si]||colors[1];ctx.lineWidth=si?1.8:2.5;ctx.stroke()});
+      if(target){ctx.setLineDash([6,6]);ctx.strokeStyle='rgba(237,199,127,.55)';ctx.beginPath();ctx.moveTo(pad.l,y(target));ctx.lineTo(w-pad.r,y(target));ctx.stroke();ctx.setLineDash([])}
+      ctx.fillStyle='rgba(255,255,255,.38)';ctx.font='11px Manrope, sans-serif';ctx.textAlign='center';[0,Math.floor((count-1)/2),count-1].forEach(i=>ctx.fillText(series[0].data[i]?.label||'',x(i),h-7));
+    }
+
+    function calcMortgage(){
+      const price=Math.max(get('mPrice'),1),own=clamp(get('mOwn'),0,price),loan=price-own,rate=get('mRate')/100/12,months=Math.max(Math.round(get('mYears')*12),12);
+      const payment=loan===0?0:(rate?loan*rate*Math.pow(1+rate,months)/(Math.pow(1+rate,months)-1):loan/months),total=payment*months;
+      set('mPayment',money(payment));set('mLoan',money(loan));set('mLtv',pct(loan/price*100));set('mTotal',money(total));set('mInterest',money(total-loan));
+      let balance=loan;const data=[];for(let m=0;m<=months;m++){if(m>0){const interest=balance*rate;balance=Math.max(balance-(payment-interest),0)}if(m%12===0||m===months)data.push({label:Math.round(m/12)+' let',v:balance})}drawLineChart('mortgageChart',[{data}]);
+    }
+    function calcInvestment(){
+      const initial=get('iInitial'),monthly=get('iMonthly'),years=Math.max(get('iYears'),1),r=get('iReturn')/100/12,infl=get('iInflation')/100;let value=initial,invested=initial;const data=[];
+      for(let m=1;m<=years*12;m++){value=value*(1+r)+monthly;invested+=monthly;if(m%12===0)data.push({label:(m/12)+' let',v:value})}
+      set('iFinal',money(value));set('iInvested',money(invested));set('iProfit',money(value-invested));set('iReal',money(value/Math.pow(1+infl,years)));set('iMultiple',decimal.format(invested?value/invested:0)+'×');drawLineChart('investmentChart',[{data},{data:data.map((p,i)=>({label:p.label,v:initial+monthly*12*(i+1)}))}]);
+    }
+    function calcInsurance(){
+      const income=get('lIncome'),expenses=get('lExpenses'),debt=get('lDebt'),children=get('lChildren'),reserve=get('lReserve'),family=Math.max(expenses*36+children*300000-reserve,0),death=Math.max(debt+family,0),invalidity=Math.max(debt+Math.max(income-expenses,0)*12*8+expenses*48-reserve,0),sick=Math.max(expenses-income*.6,0);
+      set('lDeath',money(death));set('lInvalidity',money(invalidity));set('lSick',money(sick));set('lDebtCover',money(debt));set('lFamily',money(family));
+    }
+    function calcPension(){
+      const age=get('pAge'),retire=Math.max(get('pRetire'),age+1),years=retire-age,draw=Math.max(get('pDrawYears'),1),rent=get('pRent'),current=get('pCurrent'),annual=get('pReturn')/100,monthlyRate=annual/12,drawRate=.03/12,drawMonths=draw*12;
+      const capital=drawRate?rent*(1-Math.pow(1+drawRate,-drawMonths))/drawRate:rent*drawMonths,futureCurrent=current*Math.pow(1+annual,years),gap=Math.max(capital-futureCurrent,0),months=years*12,payment=gap===0?0:(monthlyRate?gap*monthlyRate/(Math.pow(1+monthlyRate,months)-1):gap/months);
+      set('pMonthly',money(payment));set('pCapital',money(capital));set('pYearsLeft',years+' let');set('pFutureCurrent',money(futureCurrent));set('pContributions',money(payment*months));let value=current;const data=[];for(let m=1;m<=months;m++){value=value*(1+monthlyRate)+payment;if(m%12===0)data.push({label:(m/12)+' let',v:value})}drawLineChart('pensionChart',[{data}],capital);
+    }
+    function calcRentBuy(){
+      const price=Math.max(get('rPrice'),1),rent=get('rRent'),own=clamp(get('rOwn'),0,price),rate=get('rRate')/100/12,years=Math.max(get('rYears'),1),growth=get('rGrowth')/100,invest=get('rInvest')/100/12,months=years*12,loan=price-own,payment=rate?loan*rate*Math.pow(1+rate,360)/(Math.pow(1+rate,360)-1):loan/360;let balance=loan,renter=own;const buy=[],rentSeries=[];
+      for(let m=1;m<=months;m++){const int=balance*rate;balance=Math.max(balance-(payment-int),0);const diff=Math.max(payment-rent,0);renter=renter*(1+invest)+diff;const prop=price*Math.pow(1+growth,m/12);if(m%12===0){buy.push({label:(m/12)+' let',v:Math.max(prop-balance,0)});rentSeries.push({label:(m/12)+' let',v:renter})}}
+      const bw=buy.at(-1)?.v||0,rw=renter;set('rWinner',bw>=rw?'Vlastní bydlení':'Nájem a investování');set('rBuyWealth',money(bw));set('rRentWealth',money(rw));set('rPayment',money(payment));set('rDifference',money(Math.abs(payment-rent)));drawLineChart('rentBuyChart',[{data:buy},{data:rentSeries}]);
+    }
+    function calcFreedom(){
+      const income=get('fIncome'),current=get('fCurrent'),monthly=get('fMonthly'),annual=get('fReturn')/100,withdraw=Math.max(get('fWithdrawal')/100,.001),target=income*12/withdraw,monthlyRate=annual/12;let value=current,months=0,max=1200;const data=[{label:'0 let',v:value}];while(value<target&&months<max){value=value*(1+monthlyRate)+monthly;months++;if(months%12===0)data.push({label:(months/12)+' let',v:value})}
+      const years=months>=max?'40+ let':(months/12).toFixed(1).replace('.',',')+' roku';set('fYears',years);set('fTarget',money(target));set('fProgress',pct(target?current/target*100:0));set('fCurrentIncome',money(current*withdraw/12));set('fContributed',money(monthly*months));drawLineChart('freedomChart',[{data}],target);
+    }
+    function calculateAll(){calcMortgage();calcInvestment();calcInsurance();calcPension();calcRentBuy();calcFreedom()}
+    document.querySelectorAll('#kalkulacky input,#kalkulacky select').forEach(el=>el.addEventListener('input',calculateAll));
+    calculateAll();window.addEventListener('resize',calculateAll,{passive:true});
+
   </script>
 </body>
 </html>
