@@ -63,12 +63,6 @@
     .hero-badge{position:absolute;z-index:2;right:clamp(26px,5vw,90px);bottom:28px;width:156px;height:156px;display:grid;place-content:center;text-align:center;border:1px solid rgba(205,164,94,.65);border-radius:50%;background:rgba(0,0,0,.25);backdrop-filter:blur(8px);font-size:.65rem;text-transform:uppercase;letter-spacing:.13em;color:rgba(255,255,255,.58)}
     .hero-badge strong{display:block;margin:5px 0;color:var(--gold-light);font-size:2rem;letter-spacing:-.04em}
 
-    .benefits{display:grid;grid-template-columns:repeat(4,1fr);background:linear-gradient(180deg,#121314,#0a0b0b);border-top:1px solid rgba(205,164,94,.16);border-bottom:1px solid rgba(205,164,94,.16)}
-    .benefit{min-height:245px;padding:48px 30px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
-    .benefit:last-child{border-right:0}
-    .benefit-icon{width:52px;height:52px;margin:0 auto 18px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--gold-light);font-size:1.45rem}
-    .benefit h3{margin:0;font-family:"Instrument Serif",serif;font-size:2rem;font-weight:400}
-    .benefit p{max-width:220px;margin:10px auto 0;color:var(--muted);font-size:.88rem}
 
     .section{padding:clamp(90px,9vw,145px) clamp(22px,6vw,100px)}
     .section h2{margin:0;font-size:clamp(2.8rem,4.6vw,5.2rem);line-height:1}
@@ -77,6 +71,16 @@
     .about-copy p{max-width:620px;color:var(--muted);font-size:1.03rem}
     .text-link{display:inline-flex;align-items:center;gap:12px;width:max-content;margin-top:18px;color:var(--gold-light);font-weight:700;border-bottom:1px solid var(--gold);padding-bottom:5px}
     .about-photo{min-height:650px;background:linear-gradient(90deg,#090a0a 0%,transparent 28%),url('ondrej-portrait.jpg') center/cover no-repeat;filter:saturate(.6) contrast(1.06)}
+
+
+    .hero-services{max-width:720px;letter-spacing:.02em}
+    .about-intro strong{display:block;margin-bottom:8px;color:var(--white);font-family:"Instrument Serif",serif;font-size:1.55rem;font-weight:400}
+    .about-values{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 2px}.about-values span{padding:9px 13px;border:1px solid rgba(205,164,94,.25);border-radius:999px;color:var(--gold-light);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .principles{background:#0b0c0c;border-top:1px solid rgba(205,164,94,.14);border-bottom:1px solid rgba(205,164,94,.14)}
+    .principles-heading{max-width:760px;margin-bottom:54px}.principles-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .principle{min-height:300px;padding:36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.principle>span{color:var(--gold-light);font-size:.72rem;font-weight:800;letter-spacing:.16em}.principle h3{margin:70px 0 14px;font-family:"Instrument Serif",serif;font-size:2.6rem;font-weight:400}.principle p{margin:0;color:var(--muted)}
+    .journey{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr);gap:clamp(50px,8vw,120px);background:#070808}.journey-copy{position:sticky;top:120px;align-self:start}.journey-copy p{max-width:520px;color:var(--muted)}
+    .timeline{border-top:1px solid var(--line)}.timeline-item{display:grid;grid-template-columns:110px 1fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--line)}.timeline-year{color:var(--gold-light);font-family:"Instrument Serif",serif;font-size:2.4rem;line-height:1}.timeline-item h3{margin:0 0 8px;font-family:"Instrument Serif",serif;font-size:2rem;font-weight:400}.timeline-item p{margin:0;color:var(--muted)}
 
     .quote{position:relative;overflow:hidden;text-align:center;background:#070808;padding:clamp(90px,10vw,160px) 24px}
     .quote::after{content:"";position:absolute;left:-5%;right:-5%;bottom:-80px;height:220px;background:repeating-radial-gradient(ellipse at center,transparent 0 18px,rgba(205,164,94,.12) 19px 20px);opacity:.45;transform:scaleY(.32)}
@@ -174,12 +178,11 @@
     @media(max-width:980px){
       .main-nav{position:fixed;inset:0;z-index:-1;flex-direction:column;align-items:center;justify-content:center;padding:70px 24px 30px;background:#070808;opacity:0;visibility:hidden;transition:.3s ease;font-size:1.15rem;overflow-y:auto}.main-nav.open{opacity:1;visibility:visible;z-index:5}.nav-dropdown{display:block;text-align:center}.nav-dropdown-menu{position:static;width:min(320px,86vw);margin:10px auto 0;transform:none!important;opacity:1;visibility:visible;background:rgba(255,255,255,.025);box-shadow:none}.nav-dropdown>a::after{display:none}
       .menu-toggle{position:relative;z-index:10;display:grid;place-content:center;gap:6px;width:44px;height:44px;border:0;background:transparent}.menu-toggle span{width:24px;height:2px;background:white}.menu-toggle.active span:first-child{transform:translateY(4px) rotate(45deg)}.menu-toggle.active span:last-child{transform:translateY(-4px) rotate(-45deg)}
-      .benefits{grid-template-columns:repeat(2,1fr)}.benefit:nth-child(2){border-right:0}.benefit:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.08)}
-      .about-showcase,.contact,.calculator-shell{grid-template-columns:1fr}.about-photo{min-height:520px}.hero-badge{display:none}
+      .about-showcase,.contact,.calculator-shell,.journey{grid-template-columns:1fr}.about-photo{min-height:520px}.hero-badge{display:none}.principles-grid{grid-template-columns:1fr}.journey-copy{position:static}
     }
     @media(max-width:700px){
       .site-header{top:-4px;align-items:center;padding:14px 18px 0}.site-header.scrolled{top:0;height:64px;min-height:64px;max-height:64px;padding:0 18px}.brand{width:205px;margin-top:-4px}.site-header.scrolled .brand{width:176px;height:58px;margin:0}.main-nav{margin-top:0;transform:none}.hero-content{width:100%;padding:170px 20px 90px}.hero h1{font-size:clamp(3.2rem,15vw,5rem)}.hero-image{object-position:38% center}.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.48)),linear-gradient(0deg,rgba(0,0,0,.95),transparent 55%)}
-      .benefits{grid-template-columns:1fr}.benefit{border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}.result-grid{grid-template-columns:1fr}.calculator-panel,.calculator-result{padding:22px}.monthly-payment{font-size:3.4rem}.calculator-cta{align-items:flex-start;flex-direction:column}
+      .timeline-item{grid-template-columns:1fr;gap:12px}.principle{min-height:auto}.principle h3{margin-top:34px}.result-grid{grid-template-columns:1fr}.calculator-panel,.calculator-result{padding:22px}.monthly-payment{font-size:3.4rem}.calculator-cta{align-items:flex-start;flex-direction:column}
       .service-grid{grid-template-columns:1fr}.compact-grid{grid-template-columns:1fr}.calculator-tabs{display:grid;grid-template-columns:1fr 1fr}.section-heading{display:block}.section-heading p{margin-top:20px}.form-row{grid-template-columns:1fr;gap:0}.site-footer{grid-template-columns:1fr}.footer-links{text-align:left}.site-footer img{width:190px}
     }
     @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
@@ -216,21 +219,51 @@
         <h1>Každý má před sebou dvě verze své <em>budoucnosti.</em></h1>
         <p class="hero-lead">Jednu, která vznikne náhodou.<strong>A druhou, kterou vytvoří správná rozhodnutí.</strong></p>
         <div class="hero-actions"><a class="button button-primary" href="#kontakt">Začněme dnes&nbsp; →</a><a class="button button-ghost" href="#o-mne">Můj příběh</a></div>
-        <div class="hero-note">Nezávazná úvodní konzultace <span>•</span> 30 minut</div>
+        <div class="hero-note hero-services">Hypotéky <span>•</span> Investice <span>•</span> Ochrana příjmu <span>•</span> Dlouhodobý finanční plán</div>
       </div>
       <div class="hero-badge"><span>Od roku</span><strong>2017</strong><span>ve financích</span></div>
     </section>
 
-    <section class="benefits" id="spoluprace">
-      <article class="benefit reveal"><div class="benefit-icon">◎</div><h3>Strategie</h3><p>Nastavíme jasný směr podle vašich cílů.</p></article>
-      <article class="benefit reveal"><div class="benefit-icon">↗</div><h3>Růst</h3><p>Budujeme a chráníme vaše bohatství.</p></article>
-      <article class="benefit reveal"><div class="benefit-icon">◇</div><h3>Ochrana</h3><p>Chráníme to nejcennější, na čem vám záleží.</p></article>
-      <article class="benefit reveal"><div class="benefit-icon">✧</div><h3>Svoboda</h3><p>Více času, možností a klidu na to podstatné.</p></article>
-    </section>
+
 
     <section class="about-showcase" id="o-mne">
-      <div class="about-copy reveal"><span class="section-label">O mně</span><h2>Finance vnímám jako nástroj, ne jako cíl.</h2><p>Pomáhám lidem a firmám dělat správná finanční rozhodnutí, která vedou k dlouhodobé prosperitě, svobodě a klidu.</p><a class="text-link" href="#sluzby">Více o mně <span>→</span></a></div>
+      <div class="about-copy reveal">
+        <span class="section-label">Můj přístup</span>
+        <h2>Finance vnímám jako dlouhodobý závazek.</h2>
+        <p class="about-intro"><strong>Nevěřím na jednorázové obchody.</strong> Věřím v dlouhodobě funkční řešení, která dávají smysl dnes i za mnoho let.</p>
+        <p>Pomáhám lidem dělat správná finanční rozhodnutí v oblasti bydlení, investic a ochrany příjmu. Každé doporučení vzniká s cílem budovat jistotu a svobodu, ne uzavřít rychlý obchod.</p>
+        <div class="about-values" aria-label="Hodnoty spolupráce">
+          <span>Důvěra</span><span>Férovost</span><span>Vysoký standard</span>
+        </div>
+        <a class="text-link" href="#sluzby">Jak vám mohu pomoci <span>→</span></a>
+      </div>
       <div class="about-photo" role="img" aria-label="Ondřej Křapka v obleku"></div>
+    </section>
+
+    <section class="principles section" id="spoluprace" aria-labelledby="principles-title">
+      <div class="principles-heading reveal">
+        <span class="section-label">Na čem stavím</span>
+        <h2 id="principles-title">Tři hodnoty. Jeden standard.</h2>
+      </div>
+      <div class="principles-grid">
+        <article class="principle reveal"><span>01</span><h3>Důvěra</h3><p>Finance jsou osobní. Proto je základem každé spolupráce otevřenost, srozumitelnost a dlouhodobý vztah.</p></article>
+        <article class="principle reveal"><span>02</span><h3>Férovost</h3><p>Neprodávám produkty. Hledám řešení, která odpovídají vašim cílům, možnostem a skutečné životní situaci.</p></article>
+        <article class="principle reveal"><span>03</span><h3>Vysoký standard</h3><p>Každé doporučení připravuji s péčí a odpovědností, jako bych ho dělal pro vlastní rodinu.</p></article>
+      </div>
+    </section>
+
+    <section class="journey section" aria-labelledby="journey-title">
+      <div class="journey-copy reveal">
+        <span class="section-label">Profesní cesta</span>
+        <h2 id="journey-title">Růst, který stojí na odpovědnosti.</h2>
+        <p>Od osobního poradenství až po vedení a rozvoj finančních poradců. Každý další krok znamenal větší odpovědnost za lidi, výsledky i kvalitu práce.</p>
+      </div>
+      <div class="timeline" aria-label="Profesní časová osa Ondřeje Křapky">
+        <article class="timeline-item reveal"><span class="timeline-year">2017</span><div><h3>Začátek ve finančním poradenství</h3><p>Osobní práce s klienty a budování základů dlouhodobé spolupráce.</p></div></article>
+        <article class="timeline-item reveal"><span class="timeline-year">2021</span><div><h3>Vedení prvního týmu</h3><p>Převzetí odpovědnosti za rozvoj lidí, kvalitu poradenství a společné výsledky.</p></div></article>
+        <article class="timeline-item reveal"><span class="timeline-year">2024</span><div><h3>Oblastní ředitel</h3><p>Strategické vedení většího týmu a rozvoj finančního plánování v regionu.</p></div></article>
+        <article class="timeline-item reveal"><span class="timeline-year">2026</span><div><h3>Obchodní ředitel FinPor | BIDLI</h3><p>Řízení a rozvoj finančních poradců s důrazem na důvěru, férovost a vysoký standard práce.</p></div></article>
+      </div>
     </section>
 
     <section class="quote"><div class="quote-mark">“</div><blockquote>Neexistuje správný čas začít.<em>Existuje jen rozhodnutí začít.</em></blockquote></section>
@@ -238,10 +271,10 @@
     <section id="sluzby" class="services section">
       <div class="section-heading"><div><span class="section-label">S čím vám pomohu</span><h2>Jeden plán. Čtyři důležité oblasti.</h2></div><p>Bydlení, investice, ochrana příjmu a dlouhodobý plán spolu musí fungovat jako jeden celek.</p></div>
       <div class="service-grid">
-        <article class="service-card reveal"><span class="service-number">01</span><h3>Vlastní bydlení</h3><p>Financování koupě, výstavby nebo rekonstrukce s ohledem na dlouhodobý rozpočet.</p><a href="#kontakt">Probrat financování →</a></article>
-        <article class="service-card reveal"><span class="service-number">02</span><h3>Investice</h3><p>Strategie pro pravidelné i jednorázové investování podle vašich cílů a časového horizontu.</p><a href="#kontakt">Začít investovat →</a></article>
-        <article class="service-card reveal"><span class="service-number">03</span><h3>Ochrana příjmu</h3><p>Nastavení ochrany tak, aby rodina zvládla i situace, které nelze předvídat.</p><a href="#kontakt">Prověřit ochranu →</a></article>
-        <article class="service-card reveal"><span class="service-number">04</span><h3>Finanční plán</h3><p>Propojení rezervy, bydlení, investic a pojištění do konkrétního dlouhodobého plánu.</p><a href="#kontakt">Vytvořit plán →</a></article>
+        <article class="service-card reveal"><span class="service-number">01</span><h3>Cesta k vlastnímu bydlení</h3><p>Financování koupě, výstavby nebo rekonstrukce s ohledem na dlouhodobý rozpočet.</p><a href="#kontakt">Probrat financování →</a></article>
+        <article class="service-card reveal"><span class="service-number">02</span><h3>Budování majetku</h3><p>Strategie pro pravidelné i jednorázové investování podle vašich cílů a časového horizontu.</p><a href="#kontakt">Začít investovat →</a></article>
+        <article class="service-card reveal"><span class="service-number">03</span><h3>Ochrana toho, co jste vybudovali</h3><p>Nastavení ochrany tak, aby rodina zvládla i situace, které nelze předvídat.</p><a href="#kontakt">Prověřit ochranu →</a></article>
+        <article class="service-card reveal"><span class="service-number">04</span><h3>Plán pro dlouhodobou svobodu</h3><p>Propojení rezervy, bydlení, investic a pojištění do konkrétního dlouhodobého plánu.</p><a href="#kontakt">Vytvořit plán →</a></article>
       </div>
     </section>
 
