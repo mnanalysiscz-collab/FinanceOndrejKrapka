@@ -126,34 +126,34 @@
 
 
     .calculators{background:linear-gradient(180deg,#111214 0%,#191b1d 52%,#101113 100%);border-top:1px solid rgba(205,164,94,.14);border-bottom:1px solid rgba(205,164,94,.14)}
-    .calculators>.section-heading,.calculators>.calculator-tabs,.calculators>.calculator-view{width:min(1120px,calc(100% - 40px));margin-left:auto;margin-right:auto}
-    .calculator-shell{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;margin-top:28px;overflow:hidden;border:1px solid rgba(205,164,94,.22);border-radius:22px;background:#111419;box-shadow:0 30px 80px rgba(0,0,0,.32)}
-    .calculator-panel,.calculator-result{background:transparent;border:0;border-radius:0;padding:clamp(24px,3vw,38px);box-shadow:none}
+    .calculators>.section-heading,.calculators>.calculator-tabs,.calculators>.calculator-view{width:min(1020px,calc(100% - 48px));margin-left:auto;margin-right:auto}
+    .calculator-shell{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;margin-top:22px;overflow:hidden;border:1px solid rgba(205,164,94,.14);border-radius:20px;background:linear-gradient(180deg,#121416 0%,#0f1113 100%);backdrop-filter:blur(12px);box-shadow:0 26px 70px rgba(0,0,0,.30)}
+    .calculator-panel,.calculator-result{background:transparent;border:0;border-radius:0;padding:28px;box-shadow:none}
     .calculator-panel{border-right:1px solid rgba(205,164,94,.14)}
-    .calculator-panel h3,.calculator-result h3{margin:0 0 8px;font-family:"Instrument Serif",serif;font-size:clamp(2rem,3vw,3rem);font-weight:400}
-    .calculator-intro{margin:0 0 30px;color:var(--muted)}
-    .calc-field{display:grid;gap:10px;margin-bottom:24px}
+    .calculator-panel h3,.calculator-result h3{margin:0 0 6px;font-family:"Instrument Serif",serif;font-size:clamp(1.8rem,2.4vw,2.2rem);font-weight:400}
+    .calculator-intro{margin:0 0 18px;color:var(--muted);font-size:.86rem}
+    .calc-field{display:grid;gap:7px;margin-bottom:16px}
     .calc-field-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .calc-field label{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.72)}
+    .calc-field label{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.72)}
     .calc-value-wrap{position:relative;display:flex;align-items:center}
-    .calc-value-wrap input{width:100%;padding:14px 54px 14px 15px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:#080909;color:#fff;outline:none;font-weight:700}
+    .calc-value-wrap input{width:100%;padding:11px 50px 11px 13px;border:1px solid rgba(255,255,255,.11);border-radius:9px;background:#080909;color:#fff;outline:none;font-weight:700;font-size:.9rem}
     .calc-value-wrap input:focus{border-color:var(--gold)}
-    .calc-value-wrap span{position:absolute;right:15px;color:rgba(255,255,255,.45);font-size:.78rem;font-weight:700;pointer-events:none}
+    .calc-value-wrap span{position:absolute;right:13px;color:rgba(255,255,255,.42);font-size:.72rem;font-weight:700;pointer-events:none}
     .calc-range{width:100%;accent-color:var(--gold);cursor:pointer}
     .calc-scale{display:flex;justify-content:space-between;color:rgba(255,255,255,.34);font-size:.7rem}
     .calc-derived{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:17px 18px;border:1px solid rgba(205,164,94,.2);border-radius:12px;background:rgba(205,164,94,.05);margin-bottom:24px}
     .calc-derived span{color:var(--muted);font-size:.8rem}.calc-derived strong{color:var(--gold-light);font-size:1.1rem}
-    .result-kicker{color:var(--gold-light);font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
-    .monthly-payment{margin:12px 0 30px;font-family:"Instrument Serif",serif;font-size:clamp(3rem,4.5vw,5rem);line-height:.9;color:var(--gold-light);letter-spacing:-.04em}
+    .result-kicker{color:var(--gold-light);font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .monthly-payment{margin:8px 0 20px;font-family:"Instrument Serif",serif;font-size:clamp(2.6rem,3.8vw,4rem);line-height:.92;color:var(--gold-light);letter-spacing:-.04em}
     .monthly-payment small{display:block;margin-top:12px;font-family:"Manrope",sans-serif;font-size:.78rem;color:rgba(255,255,255,.45);letter-spacing:0}
-    .result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:30px}
-    .result-item{padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#0a0b0b}
-    .result-item span{display:block;color:rgba(255,255,255,.45);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em}.result-item strong{display:block;margin-top:6px;font-size:1.05rem}
+    .result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:18px}
+    .result-item{padding:13px 14px;border:1px solid rgba(255,255,255,.07);border-radius:10px;background:#0a0b0b}
+    .result-item span{display:block;color:rgba(255,255,255,.42);font-size:.63rem;text-transform:uppercase;letter-spacing:.08em}.result-item strong{display:block;margin-top:4px;font-size:.94rem}
     .ltv-bar{margin:24px 0 28px}.ltv-track{height:9px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}.ltv-fill{height:100%;width:80%;border-radius:inherit;background:linear-gradient(90deg,#cda45e,#edc77f);transition:width .35s ease}.ltv-labels{display:flex;justify-content:space-between;margin-top:8px;color:rgba(255,255,255,.38);font-size:.68rem}
-    .chart-wrap{padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:#090a0a}.chart-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:16px}.chart-head h4{margin:0;font-family:"Instrument Serif",serif;font-size:1.6rem;font-weight:400}.chart-legend{display:flex;gap:14px;flex-wrap:wrap;color:rgba(255,255,255,.5);font-size:.7rem}.chart-legend span::before{content:"";display:inline-block;width:9px;height:9px;margin-right:6px;border-radius:50%;background:var(--gold)}.chart-legend span:last-child::before{background:rgba(255,255,255,.24)}
-    #mortgageChart{display:block;width:100%;height:250px}
+    .chart-wrap{padding:14px;border:1px solid rgba(255,255,255,.07);border-radius:12px;background:#090a0a}.chart-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:16px}.chart-head h4{margin:0;font-family:"Instrument Serif",serif;font-size:1.6rem;font-weight:400}.chart-legend{display:flex;gap:14px;flex-wrap:wrap;color:rgba(255,255,255,.5);font-size:.7rem}.chart-legend span::before{content:"";display:inline-block;width:9px;height:9px;margin-right:6px;border-radius:50%;background:var(--gold)}.chart-legend span:last-child::before{background:rgba(255,255,255,.24)}
+    #mortgageChart{display:block;width:100%;height:190px}
     .calculator-disclaimer{margin:18px 0 0;color:rgba(255,255,255,.36);font-size:.7rem}
-    .calculator-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08)}.calculator-cta p{margin:0;color:var(--muted);font-size:.84rem}
+    .calculator-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)}.calculator-cta p{margin:0;color:var(--muted);font-size:.84rem}
 
 
     .nav-dropdown{position:relative;display:flex;align-items:center}
@@ -170,7 +170,7 @@
     .calculator-tab:hover,.calculator-tab.active{background:linear-gradient(135deg,#d3aa62,#efcc89);border-color:transparent;color:#0a0b0b}
     .calculator-view{display:none}.calculator-view.active{display:block}
     .calculator-shell{align-items:start}
-    .compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .compact-grid .calc-field{margin-bottom:6px}
     .select-wrap select{width:100%;padding:14px 15px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:#080909;color:#fff;outline:none;font-weight:700}
     .select-wrap select:focus{border-color:var(--gold)}
@@ -178,7 +178,7 @@
     .metric-highlight span{display:block;color:rgba(255,255,255,.5);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em}
     .metric-highlight strong{display:block;margin-top:7px;font-family:"Instrument Serif",serif;color:var(--gold-light);font-size:clamp(2.6rem,5vw,4.8rem);font-weight:400;line-height:1}
     .scenario-note{padding:14px 16px;border-left:2px solid var(--gold);background:rgba(205,164,94,.05);color:var(--muted);font-size:.78rem;margin:18px 0 0}
-    .chart-canvas{display:block;width:100%;height:250px}
+    .chart-canvas{display:block;width:100%;height:190px}
     .result-status{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:8px 11px;border:1px solid rgba(205,164,94,.22);border-radius:999px;color:var(--gold-light);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
     .result-status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-light);box-shadow:0 0 12px rgba(237,199,127,.65)}
 
@@ -233,17 +233,17 @@
     @media(max-width:700px){
       .site-header{top:-4px;align-items:center;padding:14px 18px 0}.site-header.scrolled{top:0;height:64px;min-height:64px;max-height:64px;padding:0 18px}.brand{width:205px;margin-top:-4px}.site-header.scrolled .brand{width:176px;height:58px;margin:0}.main-nav{margin-top:0;transform:none}.hero-content{width:100%;padding:170px 20px 90px}.hero h1{font-size:clamp(3.2rem,15vw,5rem)}.hero-image{object-position:38% center}.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.48)),linear-gradient(0deg,rgba(0,0,0,.95),transparent 55%)}
       .timeline-item{grid-template-columns:1fr;gap:12px}.result-grid{grid-template-columns:1fr}.calculator-panel,.calculator-result{padding:22px}.monthly-payment{font-size:3.4rem}.calculator-cta{align-items:flex-start;flex-direction:column}
-      .calculators>.section-heading,.calculators>.calculator-tabs,.calculators>.calculator-view{width:min(100% - 24px,1120px)}.quote{padding:26px 20px 16px}.about-copy{padding:52px 24px}.future-picker{grid-template-columns:1fr}.contact-form{padding:24px 20px}.contact-form-head{align-items:flex-start}.service-grid{grid-template-columns:1fr}.compact-grid{grid-template-columns:1fr}.calculator-tabs{display:grid;grid-template-columns:1fr 1fr}.section-heading{display:block}.section-heading p{margin-top:20px}.form-row{grid-template-columns:1fr;gap:0}.site-footer{grid-template-columns:1fr}.footer-links{text-align:left}.site-footer img{width:190px}
+      .calculators>.section-heading,.calculators>.calculator-tabs,.calculators>.calculator-view{width:min(100% - 20px,1020px)}.quote{padding:26px 20px 16px}.about-copy{padding:52px 24px}.future-picker{grid-template-columns:1fr}.contact-form{padding:24px 20px}.contact-form-head{align-items:flex-start}.service-grid{grid-template-columns:1fr}.compact-grid{grid-template-columns:1fr}.calculator-tabs{display:grid;grid-template-columns:1fr 1fr}.section-heading{display:block}.section-heading p{margin-top:20px}.form-row{grid-template-columns:1fr;gap:0}.site-footer{grid-template-columns:1fr}.footer-links{text-align:left}.site-footer img{width:190px}
     }
     @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
 
     /* Professional calculator centre */
-    .calc-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:18px 0 22px}
+    .calc-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:14px 0 18px}
     .scenario-switch{display:flex;gap:8px;flex-wrap:wrap}.scenario-button{padding:10px 14px;border:1px solid rgba(205,164,94,.22);border-radius:999px;background:#0a0b0b;color:rgba(255,255,255,.62);cursor:pointer;font-size:.75rem;font-weight:800;transition:.25s}.scenario-button:hover,.scenario-button.active{border-color:var(--gold);color:#0b0b0b;background:linear-gradient(135deg,#d3aa62,#efcc89)}
     .calc-help{color:rgba(255,255,255,.4);font-size:.72rem}.calc-help strong{color:var(--gold-light)}
-    .calc-section-title{margin:30px 0 14px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-light)}
-    .recommendation{margin-top:18px;padding:18px 20px;border:1px solid rgba(205,164,94,.22);border-radius:14px;background:linear-gradient(135deg,rgba(205,164,94,.08),rgba(255,255,255,.015));color:rgba(255,255,255,.7);font-size:.84rem}.recommendation strong{display:block;margin-bottom:5px;color:var(--gold-light)}
+    .calc-section-title{margin:20px 0 10px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-light)}
+    .recommendation{margin-top:14px;padding:14px 16px;border:1px solid rgba(205,164,94,.16);border-radius:11px;background:linear-gradient(135deg,rgba(205,164,94,.07),rgba(255,255,255,.012));color:rgba(255,255,255,.68);font-size:.76rem}.recommendation strong{display:block;margin-bottom:5px;color:var(--gold-light)}
     .score-row{display:flex;align-items:center;gap:18px;margin:20px 0 26px}.score-ring{--score:50;flex:0 0 auto;width:96px;height:96px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--gold-light) calc(var(--score)*1%),rgba(255,255,255,.08) 0);position:relative}.score-ring::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#101112}.score-ring strong{position:relative;z-index:1;color:var(--gold-light);font-size:1.25rem}.score-copy span{display:block;color:rgba(255,255,255,.45);font-size:.72rem;text-transform:uppercase;letter-spacing:.11em}.score-copy b{display:block;margin-top:4px;font-family:"Instrument Serif",serif;font-size:2rem;font-weight:400}
     .chart-legend-pro{display:flex;gap:15px;flex-wrap:wrap;margin-top:12px;color:rgba(255,255,255,.46);font-size:.69rem}.chart-legend-pro i{display:inline-block;width:9px;height:9px;margin-right:6px;border-radius:50%;background:var(--gold-light)}.chart-legend-pro span:nth-child(2) i{background:rgba(255,255,255,.46)}.chart-legend-pro span:nth-child(3) i{background:rgba(205,164,94,.32)}
     .assumption-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.assumption{padding:12px;border-radius:10px;background:#090a0a;border:1px solid rgba(255,255,255,.07)}.assumption span{display:block;color:rgba(255,255,255,.38);font-size:.65rem;text-transform:uppercase;letter-spacing:.08em}.assumption strong{display:block;margin-top:4px;font-size:.82rem}
@@ -498,7 +498,7 @@
     function openCalculator(name){tabs.forEach(t=>t.classList.toggle('active',t.dataset.calculator===name));views.forEach(v=>v.classList.toggle('active',v.dataset.view===name));requestAnimationFrame(calculateAll)}
     tabs.forEach(tab=>tab.addEventListener('click',()=>openCalculator(tab.dataset.calculator)));document.querySelectorAll('[data-open-calculator]').forEach(link=>link.addEventListener('click',()=>openCalculator(link.dataset.openCalculator)));
 
-    function drawLineChart(id,series,target){const canvas=document.getElementById(id);if(!canvas||canvas.offsetParent===null)return;const rect=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1,w=Math.max(rect.width,320),h=250;canvas.width=Math.floor(w*dpr);canvas.height=Math.floor(h*dpr);const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);ctx.clearRect(0,0,w,h);const pad={l:12,r:12,t:18,b:28},values=series.flatMap(s=>s.data.map(p=>p.v)).concat(target?[target]:[]),max=Math.max(...values,1),count=Math.max(...series.map(s=>s.data.length),2),x=i=>pad.l+i/(count-1)*(w-pad.l-pad.r),y=v=>pad.t+(1-v/max)*(h-pad.t-pad.b);ctx.strokeStyle='rgba(255,255,255,.08)';ctx.lineWidth=1;for(let i=0;i<4;i++){const yy=pad.t+i*(h-pad.t-pad.b)/3;ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke()}const colors=['#edc77f','rgba(255,255,255,.46)','rgba(205,164,94,.30)'];series.forEach((s,si)=>{ctx.beginPath();s.data.forEach((p,i)=>i?ctx.lineTo(x(i),y(p.v)):ctx.moveTo(x(i),y(p.v)));ctx.strokeStyle=colors[si]||colors[1];ctx.lineWidth=si?1.8:2.5;ctx.stroke()});if(target){ctx.setLineDash([6,6]);ctx.strokeStyle='rgba(237,199,127,.58)';ctx.beginPath();ctx.moveTo(pad.l,y(target));ctx.lineTo(w-pad.r,y(target));ctx.stroke();ctx.setLineDash([])}ctx.fillStyle='rgba(255,255,255,.38)';ctx.font='11px Manrope, sans-serif';ctx.textAlign='center';[0,Math.floor((count-1)/2),count-1].forEach(i=>ctx.fillText(series[0].data[i]?.label||'',x(i),h-7))}
+    function drawLineChart(id,series,target){const canvas=document.getElementById(id);if(!canvas||canvas.offsetParent===null)return;const rect=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1,w=Math.max(rect.width,320),h=190;canvas.width=Math.floor(w*dpr);canvas.height=Math.floor(h*dpr);const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);ctx.clearRect(0,0,w,h);const pad={l:12,r:12,t:18,b:28},values=series.flatMap(s=>s.data.map(p=>p.v)).concat(target?[target]:[]),max=Math.max(...values,1),count=Math.max(...series.map(s=>s.data.length),2),x=i=>pad.l+i/(count-1)*(w-pad.l-pad.r),y=v=>pad.t+(1-v/max)*(h-pad.t-pad.b);ctx.strokeStyle='rgba(255,255,255,.08)';ctx.lineWidth=1;for(let i=0;i<4;i++){const yy=pad.t+i*(h-pad.t-pad.b)/3;ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke()}const colors=['#edc77f','rgba(255,255,255,.46)','rgba(205,164,94,.30)'];series.forEach((s,si)=>{ctx.beginPath();s.data.forEach((p,i)=>i?ctx.lineTo(x(i),y(p.v)):ctx.moveTo(x(i),y(p.v)));ctx.strokeStyle=colors[si]||colors[1];ctx.lineWidth=si?1.8:2.5;ctx.stroke()});if(target){ctx.setLineDash([6,6]);ctx.strokeStyle='rgba(237,199,127,.58)';ctx.beginPath();ctx.moveTo(pad.l,y(target));ctx.lineTo(w-pad.r,y(target));ctx.stroke();ctx.setLineDash([])}ctx.fillStyle='rgba(255,255,255,.38)';ctx.font='11px Manrope, sans-serif';ctx.textAlign='center';[0,Math.floor((count-1)/2),count-1].forEach(i=>ctx.fillText(series[0].data[i]?.label||'',x(i),h-7))}
 
     const scenarioValues={mortgage:{safe:{mRate:3.99,mExtra:2000},realistic:{mRate:4.49,mExtra:0},stress:{mRate:6.49,mExtra:0}},investment:{conservative:{iReturn:4,iFee:.8},balanced:{iReturn:7,iFee:1},dynamic:{iReturn:9,iFee:1.2}},freedom:{cautious:{fWithdrawal:3.5},classic:{fWithdrawal:4},flexible:{fWithdrawal:4.5}}};
     document.querySelectorAll('.scenario-switch').forEach(group=>group.addEventListener('click',e=>{const b=e.target.closest('.scenario-button');if(!b)return;group.querySelectorAll('.scenario-button').forEach(x=>x.classList.toggle('active',x===b));const values=scenarioValues[group.dataset.scenarios]?.[b.dataset.scenario]||{};Object.entries(values).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.value=v});calculateAll()}));
