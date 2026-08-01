@@ -178,7 +178,7 @@
     .metric-highlight span{display:block;color:rgba(255,255,255,.5);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em}
     .metric-highlight strong{display:block;margin-top:7px;font-family:"Instrument Serif",serif;color:var(--gold-light);font-size:clamp(2.6rem,5vw,4.8rem);font-weight:400;line-height:1}
     .scenario-note{padding:14px 16px;border-left:2px solid var(--gold);background:rgba(205,164,94,.05);color:var(--muted);font-size:.78rem;margin:18px 0 0}
-    .chart-canvas{display:block;width:100%;height:190px}
+    .chart-canvas{display:block;width:100%;height:220px}
     .result-status{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:8px 11px;border:1px solid rgba(205,164,94,.22);border-radius:999px;color:var(--gold-light);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
     .result-status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-light);box-shadow:0 0 12px rgba(237,199,127,.65)}
 
@@ -286,6 +286,22 @@ input[type=range]::-moz-range-thumb{
 .result-item strong,.monthly-payment,.metric-highlight strong,.score-copy b{transition:transform .22s ease,color .22s ease,opacity .22s ease}
 .calc-value-pulse{transform:translateY(-2px);color:var(--gold-light)!important;opacity:.92}
 @media(max-width:700px){.premium-range-meta{grid-template-columns:1fr auto 1fr}.premium-range-value{min-width:92px;font-size:.92rem}}
+
+
+    /* Vyznamnejsi prava strana kalkulace */
+    .calculator-result{
+      background:linear-gradient(145deg,#202833 0%,#171e27 52%,#121820 100%);
+      box-shadow:inset 1px 0 0 rgba(255,255,255,.035);
+    }
+    .calculator-result::before{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:radial-gradient(circle at 82% 8%,rgba(237,199,127,.11),transparent 34%);
+    }
+    .calculator-result{position:relative;isolation:isolate}
+    .calculator-result>*{position:relative;z-index:1}
+    .result-item{background:rgba(7,10,14,.46);border-color:rgba(237,199,127,.10)}
+    .chart-wrap{background:rgba(6,9,13,.58);border-color:rgba(237,199,127,.12)}
+    .recommendation{background:linear-gradient(135deg,rgba(205,164,94,.12),rgba(255,255,255,.025));border-color:rgba(237,199,127,.24)}
 
 </style>
 </head>
@@ -398,8 +414,8 @@ input[type=range]::-moz-range-thumb{
             <div class="calc-field"><label for="mPrice">Cena nemovitosti</label><div class="calc-value-wrap"><input id="mPrice" type="number" min="500000" step="50000" value="6500000"><span>Kč</span></div></div>
             <div class="calc-field"><label for="mOwn">Vlastní prostředky</label><div class="calc-value-wrap"><input id="mOwn" type="number" min="0" step="50000" value="1300000"><span>Kč</span></div></div>
             <div class="compact-grid"><div class="calc-field"><label for="mRate">Úroková sazba</label><div class="calc-value-wrap"><input id="mRate" type="number" min="0" max="20" step="0.01" value="4.49"><span>% p.a.</span></div></div><div class="calc-field"><label for="mYears">Doba splácení</label><div class="calc-value-wrap"><input id="mYears" type="number" min="1" max="40" value="30"><span>let</span></div></div></div>
-            <div class="calc-section-title">Rozpočet a rychlejší splácení</div>
-            <div class="compact-grid"><div class="calc-field"><label for="mIncome">Čistý příjem domácnosti</label><div class="calc-value-wrap"><input id="mIncome" type="number" min="0" step="1000" value="80000"><span>Kč</span></div></div><div class="calc-field"><label for="mExtra">Mimořádně každý měsíc</label><div class="calc-value-wrap"><input id="mExtra" type="number" min="0" step="500" value="0"><span>Kč</span></div></div></div>
+            <div class="calc-section-title">Rozpočet domácnosti</div>
+            <div class="calc-field"><label for="mIncome">Čistý příjem domácnosti</label><div class="calc-value-wrap"><input id="mIncome" type="number" min="0" step="1000" value="80000"><span>Kč</span></div></div>
           </div>
           <div class="calculator-result reveal" aria-live="polite"><div class="result-status">Aktuální výpočet</div><span class="result-kicker">Pravidelná měsíční splátka</span><div class="monthly-payment" id="mPayment">—</div><div class="result-grid"><div class="result-item"><span>Výše hypotéky</span><strong id="mLoan">—</strong></div><div class="result-item"><span>LTV</span><strong id="mLtv">—</strong></div><div class="result-item"><span>Doba s mimořádnou splátkou</span><strong id="mActualYears">—</strong></div><div class="result-item"><span>Úspora na úrocích</span><strong id="mSavedInterest">—</strong></div><div class="result-item"><span>Celkové úroky</span><strong id="mInterest">—</strong></div><div class="result-item"><span>Zatížení příjmu</span><strong id="mBurden">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Zůstatek a splacená jistina</h4></div><canvas class="chart-canvas" id="mortgageChart"></canvas><div class="chart-legend-pro"><span><i></i>Zůstatek</span><span><i></i>Splacená jistina</span></div></div><div class="recommendation" id="mRecommendation"></div><p class="calculator-disclaimer">Orientační model bez bankovních poplatků, pojištění, budoucích změn sazby a individuálního posouzení úvěruschopnosti.</p><div class="calculator-cta"><p>Chcete znát reálné možnosti financování?</p><a class="button button-primary" href="#kontakt">Probrat hypotéku →</a></div></div>
         </div>
@@ -536,12 +552,76 @@ input[type=range]::-moz-range-thumb{
     function openCalculator(name){tabs.forEach(t=>t.classList.toggle('active',t.dataset.calculator===name));views.forEach(v=>v.classList.toggle('active',v.dataset.view===name));requestAnimationFrame(calculateAll)}
     tabs.forEach(tab=>tab.addEventListener('click',()=>openCalculator(tab.dataset.calculator)));document.querySelectorAll('[data-open-calculator]').forEach(link=>link.addEventListener('click',()=>openCalculator(link.dataset.openCalculator)));
 
-    function drawLineChart(id,series,target){const canvas=document.getElementById(id);if(!canvas||canvas.offsetParent===null)return;const rect=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1,w=Math.max(rect.width,320),h=190;canvas.width=Math.floor(w*dpr);canvas.height=Math.floor(h*dpr);const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);ctx.clearRect(0,0,w,h);const pad={l:12,r:12,t:18,b:28},values=series.flatMap(s=>s.data.map(p=>p.v)).concat(target?[target]:[]),max=Math.max(...values,1),count=Math.max(...series.map(s=>s.data.length),2),x=i=>pad.l+i/(count-1)*(w-pad.l-pad.r),y=v=>pad.t+(1-v/max)*(h-pad.t-pad.b);ctx.strokeStyle='rgba(255,255,255,.08)';ctx.lineWidth=1;for(let i=0;i<4;i++){const yy=pad.t+i*(h-pad.t-pad.b)/3;ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke()}const colors=['#edc77f','rgba(255,255,255,.46)','rgba(205,164,94,.30)'];series.forEach((s,si)=>{ctx.beginPath();s.data.forEach((p,i)=>i?ctx.lineTo(x(i),y(p.v)):ctx.moveTo(x(i),y(p.v)));ctx.strokeStyle=colors[si]||colors[1];ctx.lineWidth=si?1.8:2.5;ctx.stroke()});if(target){ctx.setLineDash([6,6]);ctx.strokeStyle='rgba(237,199,127,.58)';ctx.beginPath();ctx.moveTo(pad.l,y(target));ctx.lineTo(w-pad.r,y(target));ctx.stroke();ctx.setLineDash([])}ctx.fillStyle='rgba(255,255,255,.38)';ctx.font='11px Manrope, sans-serif';ctx.textAlign='center';[0,Math.floor((count-1)/2),count-1].forEach(i=>ctx.fillText(series[0].data[i]?.label||'',x(i),h-7))}
+    function drawLineChart(id,series,target){
+      const canvas=document.getElementById(id);
+      if(!canvas||canvas.offsetParent===null)return;
+      const cleaned=(series||[]).map(s=>({
+        ...s,
+        data:(s.data||[]).filter(p=>Number.isFinite(Number(p.v))).map(p=>({...p,v:Number(p.v)}))
+      })).filter(s=>s.data.length);
+      if(!cleaned.length)return;
 
-    const scenarioValues={mortgage:{safe:{mRate:3.99,mExtra:2000},realistic:{mRate:4.49,mExtra:0},stress:{mRate:6.49,mExtra:0}},investment:{conservative:{iReturn:4,iFee:.8},balanced:{iReturn:7,iFee:1},dynamic:{iReturn:9,iFee:1.2}},freedom:{cautious:{fWithdrawal:3.5},classic:{fWithdrawal:4},flexible:{fWithdrawal:4.5}}};
+      const rect=canvas.getBoundingClientRect();
+      const dpr=Math.min(window.devicePixelRatio||1,2);
+      const w=Math.max(Math.round(rect.width),320),h=220;
+      canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);
+      const ctx=canvas.getContext('2d');
+      ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+
+      const formatAxis=value=>{
+        const abs=Math.abs(value);
+        if(abs>=1000000)return (value/1000000).toLocaleString('cs-CZ',{maximumFractionDigits:1})+' mil.';
+        if(abs>=1000)return (value/1000).toLocaleString('cs-CZ',{maximumFractionDigits:0})+' tis.';
+        return Math.round(value).toLocaleString('cs-CZ');
+      };
+      const values=cleaned.flatMap(s=>s.data.map(p=>p.v));
+      if(Number.isFinite(Number(target)))values.push(Number(target));
+      const max=Math.max(...values,1),min=Math.min(0,...values);
+      const range=Math.max(max-min,1);
+      const pad={l:58,r:16,t:18,b:34};
+      const count=Math.max(...cleaned.map(s=>s.data.length),2);
+      const x=i=>pad.l+(i/(count-1))*(w-pad.l-pad.r);
+      const y=v=>pad.t+((max-v)/range)*(h-pad.t-pad.b);
+
+      ctx.font='10px Manrope, sans-serif';
+      ctx.lineWidth=1;
+      for(let i=0;i<4;i++){
+        const value=max-(range*i/3),yy=y(value);
+        ctx.strokeStyle='rgba(255,255,255,.075)';
+        ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke();
+        ctx.fillStyle='rgba(255,255,255,.34)';ctx.textAlign='right';ctx.textBaseline='middle';
+        ctx.fillText(formatAxis(value),pad.l-9,yy);
+      }
+
+      const colors=['#edc77f','rgba(247,243,235,.66)','rgba(205,164,94,.42)'];
+      cleaned.forEach((s,si)=>{
+        const points=s.data;
+        if(si===0&&points.length>1){
+          const grad=ctx.createLinearGradient(0,pad.t,0,h-pad.b);
+          grad.addColorStop(0,'rgba(237,199,127,.20)');grad.addColorStop(1,'rgba(237,199,127,0)');
+          ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(x(i),y(p.v)):ctx.moveTo(x(i),y(p.v)));
+          ctx.lineTo(x(points.length-1),h-pad.b);ctx.lineTo(x(0),h-pad.b);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+        }
+        ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(x(i),y(p.v)):ctx.moveTo(x(i),y(p.v)));
+        ctx.strokeStyle=colors[si]||colors[1];ctx.lineWidth=si===0?2.6:1.8;ctx.lineJoin='round';ctx.lineCap='round';ctx.stroke();
+        const last=points.at(-1);ctx.beginPath();ctx.arc(x(points.length-1),y(last.v),si===0?4:3,0,Math.PI*2);ctx.fillStyle=colors[si]||colors[1];ctx.fill();
+      });
+
+      if(Number.isFinite(Number(target))){
+        const ty=y(Number(target));ctx.save();ctx.setLineDash([5,5]);ctx.strokeStyle='rgba(237,199,127,.62)';
+        ctx.beginPath();ctx.moveTo(pad.l,ty);ctx.lineTo(w-pad.r,ty);ctx.stroke();ctx.restore();
+      }
+
+      const labels=cleaned[0].data;
+      const indexes=[0,Math.floor((labels.length-1)/2),labels.length-1].filter((v,i,a)=>a.indexOf(v)===i);
+      ctx.fillStyle='rgba(255,255,255,.38)';ctx.font='10px Manrope, sans-serif';ctx.textAlign='center';ctx.textBaseline='alphabetic';
+      indexes.forEach(i=>ctx.fillText(labels[i]?.label||'',x(i),h-9));
+    }
+
+    const scenarioValues={mortgage:{safe:{mRate:3.99},realistic:{mRate:4.49},stress:{mRate:6.49}},investment:{conservative:{iReturn:4,iFee:.8},balanced:{iReturn:7,iFee:1},dynamic:{iReturn:9,iFee:1.2}},freedom:{cautious:{fWithdrawal:3.5},classic:{fWithdrawal:4},flexible:{fWithdrawal:4.5}}};
     document.querySelectorAll('.scenario-switch').forEach(group=>group.addEventListener('click',e=>{const b=e.target.closest('.scenario-button');if(!b)return;group.querySelectorAll('.scenario-button').forEach(x=>x.classList.toggle('active',x===b));const values=scenarioValues[group.dataset.scenarios]?.[b.dataset.scenario]||{};Object.entries(values).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.value=v});calculateAll()}));
 
-    function calcMortgage(){const price=Math.max(get('mPrice'),1),own=clamp(get('mOwn'),0,price),loan=price-own,rate=get('mRate')/100/12,months=Math.max(Math.round(get('mYears')*12),12),income=get('mIncome'),extra=get('mExtra'),base=annuity(loan,rate,months),totalPay=base+extra;let bal=loan,totalInterest=0,m=0,data=[];while(bal>0.01&&m<months*2){const interest=bal*rate,principal=Math.max(Math.min(totalPay-interest,bal),0);if(principal<=0)break;bal-=principal;totalInterest+=interest;m++;if(m%12===0||bal<=.01)data.push({label:Math.round(m/12)+' let',v:bal,s:loan-bal})}let baseInterest=base*months-loan;set('mPayment',money(base));set('mLoan',money(loan));set('mLtv',pct(loan/price*100));set('mActualYears',(m/12).toFixed(1).replace('.',',')+' roku');set('mSavedInterest',money(Math.max(baseInterest-totalInterest,0)));set('mInterest',money(totalInterest));set('mBurden',income?pct(totalPay/income*100):'—');drawLineChart('mortgageChart',[{data},{data:data.map(p=>({label:p.label,v:p.s}))}]);const ltv=loan/price*100,burden=income?totalPay/income*100:0;html('mRecommendation','<strong>'+((ltv<=80&&burden<=35)?'Parametry působí zdravě.':'Prostor pro optimalizaci.')+'</strong>'+(ltv>80?'LTV je nad 80 %. Vyšší vlastní zdroje mohou rozšířit výběr bank a zlepšit podmínky. ':burden>40?'Splátky přesahují 40 % čistého příjmu domácnosti, což snižuje finanční rezervu. ':extra>0?'Mimořádná splátka zkracuje dobu úvěru a snižuje zaplacené úroky. ':'Zvažte pravidelnou rezervu vedle splácení hypotéky.'))}
+    function calcMortgage(){const price=Math.max(get('mPrice'),1),own=clamp(get('mOwn'),0,price),loan=price-own,rate=get('mRate')/100/12,months=Math.max(Math.round(get('mYears')*12),12),income=get('mIncome'),base=annuity(loan,rate,months),totalPay=base;let bal=loan,totalInterest=0,m=0,data=[];while(bal>0.01&&m<months*2){const interest=bal*rate,principal=Math.max(Math.min(totalPay-interest,bal),0);if(principal<=0)break;bal-=principal;totalInterest+=interest;m++;if(m%12===0||bal<=.01)data.push({label:Math.round(m/12)+' let',v:bal,s:loan-bal})}let baseInterest=base*months-loan;set('mPayment',money(base));set('mLoan',money(loan));set('mLtv',pct(loan/price*100));set('mActualYears',(m/12).toFixed(1).replace('.',',')+' roku');set('mSavedInterest',money(Math.max(baseInterest-totalInterest,0)));set('mInterest',money(totalInterest));set('mBurden',income?pct(totalPay/income*100):'—');drawLineChart('mortgageChart',[{data},{data:data.map(p=>({label:p.label,v:p.s}))}]);const ltv=loan/price*100,burden=income?totalPay/income*100:0;html('mRecommendation','<strong>'+((ltv<=80&&burden<=35)?'Parametry působí zdravě.':'Prostor pro optimalizaci.')+'</strong>'+(ltv>80?'LTV je nad 80 %. Vyšší vlastní zdroje mohou rozšířit výběr bank a zlepšit podmínky. ':burden>40?'Splátky přesahují 40 % čistého příjmu domácnosti, což snižuje finanční rezervu. ':'Zvažte pravidelnou rezervu vedle splácení hypotéky.'))}
     function calcInvestment(){const initial=get('iInitial'),baseMonthly=get('iMonthly'),years=Math.max(get('iYears'),1),gross=raw('iReturn')/100,fee=get('iFee')/100,net=gross-fee,r=Math.pow(1+net,1/12)-1,infl=get('iInflation')/100,growth=get('iGrowth')/100;let value=initial,invested=initial,monthly=baseMonthly;const portfolio=[],contributions=[],real=[];for(let m=1;m<=years*12;m++){value=value*(1+r)+monthly;invested+=monthly;if(m%12===0){const y=m/12;portfolio.push({label:y+' let',v:value});contributions.push({label:y+' let',v:invested});real.push({label:y+' let',v:value/Math.pow(1+infl,y)});monthly*=1+growth}}set('iFinal',money(value));set('iInvested',money(invested));set('iProfit',money(value-invested));set('iReal',money(value/Math.pow(1+infl,years)));set('iNetReturn',pct(net*100));drawLineChart('investmentChart',[{data:portfolio},{data:contributions},{data:real}]);html('iRecommendation','<strong>Síla pravidelnosti.</strong>'+(growth>0?'Každoroční navýšení investice o '+decimal.format(growth*100)+' % výrazně pomáhá držet krok s růstem příjmů a inflací. ':'I malé pravidelné navyšování vkladu může mít při dlouhém horizontu výrazný efekt. ')+(fee>0.015?'Roční nákladovost je poměrně vysoká a dlouhodobě ukusuje značnou část výnosu.':'Nákladovost je v modelu odečtena od očekávaného výnosu.'))}
     function calcInsurance(){const age=get('lAge'),support=get('lSupportYears'),income=get('lIncome'),expenses=get('lExpenses'),debt=get('lDebt'),children=get('lChildren'),reserve=get('lReserve'),existing=get('lExisting'),incomeGap=Math.max(expenses-income*.35,0),family=Math.max(incomeGap*12*support+children*250000-reserve,0),death=Math.max(debt+family,0),invalidity=Math.max(debt+expenses*12*Math.min(15,Math.max(5,65-age))-reserve,0),sick=Math.max(expenses-income*.6,0),gap=Math.max(death-existing,0),score=death?clamp(existing/death*100,0,100):100;set('lDeath',money(death));set('lInvalidity',money(invalidity));set('lSick',money(sick));set('lGap',money(gap));set('lFamily',money(family));set('lScore',Math.round(score)+' %');set('lScoreLabel',score>=80?'Dobré':score>=50?'Částečné':'Nízké');document.getElementById('lScoreRing').style.setProperty('--score',score);html('lRecommendation','<strong>'+(score>=80?'Základní krytí vychází dobře.':score>=50?'Část rizika zůstává nepokrytá.':'Rodina je podle modelu výrazně podpojištěná.')+'</strong>Nejvyšší prioritu má dlouhodobý výpadek příjmu při invaliditě, teprve poté krátkodobá pracovní neschopnost. Výsledek je vhodné porovnat se skutečnými smlouvami a státními dávkami.')}
     function calcPension(){const age=get('pAge'),retire=Math.max(get('pRetire'),age+1),years=retire-age,drawYears=Math.max(get('pDrawYears'),1),desired=get('pDesired'),state=get('pState'),current=get('pCurrent'),annual=get('pReturn')/100,infl=get('pInflation')/100,realReturn=(1+annual)/(1+infl)-1,monthlyReal=Math.pow(1+realReturn,1/12)-1,gapToday=Math.max(desired-state,0),gapFuture=gapToday*Math.pow(1+infl,years),drawRate=Math.pow(1+Math.max(realReturn*.45,0),1/12)-1,drawMonths=drawYears*12,capitalToday=drawRate?gapToday*(1-Math.pow(1+drawRate,-drawMonths))/drawRate:gapToday*drawMonths,capitalFuture=capitalToday*Math.pow(1+infl,years),futureCurrent=current*Math.pow(1+annual,years),needed=Math.max(capitalFuture-futureCurrent,0),months=years*12,payment=months?annuity(needed,monthlyReal,months)/Math.pow(1+monthlyReal,months):0;set('pMonthly',money(payment));set('pCapital',money(capitalFuture));set('pYearsLeft',years+' let');set('pGapRent',money(gapFuture));set('pFutureCurrent',money(futureCurrent));let value=current,data=[];for(let m=1;m<=months;m++){value=value*(1+monthlyReal)+payment;if(m%12===0)data.push({label:m/12+' let',v:value})}drawLineChart('pensionChart',[{data}],capitalFuture);html('pRecommendation','<strong>Výpočet pracuje v dnešních i budoucích cenách.</strong>Požadovaný příjem a státní důchod zadáváte v dnešní kupní síle. Kalkulačka je následně navyšuje o inflaci a odhaduje kapitál potřebný při odchodu do penze.')}
