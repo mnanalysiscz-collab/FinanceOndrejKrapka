@@ -48,7 +48,31 @@
     .eyebrow,.section-label{display:inline-block;margin-bottom:18px;color:var(--gold-light);font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
     .hero h1,.section h2{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-.025em}
     .hero h1{max-width:660px;margin:0;font-size:clamp(3.5rem,5.2vw,6.4rem);line-height:.92}
-    .hero h1 em{display:block;color:var(--gold-light);font-style:italic}
+    .hero h1 em{
+      display:block;
+      color:var(--gold-light);
+      font-style:italic;
+      background:linear-gradient(
+        105deg,
+        #9f7838 0%,
+        #cda45e 24%,
+        #edc77f 43%,
+        #fff3cf 50%,
+        #edc77f 57%,
+        #cda45e 76%,
+        #9f7838 100%
+      );
+      background-size:240% 100%;
+      background-position:100% 50%;
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:future-title-shimmer 8s cubic-bezier(.42,0,.58,1) infinite;
+    }
+    @keyframes future-title-shimmer{
+      0%,18%{background-position:100% 50%}
+      58%,100%{background-position:-100% 50%}
+    }
     .hero-lead{max-width:610px;margin:30px 0 0;color:rgba(255,255,255,.72);font-size:clamp(1rem,1.1vw,1.14rem)}
     .hero-lead strong{display:block;margin-top:16px;color:var(--gold-light);font-weight:600}
     .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px}
@@ -304,6 +328,318 @@ input[type=range]::-moz-range-thumb{
     .recommendation{background:linear-gradient(135deg,rgba(205,164,94,.12),rgba(255,255,255,.025));border-color:rgba(237,199,127,.24)}
 
 </style>
+
+<style id="mobile-only-polish">
+/* =========================================================
+   MOBILE-ONLY POLISH
+   Desktop (nad 700 px) zůstává beze změny.
+   ========================================================= */
+@media (max-width:700px){
+
+  html,body{
+    overflow-x:hidden;
+  }
+
+  .site-header{
+    width:100%;
+  }
+
+  .hero{
+    min-height:100svh;
+    align-items:flex-end;
+  }
+
+  .hero-image{
+    object-position:44% center;
+  }
+
+  .hero-overlay{
+    background:
+      linear-gradient(90deg,rgba(0,0,0,.97) 0%,rgba(0,0,0,.72) 52%,rgba(0,0,0,.32) 100%),
+      linear-gradient(0deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.64) 25%,transparent 62%);
+  }
+
+  .hero-content{
+    width:100%;
+    max-width:none;
+    padding:148px 20px 54px;
+  }
+
+  .hero .eyebrow{
+    margin-bottom:14px;
+    font-size:.66rem;
+    letter-spacing:.16em;
+  }
+
+  .hero h1{
+    max-width:100%;
+    font-size:clamp(3rem,15vw,4.7rem);
+    line-height:.94;
+    letter-spacing:-.035em;
+  }
+
+  .hero h1 em{
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+
+  .hero-lead{
+    max-width:100%;
+    margin-top:24px;
+    font-size:1rem;
+    line-height:1.65;
+  }
+
+  .hero-lead strong{
+    margin-top:12px;
+  }
+
+  .hero-actions{
+    margin-top:28px;
+  }
+
+  .hero-actions .button{
+    width:100%;
+    min-height:54px;
+    padding:0 20px;
+    text-align:center;
+  }
+
+  .hero-note{
+    margin-top:18px;
+    line-height:1.8;
+  }
+
+  .hero-services{
+    max-width:100%;
+  }
+
+  .section{
+    padding:76px 20px;
+  }
+
+  .section h2,
+  .trust-copy h2,
+  .section-heading h2{
+    font-size:clamp(2.55rem,12vw,3.8rem);
+    line-height:.98;
+  }
+
+  .trust-section,
+  .about-showcase,
+  .journey,
+  .contact{
+    min-width:0;
+  }
+
+  .trust-copy{
+    padding:72px 20px 58px;
+  }
+
+  .trust-lead{
+    font-size:1rem;
+    line-height:1.7;
+  }
+
+  .trust-point{
+    grid-template-columns:34px 1fr;
+    gap:14px;
+    padding:20px 0;
+  }
+
+  .trust-point h3{
+    font-size:1.8rem;
+  }
+
+  .trust-photo{
+    min-height:500px;
+    background-position:center 18%;
+  }
+
+  .trust-authority{
+    top:22px;
+    right:18px;
+    width:calc(100% - 36px);
+    padding:17px 18px;
+  }
+
+  .trust-signature{
+    left:20px;
+    right:20px;
+    bottom:24px;
+    max-width:none;
+  }
+
+  .about-copy{
+    padding:58px 20px;
+  }
+
+  .about-photo{
+    min-height:460px;
+  }
+
+  .journey-copy{
+    position:static;
+  }
+
+  .timeline-item{
+    grid-template-columns:1fr;
+    gap:10px;
+    padding:26px 0;
+  }
+
+  .timeline-year{
+    font-size:2rem;
+  }
+
+  .timeline-item h3{
+    font-size:1.7rem;
+  }
+
+  .section-heading{
+    display:block;
+    margin-bottom:30px;
+  }
+
+  .section-heading p{
+    max-width:100%;
+    margin-top:18px;
+  }
+
+  .service-card{
+    min-height:0;
+    padding:24px 20px;
+    grid-template-columns:auto 1fr;
+  }
+
+  .calculators{
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .calculators>.section-heading,
+  .calculators>.calculator-tabs,
+  .calculators>.calculator-view{
+    width:100%;
+  }
+
+  .calculator-tabs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+
+  .calculator-tab{
+    min-width:0;
+    padding:11px 9px;
+    font-size:.7rem;
+  }
+
+  .calculator-shell{
+    width:100%;
+    border-radius:16px;
+  }
+
+  .calculator-panel,
+  .calculator-result{
+    padding:20px 16px;
+  }
+
+  .compact-grid,
+  .result-grid,
+  .assumption-grid{
+    grid-template-columns:1fr;
+  }
+
+  .premium-range-meta{
+    grid-template-columns:1fr auto 1fr;
+    gap:6px;
+    font-size:.61rem;
+  }
+
+  .premium-range-value{
+    min-width:78px;
+    font-size:.86rem;
+  }
+
+  .monthly-payment{
+    font-size:clamp(2.6rem,13vw,3.5rem);
+  }
+
+  .chart-wrap{
+    padding:10px 8px;
+    overflow:hidden;
+  }
+
+  .chart-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .contact{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .contact-journey,
+  .contact-form{
+    width:100%;
+    max-width:none;
+  }
+
+  .future-picker{
+    grid-template-columns:1fr;
+  }
+
+  .future-option{
+    min-height:0;
+    padding:19px 18px;
+  }
+
+  .contact-form{
+    padding:22px 18px;
+  }
+
+  .form-row{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .site-footer{
+    padding:34px 20px;
+    grid-template-columns:1fr;
+  }
+
+  .footer-links{
+    text-align:left;
+  }
+}
+
+@media (max-width:390px){
+  .hero-content{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.8rem,14.5vw,4.15rem);
+  }
+
+  .calculator-tabs{
+    grid-template-columns:1fr;
+  }
+
+  .section,
+  .trust-copy,
+  .about-copy,
+  .contact{
+    padding-left:16px;
+    padding-right:16px;
+  }
+}
+</style>
+
 </head>
 <body>
   <header class="site-header">
