@@ -42,8 +42,8 @@
     .menu-toggle{display:none}
 
     .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:#050606}
-    .hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.72) contrast(1.08) brightness(.82) sepia(.05) hue-rotate(-3deg)}
-    .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.98) 0%,rgba(0,0,0,.8) 27%,rgba(0,0,0,.2) 63%,rgba(0,0,0,.42) 100%),linear-gradient(0deg,rgba(0,0,0,.95) 0%,transparent 38%)}
+    .hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.9) contrast(1.04) brightness(.92)}
+    .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.72) 28%,rgba(0,0,0,.12) 62%,rgba(0,0,0,.18) 100%),linear-gradient(0deg,rgba(0,0,0,.88) 0%,transparent 39%)}
     .hero-content{position:relative;z-index:2;width:min(760px,90%);padding:210px clamp(24px,4vw,72px) 48px}
     .eyebrow,.section-label{display:inline-block;margin-bottom:18px;color:var(--gold-light);font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
     .hero h1,.section h2{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-.025em}
@@ -110,7 +110,7 @@
     .trust-point-number{color:var(--gold-light);font-family:"Instrument Serif",serif;font-size:1.35rem;line-height:1.1}
     .trust-point h3{margin:0 0 6px;font-family:"Instrument Serif",serif;font-size:clamp(1.65rem,2vw,2.25rem);font-weight:400;line-height:1.05}
     .trust-point p{max-width:650px;margin:0;color:var(--muted);font-size:.92rem}
-    .trust-photo{position:relative;min-height:760px;background:linear-gradient(90deg,#0b0c0e 0%,rgba(11,12,14,.38) 18%,transparent 36%),url('ondrej-portrait.jpg') center 18%/cover no-repeat;filter:saturate(.68) contrast(1.06)}
+    .trust-photo{position:relative;min-height:760px;background:linear-gradient(90deg,#0b0c0e 0%,rgba(11,12,14,.25) 18%,transparent 36%),url('ondrej-portrait.jpg') center 18%/cover no-repeat;filter:saturate(.9) contrast(1.02)}
     .trust-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,6,6,.58) 0%,transparent 34%),linear-gradient(90deg,rgba(5,6,6,.18),transparent 45%)}
     .trust-signature{position:absolute;z-index:1;left:42px;bottom:38px;max-width:270px;color:rgba(255,255,255,.62);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
     .trust-signature strong{display:block;margin-top:5px;color:var(--gold-light);font-family:"Instrument Serif",serif;font-size:1.7rem;font-weight:400;letter-spacing:0;text-transform:none}
@@ -368,11 +368,9 @@ input[type=range]::-moz-range-thumb{
   }
 
   .hero-image{
-    object-fit:contain;
-    object-position:center top;
+    object-fit:cover;
+    object-position:64% center;
     background:#050606;
-    transform:scale(1.06);
-    transform-origin:center top;
   }
 
   .hero{
@@ -381,8 +379,8 @@ input[type=range]::-moz-range-thumb{
 
   .hero-overlay{
     background:
-      linear-gradient(90deg,rgba(0,0,0,.97) 0%,rgba(0,0,0,.72) 52%,rgba(0,0,0,.32) 100%),
-      linear-gradient(0deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.64) 25%,transparent 62%);
+      linear-gradient(90deg,rgba(0,0,0,.35),rgba(0,0,0,.12)),
+      linear-gradient(0deg,rgba(0,0,0,.98) 0%,rgba(0,0,0,.82) 39%,rgba(0,0,0,.08) 78%);
   }
 
   .hero-content{
@@ -478,21 +476,28 @@ input[type=range]::-moz-range-thumb{
   }
 
   .trust-photo{
-    min-height:500px;
-    background-position:center 18%;
+    min-height:650px;
+    background-position:center top;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
   }
 
   .trust-authority{
-    top:22px;
-    right:18px;
+    position:relative;
+    top:auto;
+    right:auto;
     width:calc(100% - 36px);
+    margin:0 18px;
     padding:17px 18px;
   }
 
   .trust-signature{
-    left:20px;
-    right:20px;
-    bottom:24px;
+    position:relative;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    margin:20px 20px 24px;
     max-width:none;
   }
 
@@ -678,7 +683,7 @@ input[type=range]::-moz-range-thumb{
 
   <main id="top">
     <section class="hero">
-      <img class="hero-image" src="ondrej-hero.jpg" alt="Ondřej Křapka u skleněné stěny se svým odrazem" fetchpriority="high" decoding="async">
+      <img class="hero-image" src="ondrej-hero.jpg" alt="Ondřej Křapka před zrcadlem se svým odrazem" fetchpriority="high" decoding="async">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <span class="eyebrow">Budoucnost začíná dnes</span>
