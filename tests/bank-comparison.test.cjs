@@ -1,7 +1,7 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const context=vm.createContext({window:{},Intl});
 for(const file of ['bank-rates-data.js','bank-comparison.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'..',file),'utf8'),context);
-const data=context.window.mortgageBankData,state=context.window.mortgageBankState,bank=data.banks.find(b=>b.id==='moneta');
+const data=context.window.mortgageBankData,state=context.window.mortgageBankState,bank={...data.banks.find(b=>b.id==='moneta'),status:'verified',expiresOn:'2026-10-10'};
 const input={valid:true,price:6500000,own:1300000,years:30};
 assert.equal(state(bank,input,'2026-10-02'),'ready');
 assert.equal(state(bank,{...input,own:1299999},'2026-10-02'),'ltv');

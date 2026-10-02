@@ -1,4 +1,4 @@
-// Manually verified public starting rates; never update the date without checking sources.
+// Automatically checked public starting rates. See scripts/update-bank-rates.cjs.
 window.mortgageBankData = {
   "checkedOn": "2026-10-02",
   "expiresOn": "2026-10-10",
@@ -11,7 +11,12 @@ window.mortgageBankData = {
       "minLoanExclusive": 1000000,
       "maxLtv": 80,
       "conditions": "Fixace 3 roky, LTV do 80 %, úvěr nad 1 milion Kč. Schválení závisí na posouzení bankou.",
-      "source": "https://www.moneta.cz/hypoteky/hypoteka"
+      "source": "https://www.moneta.cz/hypoteky/hypoteka",
+      "checkedOn": "2026-10-02",
+      "checkedAt": "2026-10-02T19:13:34.864Z",
+      "expiresOn": "2026-10-05",
+      "status": "verified",
+      "lastAttemptAt": "2026-10-02T19:13:34.864Z"
     },
     {
       "id": "csas",
@@ -19,7 +24,12 @@ window.mortgageBankData = {
       "mark": "ČS",
       "rate": 5.39,
       "conditions": "Veřejně uváděná sazba „od“. Konkrétní fixaci, LTV a podmínky zvýhodnění je nutné ověřit individuálně.",
-      "source": "https://www.csas.cz/cs/osobni-finance/hypoteky/hypoteka"
+      "source": "https://www.csas.cz/cs/osobni-finance/hypoteky/hypoteka",
+      "checkedOn": "2026-10-02",
+      "checkedAt": "2026-10-02T19:13:34.864Z",
+      "expiresOn": "2026-10-05",
+      "status": "verified",
+      "lastAttemptAt": "2026-10-02T19:13:34.864Z"
     },
     {
       "id": "kb",
@@ -27,7 +37,13 @@ window.mortgageBankData = {
       "mark": "KB",
       "rate": 5.49,
       "conditions": "Sazba „od“ při příjmu na účet KB, rizikovém životním pojištění a pojištění nemovitosti u Komerční pojišťovny a PENB A/B. Konkrétní fixaci a LTV ověříme.",
-      "source": "https://www.kb.cz/cs/obcane/pujcky/hypoteky/hypoteka"
+      "source": "https://www.kb.cz/cs/obcane/pujcky/hypoteky/hypoteka",
+      "checkedOn": "2026-10-02",
+      "checkedAt": "2026-10-02T19:13:34.864Z",
+      "expiresOn": "2026-10-05",
+      "status": "verified",
+      "lastAttemptAt": "2026-10-02T19:13:34.864Z"
     }
-  ]
+  ],
+  "automatic": true
 };

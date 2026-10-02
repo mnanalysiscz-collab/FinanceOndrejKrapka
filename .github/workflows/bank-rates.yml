@@ -1,0 +1,55 @@
+name: Daily mortgage rates
+on:
+  schedule:
+    # 01:00 Prague: UTC 23:00 in summer, UTC 00:00 in winter.
+    - cron: '0 23 * * *'
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: bank-rate-update
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Select Prague schedule
+        id: timing
+        env:
+          RATE_SCHEDULE: ${{ github.event.schedule }}
+        run: node scripts/update-bank-rates.cjs --schedule-check
+      - name: Test parsers
+        if: steps.timing.outputs.run == 'true'
+        run: node tests/bank-update.test.cjs
+      - name: Check official bank sources
+        if: steps.timing.outputs.run == 'true'
+        id: rates
+        run: node scripts/update-bank-rates.cjs
+      - name: Publish checked data
+        if: steps.timing.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add bank-rates-data.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh mortgage bank rates'
+            git push origin HEAD:main
+          fi
+          # GITHUB_TOKEN commits do not trigger a Pages build automatically.
+          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
+      - name: Flag sources needing attention
+        if: steps.rates.outputs.failed != '' && steps.rates.outputs.failed != '0'
+        run: |
+          echo 'One or more bank sources could not be verified. Their rates were hidden.'
+          exit 1
