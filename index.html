@@ -693,6 +693,28 @@ input[type=range]::-moz-range-thumb{
 .about-block{margin-top:clamp(56px,6vw,88px);padding-top:clamp(40px,4vw,58px);border-top:1px solid rgba(205,164,94,.2)}
 .about-page h3{max-width:900px;margin:0;font-family:"Instrument Serif",serif;font-size:clamp(2.2rem,3.4vw,3.7rem);font-weight:400;line-height:1.08;letter-spacing:-.02em}
 .about-experience p,.about-conversation>p{max-width:850px}
+/* Career milestones belong to About: horizontal on desktop, vertical on smaller screens. */
+#profesni-cesta{scroll-margin-top:100px}
+.career-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;list-style:none;margin:46px 0 0;padding:0}
+.career-step{position:relative;min-width:0;padding:32px 0 0}
+.career-step::before{content:"";position:absolute;top:0;left:0;width:11px;height:11px;border:1px solid var(--gold);border-radius:50%;background:#101112;z-index:1}
+.career-step:not(:last-child)::after{content:"";position:absolute;top:5px;left:6px;width:calc(100% + 26px);height:1px;background:rgba(205,164,94,.35)}
+.career-year{display:block;margin-bottom:18px;color:var(--gold-light);font-family:"Instrument Serif",serif;font-size:3rem;line-height:1}
+.about-page .career-step h4{font-size:clamp(1.55rem,2.2vw,1.9rem);line-height:1.15}
+.about-page .career-step p{margin-top:14px;font-size:.88rem;line-height:1.8}
+.career-step-current::before{background:var(--gold-light);box-shadow:0 0 0 5px rgba(237,199,127,.09),0 0 22px rgba(237,199,127,.24)}
+.career-step-current .career-year{color:#ffe2a0;text-shadow:0 0 24px rgba(237,199,127,.16)}
+.career-current-label{display:inline-block;margin-top:18px;padding:5px 10px;border:1px solid rgba(237,199,127,.3);border-radius:20px;color:var(--gold-light);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:900px){
+  .career-timeline{grid-template-columns:1fr;gap:32px;margin-top:36px}
+  .career-step{padding:0 0 0 34px}
+  .career-step::before{top:10px}
+  .career-step:not(:last-child)::after{top:16px;bottom:-43px;left:5px;width:1px;height:auto}
+  .career-year{margin-bottom:12px;font-size:2.5rem}
+  .about-page .career-step h4{font-size:1.8rem}
+  .about-page .career-step p{max-width:620px;margin-top:10px}
+}
+
 .about-principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:54px;margin-top:32px}
 .about-principle{display:grid;grid-template-columns:34px minmax(0,1fr);gap:16px;padding:28px 0;border-top:1px solid rgba(205,164,94,.16)}
 .about-number{color:var(--gold-light);font-family:"Instrument Serif",serif;font-size:1.4rem;line-height:1.2}
@@ -766,13 +788,36 @@ input[type=range]::-moz-range-thumb{
           </figure>
         </div>
 
-        <div class="about-experience about-block reveal">
-          <span class="section-label">Profesní cesta</span>
-          <h3>Zkušenosti, které přinášejí širší pohled.</h3>
-          <p>Moje profesní cesta vedla od osobní práce s klienty až k vedení a rozvoji finančních poradců. Dnes jako obchodní ředitel FinPor | BIDLI propojuji zkušenosti z poradenství s odpovědností za lidi a kvalitu jejich práce.</p>
-          <p>S každým dalším krokem roste i moje přesvědčení, že kvalita poradenství se ukazuje v běžném životě. V tom, zda člověk zvládne financovat své bydlení, má na co sáhnout při nečekané situaci a ví, jak postupovat směrem ke svým cílům.</p>
-          <p>Stejný přístup přenáším do práce s klienty i do vedení týmu: pochopit souvislosti, vysvětlit možnosti a nést odpovědnost za doporučení.</p>
-        </div>
+        <section class="about-experience about-block" id="profesni-cesta" aria-labelledby="journey-title">
+          <div class="reveal">
+            <span class="section-label">Profesní cesta</span>
+            <h3 id="journey-title">Růst, který stojí na odpovědnosti.</h3>
+            <p>Od osobního poradenství až po vedení a rozvoj finančních poradců. Každý další krok znamenal větší odpovědnost za lidi, výsledky i kvalitu práce.</p>
+          </div>
+          <ol class="career-timeline" role="list" aria-label="Profesní časová osa Ondřeje Křapky">
+            <li class="career-step">
+              <span class="career-year">2017</span>
+              <h4>Začátek ve finančním poradenství</h4>
+              <p>Osobní práce s klienty a budování základů dlouhodobé spolupráce.</p>
+            </li>
+            <li class="career-step">
+              <span class="career-year">2021</span>
+              <h4>Vedení prvního týmu</h4>
+              <p>Převzetí odpovědnosti za rozvoj lidí, kvalitu poradenství a společné výsledky.</p>
+            </li>
+            <li class="career-step">
+              <span class="career-year">2024</span>
+              <h4>Oblastní ředitel</h4>
+              <p>Strategické vedení většího týmu a rozvoj finančního plánování v regionu.</p>
+            </li>
+            <li class="career-step career-step-current" aria-current="step">
+              <span class="career-year">2026</span>
+              <h4>Obchodní ředitel FinPor | BIDLI</h4>
+              <p>Řízení a rozvoj finančních poradců s důrazem na důvěru, férovost a vysoký standard práce.</p>
+              <span class="career-current-label">Současná role</span>
+            </li>
+          </ol>
+        </section>
 
         <div class="about-block reveal">
           <span class="section-label">Můj přístup</span>
@@ -806,19 +851,7 @@ input[type=range]::-moz-range-thumb{
       </div>
     </section>
 
-    <section class="journey section" aria-labelledby="journey-title">
-      <div class="journey-copy reveal">
-        <span class="section-label">Profesní cesta</span>
-        <h2 id="journey-title">Růst, který stojí na odpovědnosti.</h2>
-        <p>Od osobního poradenství až po vedení a rozvoj finančních poradců. Každý další krok znamenal větší odpovědnost za lidi, výsledky i kvalitu práce.</p>
-      </div>
-      <div class="timeline" aria-label="Profesní časová osa Ondřeje Křapky">
-        <article class="timeline-item reveal"><span class="timeline-year">2017</span><div><h3>Začátek ve finančním poradenství</h3><p>Osobní práce s klienty a budování základů dlouhodobé spolupráce.</p></div></article>
-        <article class="timeline-item reveal"><span class="timeline-year">2021</span><div><h3>Vedení prvního týmu</h3><p>Převzetí odpovědnosti za rozvoj lidí, kvalitu poradenství a společné výsledky.</p></div></article>
-        <article class="timeline-item reveal"><span class="timeline-year">2024</span><div><h3>Oblastní ředitel</h3><p>Strategické vedení většího týmu a rozvoj finančního plánování v regionu.</p></div></article>
-        <article class="timeline-item reveal"><span class="timeline-year">2026</span><div><h3>Obchodní ředitel FinPor | BIDLI</h3><p>Řízení a rozvoj finančních poradců s důrazem na důvěru, férovost a vysoký standard práce.</p></div></article>
-      </div>
-    </section>
+
 
 
 
