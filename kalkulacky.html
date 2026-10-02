@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=services-3">
+    <link rel="stylesheet" href="styles.css?v=banks-1">
 </head>
 <body class="calculator-page">
   <header class="site-header">
@@ -49,6 +49,15 @@
           </div>
           <div class="calculator-result reveal" aria-live="polite"><div class="result-status">Aktuální výpočet</div><span class="result-kicker">Měsíční splátka včetně navýšení</span><div class="monthly-payment" id="mPayment">—</div><div class="result-grid"><div class="result-item"><span>Řádná splátka</span><strong id="mBasePayment">—</strong></div><div class="result-item"><span>Výše hypotéky</span><strong id="mLoan">—</strong></div><div class="result-item"><span>LTV dle zadané ceny</span><strong id="mLtv">—</strong></div><div class="result-item"><span>Skutečná doba splácení</span><strong id="mActualYears">—</strong></div><div class="result-item"><span>Úspora na úrocích</span><strong id="mSavedInterest">—</strong></div><div class="result-item"><span>Celkové úroky</span><strong id="mInterest">—</strong></div><div class="result-item"><span>Zatížení příjmu</span><strong id="mBurden">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Zůstatek a splacená jistina</h4></div><canvas class="chart-canvas" id="mortgageChart" role="img" aria-label="Graf zůstatku hypotéky a splacené jistiny"></canvas><div class="chart-legend-pro"><span><i></i>Zůstatek</span><span><i></i>Splacená jistina</span></div></div><div class="recommendation" id="mRecommendation"></div><p class="calculator-disclaimer">Model drží sazbu po celou dobu a nezahrnuje poplatky ani pojištění. LTV vychází ze zadané ceny; banka používá hodnotu zástavy. Zatížení nezahrnuje jiné dluhy a není posouzením úvěruschopnosti.</p><div class="calculator-cta"><p>Chcete znát reálné možnosti financování?</p><a class="button button-primary" href="index.html#kontakt">Probrat hypotéku →</a></div></div>
         </div>
+        <section class="bank-comparison" id="bank-comparison" aria-labelledby="bank-comparison-title">
+          <div class="bank-comparison-head"><div><span class="section-label">Přehled bank</span><h3 id="bank-comparison-title">Jak vychází splátka u jednotlivých bank?</h3></div><span class="bank-sort">Podle zveřejněné sazby</span></div>
+          <p class="bank-intro">Veřejně uváděné sazby vybraných bank a modelová splátka pro vaši částku a dobu splácení. Podmínky bank se liší; nejde o osobní nabídky ani o srovnání celkových nákladů.</p>
+          <p id="bank-status" class="bank-status" role="status"></p>
+          <div id="bank-cards" class="bank-cards"></div>
+          <p class="bank-source-note" id="bank-source-note"></p>
+          <p class="bank-source-note">Splátka nezahrnuje poplatky, pojištění ani měsíční navýšení z kalkulačky. Sazby se nepřizpůsobují automaticky vašemu LTV ani fixaci. Po skončení fixace se mohou změnit. Dostupnost a podmínky ověříme při konzultaci.</p>
+          <noscript>Pro přepočet bankovních splátek zapněte JavaScript. <a href="index.html#kontakt">Probrat hypotéku osobně</a>.</noscript>
+        </section>
       </div>
 
       <div class="calculator-view" id="panel-investment" role="tabpanel" aria-labelledby="tab-investment" data-view="investment" hidden>
@@ -104,6 +113,8 @@
   </main>
   <footer class="site-footer"><div><img src="logoHlavicka.png" alt="Ondřej Křapka" loading="lazy" decoding="async"></div><div class="footer-links"><a href="tel:+420601360355">601 360 355</a><a href="mailto:ondrej.krapka@bidli.cz">ondrej.krapka@bidli.cz</a></div><p>© <span id="year"></span> Ondřej Křapka. Všechna práva vyhrazena. Informace na webu mají obecný a orientační charakter.</p></footer>
   <script src="script.js?v=pages-1"></script>
+  <script src="bank-rates-data.js?v=banks-1"></script>
+  <script src="bank-comparison.js?v=banks-1"></script>
   <script>
     const currency=new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'CZK',maximumFractionDigits:0}),decimal=new Intl.NumberFormat('cs-CZ',{maximumFractionDigits:1});
     const clamp=(value,min,max)=>Math.min(Math.max(value,min),max),raw=id=>{const el=document.getElementById(id),value=Number(el?.value);if(!Number.isFinite(value))return 0;const min=el?.min!==''?Number(el.min):-Infinity,max=el?.max!==''?Number(el.max):Infinity;return clamp(value,min,max)},get=id=>Math.max(raw(id),0),set=(id,value)=>{const el=document.getElementById(id);if(el&&el.textContent!==String(value))el.textContent=value},html=(id,value)=>{const el=document.getElementById(id);if(el&&el.innerHTML!==value)el.innerHTML=value},money=v=>Number.isFinite(v)?currency.format(v):'—',pct=v=>Number.isFinite(v)?decimal.format(v)+' %':'—';
@@ -238,7 +249,7 @@
       view.querySelector('.calculator-result').hidden=Boolean(firstMessage);
       return !firstMessage;
     }
-    function calculateView(view){if(view&&validateCalculator(view))calculators[view.dataset.view]?.();}
+    function calculateView(view){if(!view)return;const valid=validateCalculator(view);if(valid)calculators[view.dataset.view]?.();if(view.dataset.view==='mortgage')window.renderBankComparison?.({valid,price:get('mPrice'),own:get('mOwn'),years:get('mYears')},annuity);}
     function calculateAll(){views.forEach(calculateView);}
     views.forEach(view=>{
       const actions=document.createElement('div');actions.className='calc-actions';

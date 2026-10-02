@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=services-3">
+    <link rel="stylesheet" href="styles.css?v=banks-1">
 </head>
 <body>
   <header class="site-header">
@@ -233,6 +233,12 @@
       showContactStep(formStep,true);
       setTimeout(()=>formStep.querySelector('input:not([type="hidden"])')?.focus(),280);
     }));
+    const requestedBank={moneta:'MONETA Money Bank',csas:'Česká spořitelna',kb:'Komerční banka'}[new URLSearchParams(location.search).get('banka')];
+    if(requestedBank){
+      document.querySelector('.future-option[data-future="Vlastní bydlení"]').click();
+      contactForm.querySelector('textarea').value='Zajímá mě hypotéka u banky '+requestedBank+'. Prosím o ověření aktuální sazby a podmínek.';
+      history.replaceState(null,'',location.pathname+location.hash);
+    }
     changeFuture.addEventListener('click',()=>{
       showContactStep(formStep,false);
       showContactStep(futureStep,true);
