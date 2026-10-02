@@ -1,6 +1,6 @@
 // Runs the calculator functions embedded in the shipped page. No duplicated formulas.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
-const page=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+const page=fs.readFileSync(path.join(__dirname,'../kalkulacky.html'),'utf8');
 const definitions={};
 for(const tag of page.matchAll(/<[^>]+\bid="[^"]+"[^>]*>/g)){
   const attrs=Object.fromEntries([...tag[0].matchAll(/([\w-]+)="([^"]*)"/g)].map(m=>[m[1],m[2]]));

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Spočítejte si hypotéku, investice, pojištění, penzi, nájem versus vlastní bydlení a cestu k finanční svobodě. Šest orientačních finančních kalkulaček Ondřeje Křapky." />
+  <title>Finanční kalkulačky | Ondřej Křapka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=pages-1">
+</head>
+<body class="calculator-page">
+  <header class="site-header">
+    <a href="index.html#top" class="brand" aria-label="Ondřej Křapka – úvod"><img src="logoHlavicka.png" alt="Ondřej Křapka – Finance & Leadership" decoding="async"></a>
+    <button class="menu-toggle" type="button" aria-label="Otevřít menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" aria-label="Hlavní navigace">
+      <a href="index.html#sluzby">Služby</a><div class="nav-dropdown"><a href="kalkulacky.html" aria-current="page">Kalkulačky</a><div class="nav-dropdown-menu"><a href="#mortgage" data-open-calculator="mortgage">Hypoteční kalkulačka</a><a href="#investment" data-open-calculator="investment">Investiční kalkulačka</a><a href="#insurance" data-open-calculator="insurance">Kalkulačka životního pojištění</a><a href="#pension" data-open-calculator="pension">Penzijní kalkulačka</a><a href="#rentbuy" data-open-calculator="rentbuy">Nájem versus hypotéka</a><a href="#freedom" data-open-calculator="freedom">Finanční svoboda</a></div></div><a href="index.html#o-mne">O mně</a><a href="index.html#kontakt">Kariéra</a><a href="index.html#kontakt" class="nav-cta">Nezávazná konzultace</a>
+    </nav>
+  </header>
+  <main id="top">
+    <section id="kalkulacky" class="calculators section" aria-labelledby="calculators-title">
+      <a class="calculator-back" href="index.html">← Zpět na hlavní stránku</a>
+      <div class="section-heading">
+        <div><span class="section-label">Finanční kalkulačky</span><h1 id="calculators-title">Šest pohledů na vaši budoucnost.</h1></div>
+        <p>Orientační výpočty s nastavitelnými předpoklady, scénáři a vysvětlením výsledku. Vše se přepočítává okamžitě přímo ve vašem prohlížeči.</p>
+      </div>
+
+      <div class="calculator-tabs" role="tablist" aria-label="Výběr kalkulačky">
+        <button class="calculator-tab active" id="tab-mortgage" role="tab" aria-selected="true" aria-controls="panel-mortgage" tabindex="0" type="button" data-calculator="mortgage">Hypotéka</button>
+        <button class="calculator-tab" id="tab-investment" role="tab" aria-selected="false" aria-controls="panel-investment" tabindex="-1" type="button" data-calculator="investment">Investice</button>
+        <button class="calculator-tab" id="tab-insurance" role="tab" aria-selected="false" aria-controls="panel-insurance" tabindex="-1" type="button" data-calculator="insurance">Životní pojištění</button>
+        <button class="calculator-tab" id="tab-pension" role="tab" aria-selected="false" aria-controls="panel-pension" tabindex="-1" type="button" data-calculator="pension">Penzijní plán</button>
+        <button class="calculator-tab" id="tab-rentbuy" role="tab" aria-selected="false" aria-controls="panel-rentbuy" tabindex="-1" type="button" data-calculator="rentbuy">Nájem vs. hypotéka</button>
+        <button class="calculator-tab" id="tab-freedom" role="tab" aria-selected="false" aria-controls="panel-freedom" tabindex="-1" type="button" data-calculator="freedom">Finanční svoboda</button>
+      </div>
+
+      <div class="calculator-view active" id="panel-mortgage" role="tabpanel" aria-labelledby="tab-mortgage" data-view="mortgage">
+        <div class="calc-toolbar"><div class="scenario-switch" data-scenarios="mortgage" role="group" aria-label="Scénář hypotéky"><button type="button" class="scenario-button" data-scenario="safe" aria-pressed="false">Nižší sazba</button><button type="button" class="scenario-button active" data-scenario="realistic" aria-pressed="true">Výchozí</button><button type="button" class="scenario-button" data-scenario="stress" aria-pressed="false">Zátěžový</button></div><div class="calc-help">Scénáře používají modelové sazby, nikoliv aktuální nabídky bank. <strong>Vlastní sazbu můžete upravit.</strong></div></div>
+        <div class="calculator-shell">
+          <div class="calculator-panel reveal"><h3>Hypoteční kalkulačka</h3><p class="calculator-intro">Anuitní splátka, mimořádné splácení, LTV a zatížení příjmu.</p>
+            <div class="calc-field"><label for="mPrice">Cena nemovitosti</label><div class="calc-value-wrap"><input id="mPrice" type="number" min="500000" max="100000000" data-range-max="13000000" step="50000" value="6500000"><span>Kč</span></div></div>
+            <div class="calc-field"><label for="mOwn">Vlastní prostředky</label><div class="calc-value-wrap"><input id="mOwn" type="number" min="0" max="100000000" data-range-max="5000000" step="50000" value="1300000"><span>Kč</span></div></div>
+            <div class="compact-grid"><div class="calc-field"><label for="mRate">Úroková sazba</label><div class="calc-value-wrap"><input id="mRate" type="number" min="0" max="20" step="0.01" value="4.49"><span>% p.a.</span></div></div><div class="calc-field"><label for="mYears">Doba splácení</label><div class="calc-value-wrap"><input id="mYears" type="number" min="1" max="40" value="30"><span>let</span></div></div></div>
+            <div class="calc-section-title">Rozpočet domácnosti</div>
+            <div class="calc-field"><label for="mIncome">Čistý příjem domácnosti</label><div class="calc-value-wrap"><input id="mIncome" type="number" min="0" max="5000000" data-range-max="200000" step="1000" value="80000"><span>Kč</span></div></div>
+            <div class="calc-section-title">Mimořádné splácení</div>
+            <div class="calc-field"><label for="mExtra">Měsíční navýšení splátky</label><div class="calc-value-wrap"><input id="mExtra" type="number" min="0" max="500000" data-range-max="50000" step="500" value="0"><span>Kč</span></div><p class="calc-note">Model pravidelně přičítá tuto částku ke splátce. Možnost a cenu mimořádného splácení ověřte podle své smlouvy. Poslední splátka je nejvýše zbývající dluh s úrokem.</p></div>
+          </div>
+          <div class="calculator-result reveal" aria-live="polite"><div class="result-status">Aktuální výpočet</div><span class="result-kicker">Měsíční splátka včetně navýšení</span><div class="monthly-payment" id="mPayment">—</div><div class="result-grid"><div class="result-item"><span>Řádná splátka</span><strong id="mBasePayment">—</strong></div><div class="result-item"><span>Výše hypotéky</span><strong id="mLoan">—</strong></div><div class="result-item"><span>LTV dle zadané ceny</span><strong id="mLtv">—</strong></div><div class="result-item"><span>Skutečná doba splácení</span><strong id="mActualYears">—</strong></div><div class="result-item"><span>Úspora na úrocích</span><strong id="mSavedInterest">—</strong></div><div class="result-item"><span>Celkové úroky</span><strong id="mInterest">—</strong></div><div class="result-item"><span>Zatížení příjmu</span><strong id="mBurden">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Zůstatek a splacená jistina</h4></div><canvas class="chart-canvas" id="mortgageChart" role="img" aria-label="Graf zůstatku hypotéky a splacené jistiny"></canvas><div class="chart-legend-pro"><span><i></i>Zůstatek</span><span><i></i>Splacená jistina</span></div></div><div class="recommendation" id="mRecommendation"></div><p class="calculator-disclaimer">Model drží sazbu po celou dobu a nezahrnuje poplatky ani pojištění. LTV vychází ze zadané ceny; banka používá hodnotu zástavy. Zatížení nezahrnuje jiné dluhy a není posouzením úvěruschopnosti.</p><div class="calculator-cta"><p>Chcete znát reálné možnosti financování?</p><a class="button button-primary" href="index.html#kontakt">Probrat hypotéku →</a></div></div>
+        </div>
+      </div>
+
+      <div class="calculator-view" id="panel-investment" role="tabpanel" aria-labelledby="tab-investment" data-view="investment" hidden>
+        <div class="calc-toolbar"><div class="scenario-switch" data-scenarios="investment" role="group" aria-label="Investiční scénář"><button type="button" class="scenario-button" data-scenario="conservative" aria-pressed="false">Konzervativní</button><button type="button" class="scenario-button active" data-scenario="balanced" aria-pressed="true">Vyvážený</button><button type="button" class="scenario-button" data-scenario="dynamic" aria-pressed="false">Dynamický</button></div><div class="calc-help">Výnos je uváděn před odečtením poplatku. Model používá <strong>měsíční složené úročení</strong>.</div></div>
+        <div class="calculator-shell"><div class="calculator-panel"><h3>Investiční kalkulačka</h3><p class="calculator-intro">Zohledňuje inflaci, nákladovost i každoroční navyšování vkladu.</p>
+          <div class="compact-grid"><div class="calc-field"><label for="iInitial">Počáteční vklad</label><div class="calc-value-wrap"><input id="iInitial" type="number" min="0" max="100000000" data-range-max="1000000" step="10000" value="200000"><span>Kč</span></div></div><div class="calc-field"><label for="iMonthly">Měsíční investice</label><div class="calc-value-wrap"><input id="iMonthly" type="number" min="0" max="1000000" data-range-max="50000" step="500" value="5000"><span>Kč</span></div></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="iReturn">Hrubý očekávaný výnos</label><div class="calc-value-wrap"><input id="iReturn" type="number" min="-20" max="30" step="0.1" value="7"><span>% p.a.</span></div></div><div class="calc-field"><label for="iYears">Doba investování</label><div class="calc-value-wrap"><input id="iYears" type="number" min="1" max="60" value="25"><span>let</span></div></div></div>
+          <div class="calc-section-title">Realističtější předpoklady</div><div class="compact-grid"><div class="calc-field"><label for="iFee">Roční nákladovost</label><div class="calc-value-wrap"><input id="iFee" type="number" min="0" max="10" step="0.1" value="1"><span>% p.a.</span></div></div><div class="calc-field"><label for="iInflation">Inflace</label><div class="calc-value-wrap"><input id="iInflation" type="number" min="0" max="20" step="0.1" value="2.5"><span>% p.a.</span></div></div></div><div class="calc-field"><label for="iGrowth">Každoroční navýšení měsíční investice</label><div class="calc-value-wrap"><input id="iGrowth" type="number" min="0" max="20" step="0.5" value="2"><span>% ročně</span></div></div>
+        </div><div class="calculator-result" aria-live="polite"><div class="result-status">Dlouhodobý scénář</div><span class="result-kicker">Odhadovaná hodnota portfolia</span><div class="monthly-payment" id="iFinal">—</div><div class="result-grid"><div class="result-item"><span>Celkem vložíte</span><strong id="iInvested">—</strong></div><div class="result-item"><span>Čistý výnos</span><strong id="iProfit">—</strong></div><div class="result-item"><span>Reálná hodnota dnes</span><strong id="iReal">—</strong></div><div class="result-item"><span>Modelový čistý výnos</span><strong id="iNetReturn">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Portfolio, vklady a kupní síla</h4></div><canvas class="chart-canvas" id="investmentChart" role="img" aria-label="Graf vývoje portfolia, vkladů a reálné hodnoty"></canvas><div class="chart-legend-pro"><span><i></i>Portfolio</span><span><i></i>Vklady</span><span><i></i>Reálná hodnota</span></div></div><div class="recommendation" id="iRecommendation"></div><p class="calculator-disclaimer">Model odečítá roční nákladovost od hrubého výnosu v procentních bodech. Vklady probíhají na konci měsíce a navyšují se po celých letech. Nezahrnuje daně, vstupní poplatky ani kolísání trhu.</p><div class="calculator-cta"><p>Chcete sestavit investiční plán na míru?</p><a class="button button-primary" href="index.html#kontakt">Probrat investice →</a></div></div></div>
+      </div>
+
+      <div class="calculator-view" id="panel-insurance" role="tabpanel" aria-labelledby="tab-insurance" data-view="insurance" hidden>
+        <div class="calculator-shell"><div class="calculator-panel"><h3>Kalkulačka životního pojištění</h3><p class="calculator-intro">Model předpokládá jednorázové splacení dluhů. Do výdajů proto zadejte běžný chod domácnosti bez jejich splátek. Příjmy po úmrtí či invaliditě zadejte za celou domácnost.</p>
+          <div class="calc-field"><label for="lSupportYears">Rodinu chcete chránit</label><div class="calc-value-wrap"><input id="lSupportYears" type="number" min="1" max="30" value="10"><span>let</span></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="lIncome">Čistý příjem domácnosti před výpadkem</label><div class="calc-value-wrap"><input id="lIncome" type="number" min="0" max="5000000" data-range-max="200000" step="1000" value="55000"><span>Kč</span></div></div><div class="calc-field"><label for="lExpenses">Výdaje domácnosti bez splátek dluhů</label><div class="calc-value-wrap"><input id="lExpenses" type="number" min="0" max="5000000" data-range-max="200000" step="1000" value="38000"><span>Kč</span></div></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="lDebt">Nesplacené dluhy</label><div class="calc-value-wrap"><input id="lDebt" type="number" min="0" max="100000000" data-range-max="10000000" step="50000" value="3500000"><span>Kč</span></div></div><div class="calc-field"><label for="lChildren">Nezaopatřené děti</label><div class="calc-value-wrap"><input id="lChildren" type="number" min="0" max="10" value="2"><span>dětí</span></div></div></div>
+          <div class="calc-section-title">Modelové předpoklady</div>
+          <div class="compact-grid"><div class="calc-field"><label for="lSurvivorIncome">Příjem domácnosti po úmrtí</label><div class="calc-value-wrap"><input id="lSurvivorIncome" type="number" min="0" max="5000000" data-range-max="150000" step="1000" value="20000"><span>Kč/měs.</span></div></div><div class="calc-field"><label for="lDisabilityIncome">Příjem domácnosti při invaliditě</label><div class="calc-value-wrap"><input id="lDisabilityIncome" type="number" min="0" max="5000000" data-range-max="150000" step="1000" value="22000"><span>Kč/měs.</span></div></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="lSickReplacement">Zachovaný příjem domácnosti při neschopnosti</label><div class="calc-value-wrap"><input id="lSickReplacement" type="number" min="0" max="100" step="1" value="60"><span>% příjmu</span></div></div><div class="calc-field"><label for="lInvalidityYears">Doba krytí invalidity</label><div class="calc-value-wrap"><input id="lInvalidityYears" type="number" min="1" max="50" value="15"><span>let</span></div></div></div>
+          <div class="calc-field"><label for="lChildReserve">Rezerva na jedno dítě</label><div class="calc-value-wrap"><input id="lChildReserve" type="number" min="0" max="5000000" data-range-max="1000000" step="50000" value="250000"><span>Kč</span></div></div>
+          <div class="calc-field"><label for="lDebtPayment">Měsíční splátky dluhů</label><div class="calc-value-wrap"><input id="lDebtPayment" type="number" min="0" max="1000000" data-range-max="50000" step="500" value="0"><span>Kč/měs.</span></div><p class="calc-note">Při pracovní neschopnosti dluhy zůstávají. Splátky přičteme k běžným výdajům; výchozí nulu upravte podle skutečnosti.</p></div><div class="calc-section-title">Existující zabezpečení</div><div class="compact-grid"><div class="calc-field"><label for="lReserve">Likvidní úspory</label><div class="calc-value-wrap"><input id="lReserve" type="number" min="0" max="100000000" data-range-max="5000000" step="10000" value="300000"><span>Kč</span></div></div><div class="calc-field"><label for="lExisting">Současné krytí pro případ úmrtí</label><div class="calc-value-wrap"><input id="lExisting" type="number" min="0" max="100000000" data-range-max="10000000" step="50000" value="500000"><span>Kč</span></div></div></div>
+        </div><div class="calculator-result" aria-live="polite"><div class="result-status">Orientační analýza rizik</div><div class="score-row"><div class="score-ring" id="lScoreRing"><strong id="lScore">—</strong></div><div class="score-copy"><span>Pokrytí modelové potřeby při úmrtí</span><b id="lScoreLabel">—</b></div></div><div class="metric-highlight"><span>Modelová potřeba krytí pro úmrtí</span><strong id="lDeath">—</strong></div><div class="result-grid"><div class="result-item"><span>Invalidita III. stupně</span><strong id="lInvalidity">—</strong></div><div class="result-item"><span>Výpadek při neschopnosti / měsíc</span><strong id="lSick">—</strong></div><div class="result-item"><span>Chybějící krytí při úmrtí</span><strong id="lGap">—</strong></div><div class="result-item"><span>Potřeba rodiny po odečtení úspor</span><strong id="lFamily">—</strong></div></div><div class="recommendation" id="lRecommendation"></div><p class="calculator-disclaimer">Nejde o návrh konkrétní pojistné smlouvy. Zdravotní stav, povolání, státní dávky a existující smlouvy mohou výsledek zásadně změnit.</p><div class="calculator-cta"><p>Chcete zjistit, zda je vaše současná ochrana dostatečná?</p><a class="button button-primary" href="index.html#kontakt">Prověřit ochranu →</a></div></div></div>
+      </div>
+
+      <div class="calculator-view" id="panel-pension" role="tabpanel" aria-labelledby="tab-pension" data-view="pension" hidden>
+        <div class="calculator-shell"><div class="calculator-panel"><h3>Penzijní kalkulačka</h3><p class="calculator-intro">Počítá rentu v dnešních cenách a potřebný kapitál v cenách při odchodu do penze. Odhad státního důchodu zadáváte sami.</p>
+          <div class="compact-grid"><div class="calc-field"><label for="pAge">Současný věk</label><div class="calc-value-wrap"><input id="pAge" type="number" min="18" max="75" value="35"><span>let</span></div></div><div class="calc-field"><label for="pRetire">Odchod do penze</label><div class="calc-value-wrap"><input id="pRetire" type="number" min="40" max="80" value="65"><span>let</span></div></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="pDesired">Požadovaný příjem v dnešních cenách</label><div class="calc-value-wrap"><input id="pDesired" type="number" min="0" max="1000000" data-range-max="100000" step="1000" value="35000"><span>Kč/měs.</span></div></div><div class="calc-field"><label for="pState">Odhad státního důchodu v dnešních cenách</label><div class="calc-value-wrap"><input id="pState" type="number" min="0" max="500000" data-range-max="60000" step="500" value="18000"><span>Kč/měs.</span></div></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="pCurrent">Současné investice na penzi</label><div class="calc-value-wrap"><input id="pCurrent" type="number" min="0" max="100000000" data-range-max="5000000" step="10000" value="250000"><span>Kč</span></div></div><div class="calc-field"><label for="pDrawYears">Doba čerpání renty</label><div class="calc-value-wrap"><input id="pDrawYears" type="number" min="5" max="40" value="25"><span>let</span></div></div></div>
+          <div class="calc-section-title">Předpoklady</div><div class="compact-grid"><div class="calc-field"><label for="pReturn">Výnos před penzí</label><div class="calc-value-wrap"><input id="pReturn" type="number" min="0" max="20" step="0.1" value="6"><span>% p.a.</span></div></div><div class="calc-field"><label for="pPostReturn">Výnos během čerpání renty</label><div class="calc-value-wrap"><input id="pPostReturn" type="number" min="0" max="15" step="0.1" value="3.5"><span>% p.a.</span></div></div></div><div class="calc-field"><label for="pInflation">Inflace</label><div class="calc-value-wrap"><input id="pInflation" type="number" min="0" max="20" step="0.1" value="2.5"><span>% p.a.</span></div></div>
+        </div><div class="calculator-result" aria-live="polite"><div class="result-status">Penzijní plán</div><span class="result-kicker">Měsíční investice v dnešních cenách</span><div class="monthly-payment" id="pMonthly">—</div><div class="result-grid"><div class="result-item"><span>Potřebný kapitál v penzi (budoucí Kč)</span><strong id="pCapital">—</strong></div><div class="result-item"><span>Čas do penze</span><strong id="pYearsLeft">—</strong></div><div class="result-item"><span>Budoucí chybějící renta</span><strong id="pGapRent">—</strong></div><div class="result-item"><span>Odhad současných úspor v penzi</span><strong id="pFutureCurrent">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Cesta k cíli v dnešních cenách</h4></div><canvas class="chart-canvas" id="pensionChart" role="img" aria-label="Graf cesty k penzijnímu kapitálu v dnešních cenách"></canvas></div><div class="recommendation" id="pRecommendation"></div><p class="calculator-disclaimer">Měsíční investice je uvedena v dnešních cenách a pro zachování kupní síly je potřeba ji průběžně navyšovat o inflaci. Nejde o garanci budoucí renty.</p><div class="calculator-cta"><p>Chcete připravit realistický penzijní plán?</p><a class="button button-primary" href="index.html#kontakt">Naplánovat penzi →</a></div></div></div>
+      </div>
+
+      <div class="calculator-view" id="panel-rentbuy" role="tabpanel" aria-labelledby="tab-rentbuy" data-view="rentbuy" hidden>
+        <div class="calculator-shell"><div class="calculator-panel"><h3>Nájem versus hypotéka</h3><p class="calculator-intro">Férové porovnání stejného počátečního kapitálu a stejného měsíčního rozpočtu. Levnější varianta vždy investuje rozdíl.</p>
+          <div class="compact-grid"><div class="calc-field"><label for="rPrice">Cena nemovitosti</label><div class="calc-value-wrap"><input id="rPrice" type="number" min="500000" max="100000000" data-range-max="13000000" step="50000" value="6500000"><span>Kč</span></div></div><div class="calc-field"><label for="rRent">Současný měsíční nájem</label><div class="calc-value-wrap"><input id="rRent" type="number" min="0" max="500000" data-range-max="100000" step="500" value="22000"><span>Kč</span></div></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="rOwn">Vlastní prostředky na akontaci</label><div class="calc-value-wrap"><input id="rOwn" type="number" min="0" max="100000000" data-range-max="5000000" step="50000" value="1300000"><span>Kč</span></div></div><div class="calc-field"><label for="rRate">Sazba hypotéky</label><div class="calc-value-wrap"><input id="rRate" type="number" min="0" max="20" step="0.01" value="4.49"><span>% p.a.</span></div></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="rMortgageYears">Doba splácení hypotéky</label><div class="calc-value-wrap"><input id="rMortgageYears" type="number" min="5" max="40" value="30"><span>let</span></div></div><div class="calc-field"><label for="rYears">Horizont porovnání</label><div class="calc-value-wrap"><input id="rYears" type="number" min="1" max="50" value="25"><span>let</span></div></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="rGrowth">Růst ceny nemovitosti</label><div class="calc-value-wrap"><input id="rGrowth" type="number" min="-10" max="20" step="0.1" value="3"><span>% p.a.</span></div></div><div class="calc-field"><label for="rRentGrowth">Růst nájemného</label><div class="calc-value-wrap"><input id="rRentGrowth" type="number" min="0" max="20" step="0.1" value="2.5"><span>% p.a.</span></div></div></div>
+          <div class="calc-section-title">Náklady a alternativní investice</div><div class="compact-grid"><div class="calc-field"><label for="rInvest">Výnos investice</label><div class="calc-value-wrap"><input id="rInvest" type="number" min="-20" max="30" step="0.1" value="6"><span>% p.a.</span></div></div><div class="calc-field"><label for="rMaintenance">Údržba a fond oprav</label><div class="calc-value-wrap"><input id="rMaintenance" type="number" min="0" max="5" step="0.1" value="1"><span>% ceny/rok</span></div></div></div><div class="calc-field"><label for="rBuyCosts">Jednorázové náklady koupě</label><div class="calc-value-wrap"><input id="rBuyCosts" type="number" min="0" max="10" step="0.1" value="2"><span>% ceny</span></div><p class="calc-note">Počítají se nad rámec akontace. Nájemník stejný počáteční kapitál investuje.</p></div>
+        </div><div class="calculator-result" aria-live="polite"><div class="result-status">Porovnání čistého majetku</div><span class="result-kicker">Výhodnější modelový scénář</span><div class="monthly-payment" id="rWinner">—</div><div class="result-grid"><div class="result-item"><span>Čistý majetek vlastníka</span><strong id="rBuyWealth">—</strong></div><div class="result-item"><span>Portfolio nájemníka</span><strong id="rRentWealth">—</strong></div><div class="result-item"><span>Počáteční splátka hypotéky</span><strong id="rPayment">—</strong></div><div class="result-item"><span>Rozdíl výsledků</span><strong id="rDifference">—</strong></div><div class="result-item"><span>Zůstatek hypotéky</span><strong id="rRemainingLoan">—</strong></div><div class="result-item"><span>Investice vlastníka</span><strong id="rOwnerPortfolio">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Vývoj čistého majetku</h4></div><canvas class="chart-canvas" id="rentBuyChart" role="img" aria-label="Graf čistého majetku vlastníka a nájemníka"></canvas><div class="chart-legend-pro"><span><i></i>Vlastní bydlení</span><span><i></i>Nájem + investice</span></div></div><div class="recommendation" id="rRecommendation"></div><p class="calculator-disclaimer">Model předpokládá stejný počáteční a měsíční rozpočet, neměnnou sazbu hypotéky a investování úspory levnější variantou. Nezohledňuje všechny daně, prodejní náklady, stěhování ani rekonstrukce.</p><div class="calculator-cta"><p>Chcete porovnat varianty podle své skutečné situace?</p><a class="button button-primary" href="index.html#kontakt">Porovnat bydlení →</a></div></div></div>
+      </div>
+
+      <div class="calculator-view" id="panel-freedom" role="tabpanel" aria-labelledby="tab-freedom" data-view="freedom" hidden>
+        <div class="calc-toolbar"><div class="scenario-switch" data-scenarios="freedom" role="group" aria-label="Míra čerpání"><button type="button" class="scenario-button" data-scenario="cautious" aria-pressed="false">3,5 %</button><button type="button" class="scenario-button active" data-scenario="classic" aria-pressed="true">4 %</button><button type="button" class="scenario-button" data-scenario="flexible" aria-pressed="false">4,5 %</button></div><div class="calc-help">Míra čerpání určuje velikost cílového kapitálu. Nižší hodnota je <strong>opatrnější</strong>.</div></div>
+        <div class="calculator-shell"><div class="calculator-panel"><h3>Kalkulačka finanční svobody</h3><p class="calculator-intro">Kolik kapitálu potřebujete a kdy jej můžete při pravidelném investování dosáhnout.</p>
+          <div class="compact-grid"><div class="calc-field"><label for="fAge">Současný věk</label><div class="calc-value-wrap"><input id="fAge" type="number" min="18" max="80" value="35"><span>let</span></div></div><div class="calc-field"><label for="fIncome">Požadovaný příjem v dnešních cenách</label><div class="calc-value-wrap"><input id="fIncome" type="number" min="0" max="1000000" data-range-max="150000" step="1000" value="50000"><span>Kč/měs.</span></div></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="fCurrent">Současný investovaný majetek</label><div class="calc-value-wrap"><input id="fCurrent" type="number" min="0" max="1000000000" data-range-max="10000000" step="10000" value="500000"><span>Kč</span></div></div><div class="calc-field"><label for="fMonthly">Měsíční investice</label><div class="calc-value-wrap"><input id="fMonthly" type="number" min="0" max="1000000" data-range-max="100000" step="500" value="12000"><span>Kč</span></div></div></div>
+          <div class="compact-grid"><div class="calc-field"><label for="fReturn">Očekávaný výnos</label><div class="calc-value-wrap"><input id="fReturn" type="number" min="-20" max="30" step="0.1" value="7"><span>% p.a.</span></div></div><div class="calc-field"><label for="fInflation">Inflace</label><div class="calc-value-wrap"><input id="fInflation" type="number" min="0" max="20" step="0.1" value="2.5"><span>% p.a.</span></div></div></div><div class="compact-grid"><div class="calc-field"><label for="fWithdrawal">Modelová míra čerpání</label><div class="calc-value-wrap"><input id="fWithdrawal" type="number" min="2" max="8" step="0.1" value="4"><span>% ročně</span></div></div><div class="calc-field"><label for="fGrowth">Každoroční navýšení investice</label><div class="calc-value-wrap"><input id="fGrowth" type="number" min="0" max="20" step="0.1" value="2.5"><span>% ročně</span></div></div></div>
+        </div><div class="calculator-result" aria-live="polite"><div class="result-status">FIRE scénář</div><span class="result-kicker">Odhad dosažení finanční svobody</span><div class="monthly-payment" id="fYears">—</div><div class="result-grid"><div class="result-item"><span>Cílový kapitál v dnešních cenách</span><strong id="fTarget">—</strong></div><div class="result-item"><span>Odhadovaný věk</span><strong id="fTargetAge">—</strong></div><div class="result-item"><span>Aktuální pokrok</span><strong id="fProgress">—</strong></div><div class="result-item"><span>Dnešní možná renta</span><strong id="fCurrentIncome">—</strong></div></div><div class="chart-wrap"><div class="chart-head"><h4>Cesta k cíli v dnešních cenách</h4></div><canvas class="chart-canvas" id="freedomChart" role="img" aria-label="Graf cesty k finanční nezávislosti v dnešních cenách"></canvas></div><div class="recommendation" id="fRecommendation"></div><p class="calculator-disclaimer">Model zvlášť zohledňuje výnos, inflaci a každoroční navyšování vkladu. Míra čerpání není zárukou udržitelnosti renty; výsledek nezahrnuje daně, poplatky ani kolísání trhu.</p><div class="calculator-cta"><p>Chcete vytvořit konkrétní plán finanční svobody?</p><a class="button button-primary" href="index.html#kontakt">Vytvořit plán →</a></div></div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div><img src="logoHlavicka.png" alt="Ondřej Křapka" loading="lazy" decoding="async"></div><div class="footer-links"><a href="tel:+420601360355">601 360 355</a><a href="mailto:ondrej.krapka@bidli.cz">ondrej.krapka@bidli.cz</a></div><p>© <span id="year"></span> Ondřej Křapka. Všechna práva vyhrazena. Informace na webu mají obecný a orientační charakter.</p></footer>
+  <script src="script.js?v=pages-1"></script>
+  <script>
+    const currency=new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'CZK',maximumFractionDigits:0}),decimal=new Intl.NumberFormat('cs-CZ',{maximumFractionDigits:1});
+    const clamp=(value,min,max)=>Math.min(Math.max(value,min),max),raw=id=>{const el=document.getElementById(id),value=Number(el?.value);if(!Number.isFinite(value))return 0;const min=el?.min!==''?Number(el.min):-Infinity,max=el?.max!==''?Number(el.max):Infinity;return clamp(value,min,max)},get=id=>Math.max(raw(id),0),set=(id,value)=>{const el=document.getElementById(id);if(el&&el.textContent!==String(value))el.textContent=value},html=(id,value)=>{const el=document.getElementById(id);if(el&&el.innerHTML!==value)el.innerHTML=value},money=v=>Number.isFinite(v)?currency.format(v):'—',pct=v=>Number.isFinite(v)?decimal.format(v)+' %':'—';
+    const yearText=value=>{const rounded=Math.round(value*10)/10;if(Number.isInteger(rounded)){const n=Math.abs(rounded);return rounded+' '+(n===1?'rok':n>=2&&n<=4?'roky':'let')}return decimal.format(rounded)+' roku'};
+    const annuity=(principal,monthlyRate,months)=>principal<=0?0:(Math.abs(monthlyRate)<1e-12?principal/months:principal*monthlyRate/-Math.expm1(-months*Math.log1p(monthlyRate)));
+    const monthText=months=>{const years=Math.floor(months/12),rest=months%12;return [years?yearText(years):'',rest?rest+' '+(rest===1?'měsíc':rest<5?'měsíce':'měsíců'):''].filter(Boolean).join(' a ')||'0 let'};
+    const tabs=[...document.querySelectorAll('.calculator-tab')],views=[...document.querySelectorAll('.calculator-view')];
+    function openCalculator(name,preserveHash=false){if(!views.some(view=>view.dataset.view===name))return;if(!preserveHash)history.replaceState(null,'','#'+name);tabs.forEach(t=>{const active=t.dataset.calculator===name;t.classList.toggle('active',active);t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1});views.forEach(v=>{const active=v.dataset.view===name;v.classList.toggle('active',active);v.hidden=!active});requestAnimationFrame(()=>calculateView(document.getElementById('panel-'+name)))}
+    tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>openCalculator(tab.dataset.calculator));tab.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(index+1)%tabs.length;else if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=tabs.length-1;else return;event.preventDefault();tabs[next].focus();openCalculator(tabs[next].dataset.calculator)})});document.querySelectorAll('[data-open-calculator]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();openCalculator(link.dataset.openCalculator);document.querySelector('.calculator-tabs').scrollIntoView({behavior:'smooth',block:'start'});}));
+
+    function drawLineChart(id,series,target){
+      const canvas=document.getElementById(id);
+      if(!canvas||canvas.offsetParent===null)return;
+      const cleaned=(series||[]).map(s=>({
+        ...s,
+        data:(s.data||[]).filter(p=>Number.isFinite(Number(p.v))).map(p=>({...p,v:Number(p.v)}))
+      })).filter(s=>s.data.length);
+      if(!cleaned.length)return;
+
+      const rect=canvas.getBoundingClientRect();
+      const dpr=Math.min(window.devicePixelRatio||1,2);
+      const w=Math.max(Math.round(rect.width),160),h=220;
+      canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);
+      const ctx=canvas.getContext('2d');
+      ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+
+      const formatAxis=value=>{
+        const abs=Math.abs(value);
+        if(abs>=1000000)return (value/1000000).toLocaleString('cs-CZ',{maximumFractionDigits:1})+' mil.';
+        if(abs>=1000)return (value/1000).toLocaleString('cs-CZ',{maximumFractionDigits:0})+' tis.';
+        return Math.round(value).toLocaleString('cs-CZ');
+      };
+      const values=cleaned.flatMap(s=>s.data.map(p=>p.v));
+      if(Number.isFinite(Number(target)))values.push(Number(target));
+      const max=Math.max(...values,1),min=Math.min(0,...values);
+      const range=Math.max(max-min,1);
+      const pad={l:58,r:16,t:18,b:34};
+      const count=Math.max(...cleaned.map(s=>s.data.length),2);
+      const endTime=Math.max(...cleaned.flatMap(s=>s.data.map((p,i)=>p.t??i)),1);
+      const x=(i,p)=>pad.l+((p?.t??i)/endTime)*(w-pad.l-pad.r);
+      const y=v=>pad.t+((max-v)/range)*(h-pad.t-pad.b);
+
+      ctx.font='10px Manrope, sans-serif';
+      ctx.lineWidth=1;
+      for(let i=0;i<4;i++){
+        const value=max-(range*i/3),yy=y(value);
+        ctx.strokeStyle='rgba(255,255,255,.075)';
+        ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke();
+        ctx.fillStyle='rgba(255,255,255,.34)';ctx.textAlign='right';ctx.textBaseline='middle';
+        ctx.fillText(formatAxis(value),pad.l-9,yy);
+      }
+
+      const colors=['#edc77f','rgba(247,243,235,.66)','rgba(205,164,94,.42)'];
+      cleaned.forEach((s,si)=>{
+        const points=s.data;
+        if(si===0&&points.length>1){
+          const grad=ctx.createLinearGradient(0,pad.t,0,h-pad.b);
+          grad.addColorStop(0,'rgba(237,199,127,.20)');grad.addColorStop(1,'rgba(237,199,127,0)');
+          ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(x(i,p),y(p.v)):ctx.moveTo(x(i,p),y(p.v)));
+          ctx.lineTo(x(points.length-1,points.at(-1)),h-pad.b);ctx.lineTo(x(0,points[0]),h-pad.b);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+        }
+        ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(x(i,p),y(p.v)):ctx.moveTo(x(i,p),y(p.v)));
+        ctx.strokeStyle=colors[si]||colors[1];ctx.lineWidth=si===0?2.6:1.8;ctx.lineJoin='round';ctx.lineCap='round';ctx.stroke();
+        const last=points.at(-1);ctx.beginPath();ctx.arc(x(points.length-1,points.at(-1)),y(last.v),si===0?4:3,0,Math.PI*2);ctx.fillStyle=colors[si]||colors[1];ctx.fill();
+      });
+
+      if(Number.isFinite(Number(target))){
+        const ty=y(Number(target));ctx.save();ctx.setLineDash([5,5]);ctx.strokeStyle='rgba(237,199,127,.62)';
+        ctx.beginPath();ctx.moveTo(pad.l,ty);ctx.lineTo(w-pad.r,ty);ctx.stroke();ctx.restore();
+      }
+
+      const labels=cleaned[0].data;
+      const indexes=[0,Math.floor((labels.length-1)/2),labels.length-1].filter((v,i,a)=>a.indexOf(v)===i);
+      ctx.fillStyle='rgba(255,255,255,.38)';ctx.font='10px Manrope, sans-serif';ctx.textAlign='center';ctx.textBaseline='alphabetic';
+      indexes.forEach((i,index)=>{ctx.textAlign=index===0?'left':index===indexes.length-1?'right':'center';ctx.fillText(labels[i]?.label||'',x(i,labels[i]),h-9)});
+    }
+
+    const scenarioValues={mortgage:{safe:{mRate:3.99},realistic:{mRate:4.49},stress:{mRate:6.49}},investment:{conservative:{iReturn:4,iFee:.8},balanced:{iReturn:7,iFee:1},dynamic:{iReturn:9,iFee:1.2}},freedom:{cautious:{fWithdrawal:3.5},classic:{fWithdrawal:4},flexible:{fWithdrawal:4.5}}};
+    let applyingScenario=false;
+    document.querySelectorAll('.scenario-switch').forEach(group=>group.addEventListener('click',event=>{const button=event.target.closest('.scenario-button');if(!button)return;group.querySelectorAll('.scenario-button').forEach(item=>{const selected=item===button;item.classList.toggle('active',selected);item.setAttribute('aria-pressed',String(selected))});const values=scenarioValues[group.dataset.scenarios]?.[button.dataset.scenario]||{};applyingScenario=true;Object.entries(values).forEach(([id,value])=>{const input=document.getElementById(id);if(input){input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}))}});applyingScenario=false;calculateView(group.closest('.calculator-view'))}));
+
+    function calcMortgage(){
+      const price=Math.max(get('mPrice'),1),own=clamp(get('mOwn'),0,price),loan=price-own,rate=get('mRate')/100/12,months=Math.max(Math.round(get('mYears')*12),12),income=get('mIncome'),extra=get('mExtra'),base=annuity(loan,rate,months),totalPay=loan>0?Math.min(base+extra,loan*(1+rate)):0;
+      let balance=loan,totalInterest=0,elapsed=0;const data=[{label:'0 let',t:0,v:loan,s:0}];
+      while(balance>.01&&elapsed<months){const interest=balance*rate,principal=Math.max(Math.min(totalPay-interest,balance),0);if(principal<=0)break;balance-=principal;totalInterest+=interest;elapsed++;if(elapsed%12===0||balance<=.01)data.push({label:monthText(elapsed),t:elapsed/12,v:Math.max(balance,0),s:loan-Math.max(balance,0)})}
+      const baseInterest=Math.max(base*months-loan,0),ltv=loan/price*100,burden=income?totalPay/income*100:null,messages=[];
+      set('mPayment',money(totalPay));set('mBasePayment',money(base));set('mLoan',money(loan));set('mLtv',pct(ltv));set('mActualYears',monthText(elapsed));set('mSavedInterest',money(Math.max(baseInterest-totalInterest,0)));set('mInterest',money(totalInterest));set('mBurden',burden===null?'—':pct(burden));
+      drawLineChart('mortgageChart',[{data},{data:data.map(point=>({label:point.label,t:point.t,v:point.s}))}]);
+      let title='Orientační pohled na rozpočet.';if(loan<=0){title='Hypotéka není potřeba.';messages.push('Vlastní prostředky pokrývají celou cenu nemovitosti.')}else{if(ltv>80){title='Prostor pro optimalizaci.';messages.push('LTV je nad 80 %. Vyšší vlastní zdroje mohou rozšířit výběr bank a zlepšit podmínky.')}if(income<=0){title='Doplňte příjem domácnosti.';messages.push('Bez příjmu nelze posoudit zatížení rozpočtu.')}else if(burden>40){title='Prostor pro optimalizaci.';messages.push('Splátky přesahují 40 % čistého příjmu domácnosti, což snižuje finanční rezervu.')}else if(burden>35){title='Rozpočet je napjatější.';messages.push('Splátky přesahují 35 % čistého příjmu domácnosti.')}if(extra>0)messages.push('Navýšení splátky zkracuje dobu splácení a snižuje celkové úroky.');if(!messages.length)messages.push('Vedle splácení hypotéky si ponechte pravidelnou rezervu.')}
+      html('mRecommendation','<strong>'+title+'</strong>'+messages.join(' '));
+    }
+    function calcInvestment(){const initial=get('iInitial'),baseMonthly=get('iMonthly'),years=Math.max(Math.round(get('iYears')),1),gross=raw('iReturn')/100,fee=get('iFee')/100,net=gross-fee,r=Math.pow(1+net,1/12)-1,infl=get('iInflation')/100,growth=get('iGrowth')/100;let value=initial,invested=initial,monthly=baseMonthly;const portfolio=[{label:'0 let',v:value}],contributions=[{label:'0 let',v:invested}],real=[{label:'0 let',v:value}];for(let m=1;m<=years*12;m++){value=value*(1+r)+monthly;invested+=monthly;if(m%12===0){const y=m/12;portfolio.push({label:yearText(y),v:value});contributions.push({label:yearText(y),v:invested});real.push({label:yearText(y),v:value/Math.pow(1+infl,y)});monthly*=1+growth}}set('iFinal',money(value));set('iInvested',money(invested));set('iProfit',money(value-invested));set('iReal',money(value/Math.pow(1+infl,years)));set('iNetReturn',pct(net*100));drawLineChart('investmentChart',[{data:portfolio},{data:contributions},{data:real}]);html('iRecommendation','<strong>'+(net<0?'Model počítá se ztrátou.':baseMonthly>0?'Síla pravidelnosti.':'Vývoj jednorázové investice.')+'</strong>'+(growth>0?'Každoroční navýšení investice o '+decimal.format(growth*100)+' % pomáhá držet krok s růstem příjmů a inflací. ':'I malé pravidelné navyšování vkladu může mít při dlouhém horizontu výrazný efekt. ')+(fee>0.015?'Roční nákladovost je poměrně vysoká a dlouhodobě snižuje výsledek.':'Nákladovost je v modelu odečtena od očekávaného výnosu.'))}
+    function calcInsurance(){const support=Math.max(Math.round(get('lSupportYears')),1),income=get('lIncome'),expenses=get('lExpenses'),debt=get('lDebt'),children=Math.round(get('lChildren')),survivorIncome=get('lSurvivorIncome'),disabilityIncome=get('lDisabilityIncome'),sickReplacement=get('lSickReplacement')/100,invalidityYears=Math.max(Math.round(get('lInvalidityYears')),1),childReserve=get('lChildReserve'),reserve=get('lReserve'),existing=get('lExisting'),familyGap=Math.max(expenses-survivorIncome,0),familyNeed=familyGap*12*support+children*childReserve,family=Math.max(familyNeed-reserve,0),death=Math.max(debt+familyNeed-reserve,0),invalidityGap=Math.max(expenses-disabilityIncome,0),invalidity=Math.max(debt+invalidityGap*12*invalidityYears-reserve,0),sick=Math.max(expenses+get('lDebtPayment')-income*sickReplacement,0),gap=Math.max(death-existing,0),score=death?clamp(existing/death*100,0,100):100;set('lDeath',money(death));set('lInvalidity',money(invalidity));set('lSick',money(sick));set('lGap',money(gap));set('lFamily',money(family));set('lScore',Math.round(score)+' %');set('lScoreLabel',death===0?'Bez mezery':score>=100?'Pokryté':score>=50?'Částečné':'Nízké');document.getElementById('lScoreRing').style.setProperty('--score',score);html('lRecommendation','<strong>'+(death===0?'Úspory pokrývají modelovou potřebu pro případ úmrtí.':score>=100?'Krytí pro případ úmrtí odpovídá modelové potřebě.':score>=50?'Část potřeby pro případ úmrtí zůstává nepokrytá.':'Krytí pro případ úmrtí je pod modelovou potřebou.')+'</strong>Úspory se odečítají od celkové potřeby v každém riziku zvlášť. Procento krytí hodnotí pouze úmrtí. Invalidita a pracovní neschopnost vyžadují samostatné posouzení smluv a dávek.')}
+    function calcPension(){
+      const age=get('pAge'),retire=get('pRetire');
+      const years=retire-age,drawYears=Math.max(Math.round(get('pDrawYears')),1),desired=get('pDesired'),state=get('pState'),current=get('pCurrent'),annual=get('pReturn')/100,postAnnual=get('pPostReturn')/100,infl=get('pInflation')/100,realReturn=(1+annual)/(1+infl)-1,realPostReturn=(1+postAnnual)/(1+infl)-1,monthlyReal=Math.pow(1+realReturn,1/12)-1,monthlyPostReal=Math.pow(1+realPostReturn,1/12)-1,gapToday=Math.max(desired-state,0),drawMonths=drawYears*12,capitalToday=Math.abs(monthlyPostReal)<1e-12?gapToday*drawMonths:gapToday*-Math.expm1(-drawMonths*Math.log1p(monthlyPostReal))/monthlyPostReal,capitalFuture=capitalToday*Math.pow(1+infl,years),gapFuture=gapToday*Math.pow(1+infl,years),futureCurrentReal=current*Math.pow(1+realReturn,years),futureCurrentNominal=current*Math.pow(1+annual,years),neededReal=Math.max(capitalToday-futureCurrentReal,0),months=years*12,payment=Math.abs(monthlyReal)<1e-12?neededReal/months:neededReal*monthlyReal/Math.expm1(months*Math.log1p(monthlyReal));
+      set('pMonthly',money(payment));set('pCapital',money(capitalFuture));set('pYearsLeft',yearText(years));set('pGapRent',money(gapFuture));set('pFutureCurrent',money(futureCurrentNominal));let value=current;const data=[{label:'0 let',v:value}];for(let month=1;month<=months;month++){value=value*(1+monthlyReal)+payment;if(month%12===0)data.push({label:yearText(month/12),v:value})}drawLineChart('pensionChart',[{data}],capitalToday);html('pRecommendation','<strong>Výpočet je sjednocený v dnešních cenách.</strong>Doporučený vklad je dnešní částka a měl by se průběžně navyšovat o inflaci. Pro čerpání renty se používá samostatně zadaný výnos během penze.')
+    }
+    function calcRentBuy(){
+      const price=Math.max(get('rPrice'),1),rentStart=get('rRent'),own=clamp(get('rOwn'),0,price),rate=get('rRate')/100/12,mortgageMonths=Math.max(Math.round(get('rMortgageYears')*12),60),years=Math.max(Math.round(get('rYears')),1),growth=raw('rGrowth')/100,rentGrowth=get('rRentGrowth')/100,investAnnual=raw('rInvest')/100,invest=Math.pow(1+investAnnual,1/12)-1,maintenance=get('rMaintenance')/100,purchaseCosts=price*get('rBuyCosts')/100,months=years*12,loan=price-own,payment=annuity(loan,rate,mortgageMonths);
+      let balance=loan,renterPortfolio=own+purchaseCosts,ownerPortfolio=0,rent=rentStart;const buy=[{label:'0 let',v:own}],rentSeries=[{label:'0 let',v:renterPortfolio}];
+      for(let month=1;month<=months;month++){const balanceBefore=balance,interest=balanceBefore*rate,principal=balanceBefore>0?Math.max(Math.min(payment-interest,balanceBefore),0):0,actualPayment=balanceBefore>0?interest+principal:0;balance=Math.max(balanceBefore-principal,0);const property=price*Math.pow(1+growth,month/12),ownerCost=actualPayment+property*maintenance/12,difference=ownerCost-rent;renterPortfolio*=1+invest;ownerPortfolio*=1+invest;if(difference>0)renterPortfolio+=difference;else ownerPortfolio+=-difference;if(month%12===0){const ownerWealth=property-balance+ownerPortfolio;buy.push({label:yearText(month/12),v:ownerWealth});rentSeries.push({label:yearText(month/12),v:renterPortfolio});rent*=1+rentGrowth}}
+      const ownerWealth=buy.at(-1)?.v||0,renterWealth=rentSeries.at(-1)?.v||0;set('rWinner',Math.abs(ownerWealth-renterWealth)<1?'Srovnatelný výsledek':ownerWealth>renterWealth?'Vlastní bydlení':'Nájem + investice');set('rBuyWealth',money(ownerWealth));set('rRentWealth',money(renterWealth));set('rPayment',money(payment));set('rDifference',money(Math.abs(ownerWealth-renterWealth)));set('rRemainingLoan',money(balance));set('rOwnerPortfolio',money(ownerPortfolio));drawLineChart('rentBuyChart',[{data:buy},{data:rentSeries}]);html('rRecommendation','<strong>Rozhoduje dlouhý horizont a disciplína.</strong>'+(Math.abs(ownerWealth-renterWealth)<1?'Při zadaných předpokladech vychází obě varianty stejně.':ownerWealth>renterWealth?'Při zadaných předpokladech vytváří vyšší čistý majetek vlastní bydlení.':'Při zadaných předpokladech vychází lépe nájem spojený s důsledným investováním rozdílu.')+' Obě varianty pracují se stejným počátečním kapitálem i měsíčním rozpočtem.')
+    }
+    function calcFreedom(){
+      const age=get('fAge'),income=get('fIncome'),current=get('fCurrent'),baseMonthly=get('fMonthly'),annual=raw('fReturn')/100,infl=get('fInflation')/100,growth=get('fGrowth')/100,withdraw=Math.max(get('fWithdrawal')/100,.001),targetToday=income*12/withdraw,monthlyReturn=Math.pow(1+annual,1/12)-1;
+      if(targetToday<=0){set('fYears','Doplňte cíl');set('fTarget',money(0));set('fTargetAge','—');set('fProgress','—');set('fCurrentIncome',money(current*withdraw/12));drawLineChart('freedomChart',[{data:[{label:'0 let',v:current}]}],0);html('fRecommendation','<strong>Zadejte požadovaný příjem.</strong>Bez cílové měsíční renty nelze určit potřebný kapitál ani dobu do finanční svobody.');return}
+      let value=current,monthly=baseMonthly,months=0,realValue=current;const maxMonths=1200,data=[{label:'0 let',t:0,v:realValue}];while(realValue<targetToday&&months<maxMonths){value=value*(1+monthlyReturn)+monthly;months++;realValue=value/Math.pow(1+infl,months/12);if(months%12===0){data.push({label:yearText(months/12),t:months/12,v:realValue});monthly*=1+growth}}
+      if(months%12!==0)data.push({label:monthText(months),t:months/12,v:realValue});
+      const reached=realValue>=targetToday,years=months/12;set('fYears',reached?(months===0?'Cíl již dosažen':monthText(months)):'Nedosaženo do 100 let');set('fTarget',money(targetToday));set('fTargetAge',reached?decimal.format(age+years)+' let':'—');set('fProgress',pct(current/targetToday*100));set('fCurrentIncome',money(current*withdraw/12));drawLineChart('freedomChart',[{data}],targetToday);html('fRecommendation','<strong>'+(reached&&months===0?'Modelový cílový kapitál již máte.':(reached&&years<=20)?'Cíl je při zadaném tempu dosažitelný.':reached?'Cíl vyžaduje dlouhodobou disciplínu.':'Současné tempo k cíli nestačí v modelovaném horizontu.')+'</strong>Výnos, inflace a každoroční navýšení vkladu se počítají odděleně. Vývoj grafu i cílový kapitál jsou uvedeny v dnešních cenách.')
+    }
+    const calculators={mortgage:calcMortgage,investment:calcInvestment,insurance:calcInsurance,pension:calcPension,rentbuy:calcRentBuy,freedom:calcFreedom};
+    function validateCalculator(view){
+      const fields=[...view.querySelectorAll('input[type="number"]')];
+      let firstMessage='';
+      fields.forEach(input=>{
+        const value=Number(input.value),label=view.querySelector('label[for="'+input.id+'"]')?.textContent||'Hodnota';
+        let message='';
+        if(input.value.trim()===''||!Number.isFinite(value))message='Doplňte číselnou hodnotu.';
+        else if(value<Number(input.min)||value>Number(input.max))message='Zadejte hodnotu od '+decimal.format(Number(input.min))+' do '+decimal.format(Number(input.max))+'.';
+        else if(input.dataset.integer==='true'&&!Number.isInteger(value))message='Zadejte celé číslo.';
+        if(!message&&(input.id==='mOwn'||input.id==='rOwn')&&value>Number(document.getElementById(input.id==='mOwn'?'mPrice':'rPrice').value))message='Vlastní prostředky nesmí přesáhnout cenu nemovitosti.';
+        if(!message&&input.id==='pRetire'&&value<=Number(document.getElementById('pAge').value))message='Věk odchodu do penze musí být vyšší než současný věk.';
+        input.setAttribute('aria-invalid',String(Boolean(message)));
+        input.setCustomValidity(message);
+        const error=document.getElementById(input.id+'-error');
+        if(error){error.textContent=message;error.hidden=!message;}
+        if(message&&!firstMessage)firstMessage=label+': '+message;
+      });
+      const notice=view.querySelector('.calc-validation');
+      if(notice){notice.textContent=firstMessage?'Výpočet čeká na opravu údajů. '+firstMessage:'';notice.hidden=!firstMessage;}
+      view.querySelector('.calculator-result').hidden=Boolean(firstMessage);
+      return !firstMessage;
+    }
+    function calculateView(view){if(view&&validateCalculator(view))calculators[view.dataset.view]?.();}
+    function calculateAll(){views.forEach(calculateView);}
+    views.forEach(view=>{
+      const actions=document.createElement('div');actions.className='calc-actions';
+      const reset=document.createElement('button');reset.type='button';reset.className='calc-reset';reset.textContent='Obnovit výchozí hodnoty';
+      const resultLink=document.createElement('a');resultLink.className='calc-results-link';resultLink.href='#result-'+view.dataset.view;resultLink.textContent='Zobrazit výsledek ↓';
+      const result=view.querySelector('.calculator-result');result.id='result-'+view.dataset.view;
+      const notice=document.createElement('p');notice.className='calc-validation';notice.setAttribute('role','status');notice.hidden=true;
+      actions.append(reset,resultLink);view.querySelector('.calculator-shell').before(actions,notice);
+      view.querySelectorAll('input[type="number"]').forEach(input=>{
+        input.dataset.rangeStep=input.step||'1';
+        input.dataset.integer=String(!input.hasAttribute('step')||Number(input.step)>=1);
+        // A slider's coarse increment must not reject an exact manually entered amount.
+        input.step=input.dataset.integer==='true'?'1':'any';
+        const error=document.createElement('small');error.id=input.id+'-error';error.className='calc-field-error';error.hidden=true;
+        input.closest('.calc-field').append(error);input.setAttribute('aria-describedby',error.id);
+        input.addEventListener('input',()=>{
+          if(applyingScenario)return;
+          const group=view.querySelector('.scenario-switch');
+          if(group&&Object.values(scenarioValues[group.dataset.scenarios]||{}).some(values=>Object.prototype.hasOwnProperty.call(values,input.id)))group.querySelectorAll('.scenario-button').forEach(button=>{button.classList.remove('active');button.setAttribute('aria-pressed','false')});
+          calculateView(view);
+        });
+      });
+      reset.addEventListener('click',()=>{
+        applyingScenario=true;
+        view.querySelectorAll('input[type="number"]').forEach(input=>{input.value=input.defaultValue;input.dispatchEvent(new Event('input',{bubbles:true}));});
+        applyingScenario=false;
+        const defaults={mortgage:'realistic',investment:'balanced',freedom:'classic'};
+        view.querySelectorAll('.scenario-button').forEach(button=>{const active=button.dataset.scenario===defaults[view.dataset.view];button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+        calculateView(view);
+      });
+      resultLink.addEventListener('click',event=>{if(!validateCalculator(view)){event.preventDefault();view.querySelector('[aria-invalid="true"]')?.focus();}});
+    });
+    calculateAll();
+    function selectCalculatorFromHash(){
+      const hash=location.hash;
+      const name=hash.startsWith('#result-')?hash.slice(8):hash.slice(1);
+      if(calculators[name]){
+        openCalculator(name,true);
+        if(hash.startsWith('#result-'))requestAnimationFrame(()=>document.getElementById('result-'+name)?.scrollIntoView({behavior:'instant'}));
+      }
+    }
+    selectCalculatorFromHash();
+    window.addEventListener('hashchange',selectCalculatorFromHash);
+    let resizeFrame;
+    window.addEventListener('resize',()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>calculateView(views.find(view=>!view.hidden)));},{passive:true});
+    </script>
+  <script>
+
+(() => {
+  const withUnit = (formatted, value, unit) => {
+    if (!unit) return formatted;
+    if (unit === 'let') {
+      const absolute = Math.abs(Number(value));
+      unit = absolute === 1 ? 'rok' : (absolute >= 2 && absolute <= 4 ? 'roky' : 'let');
+    } else if (unit === 'dětí') {
+      const absolute = Math.abs(Number(value));
+      unit = absolute === 1 ? 'dítě' : (absolute >= 2 && absolute <= 4 ? 'děti' : 'dětí');
+    }
+    return `${formatted} ${unit}`;
+  };
+  const formatRangeValue = (input) => {
+    if(input.value.trim()==='')return '—';
+    const value = Number(input.value);
+    const unit = input.closest('.calc-value-wrap')?.querySelector('span')?.textContent?.trim() || '';
+    let formatted;
+    if (unit.includes('%')) formatted = value.toLocaleString('cs-CZ',{maximumFractionDigits:2});
+    else if (Number.isInteger(value)) formatted = value.toLocaleString('cs-CZ');
+    else formatted = value.toLocaleString('cs-CZ',{maximumFractionDigits:2});
+    return withUnit(formatted, value, unit);
+  };
+  const formatBoundary = (value, unit) => {
+    const n = Number(value);
+    const formatted = Number.isInteger(n) ? n.toLocaleString('cs-CZ') : n.toLocaleString('cs-CZ',{maximumFractionDigits:2});
+    return withUnit(formatted, n, unit);
+  };
+  document.querySelectorAll('#kalkulacky .calc-value-wrap input[type="number"]').forEach(numberInput => {
+    const wrap = numberInput.closest('.calc-value-wrap');
+    const field = wrap?.closest('.calc-field');
+    if (!field || field.querySelector('.premium-range-control')) return;
+    const unit = wrap.querySelector('span')?.textContent?.trim() || '';
+    const range = document.createElement('input');
+    range.type = 'range';
+    range.min = numberInput.min || '0';
+    const configuredRangeMax = Number(numberInput.dataset.rangeMax || numberInput.max || Math.max(Number(numberInput.value)*2,100));
+    range.max = String(configuredRangeMax);
+    range.step = numberInput.dataset.rangeStep || '1';
+    range.value = numberInput.value;
+    range.setAttribute('aria-label', `${field.querySelector('label')?.textContent?.trim() || 'Hodnota'} – rychlé nastavení`);
+
+    const control = document.createElement('div');
+    control.className = 'premium-range-control';
+    const track = document.createElement('div');
+    track.className = 'premium-range-track';
+    track.appendChild(range);
+    const meta = document.createElement('div');
+    meta.className = 'premium-range-meta';
+    const min = document.createElement('span');
+    min.textContent = formatBoundary(range.min, unit);
+    const current = document.createElement('strong');
+    current.className = 'premium-range-value';
+    current.textContent = formatRangeValue(numberInput);
+    const max = document.createElement('span');
+    max.textContent = formatBoundary(range.max, unit);
+    meta.append(min,current,max);
+    control.append(track,meta);
+    wrap.insertAdjacentElement('afterend',control);
+
+    const updateFill = () => {
+      const minV = Number(range.min), maxV = Number(range.max), val = Number(range.value);
+      const pct = maxV === minV ? 0 : ((val-minV)/(maxV-minV))*100;
+      range.style.setProperty('--value', `${pct}%`);
+    };
+    const updateRangeBounds = () => {
+      const value = Number(numberInput.value);
+      const inputMaximum = Number(numberInput.max);
+      const expandedMaximum = Number.isFinite(value) ? Math.max(configuredRangeMax,value) : configuredRangeMax;
+      range.min=numberInput.min;
+      min.textContent=formatBoundary(range.min,unit);
+      range.max = String(Number.isFinite(inputMaximum) ? Math.min(expandedMaximum,inputMaximum) : expandedMaximum);
+      // Preserve exact manual amounts when they do not fall on the coarse slider grid.
+      const sliderStep=Number(numberInput.dataset.rangeStep||1);
+      const position=(value-Number(range.min))/sliderStep;
+      range.step=Number.isFinite(position)&&Math.abs(position-Math.round(position))>1e-7?'any':String(sliderStep);
+      max.textContent = formatBoundary(range.max,unit);
+    };
+    const syncFromRange = () => {
+      numberInput.value = range.value;
+      current.textContent = formatRangeValue(numberInput);
+      current.classList.add('changing');
+      setTimeout(()=>current.classList.remove('changing'),150);
+      updateFill();
+      numberInput.dispatchEvent(new Event('input',{bubbles:true}));
+    };
+    range.addEventListener('input',syncFromRange);
+    numberInput.addEventListener('input',()=>{updateRangeBounds();range.value=numberInput.value;current.textContent=formatRangeValue(numberInput);updateFill();});
+    updateRangeBounds();range.value=numberInput.value;updateFill();
+  });
+
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const animateTargets = document.querySelectorAll('.monthly-payment,.result-item strong,.metric-highlight strong,.score-copy b');
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(m => {
+      const el = m.target.nodeType === 3 ? m.target.parentElement : m.target;
+      if (!(el instanceof HTMLElement)) return;
+      el.classList.remove('calc-value-pulse');
+      requestAnimationFrame(()=>{
+        el.classList.add('calc-value-pulse');
+        setTimeout(()=>el.classList.remove('calc-value-pulse'),220);
+      });
+    });
+  });
+  animateTargets.forEach(el=>observer.observe(el,{childList:true,subtree:true,characterData:true}));
+})();
+  </script>
+</body>
+</html>

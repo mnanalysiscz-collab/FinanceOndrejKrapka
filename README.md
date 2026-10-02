@@ -1,10 +1,11 @@
 # FinanceOndrejKrapka
 
-Statický osobní web Ondřeje Křapky publikovaný přes GitHub Pages z větve `main`.
+Statický osobní web Ondřeje Křapky se samostatnou stránkou kalkulaček, publikovaný přes GitHub Pages z větve `main`.
 
-- `index.html` obsahuje aktuální HTML, CSS, JavaScript, šest kalkulaček a kontaktní formulář.
+- `index.html` obsahuje hero, představení, profesní cestu, stručný přístup, služby, odkaz na kalkulačky a kontaktní formulář.
+- `kalkulacky.html` obsahuje šest kalkulaček a jejich výpočty. Na konkrétní nástroj lze odkazovat pomocí `#mortgage`, `#investment`, `#insurance`, `#pension`, `#rentbuy` nebo `#freedom`.
+- `styles.css` a `script.js` sdílejí obě stránky; zajišťují vzhled, navigaci a animace.
 - Fotografie a loga jsou v kořeni repozitáře.
-- `styles.css` a `script.js` pocházejí ze starší šablony; aktuální index je nenačítá.
 - Formulář připravuje zprávu pomocí `mailto:`. Nemá vlastní odesílací backend.
 
 ## Kontrola kalkulaček
@@ -13,9 +14,10 @@ Z kořene repozitáře spustit s Node.js:
 
 ```sh
 node tests/calculators.test.cjs
+node tests/site-structure.test.cjs
 ```
 
-Testy spouštějí skutečné výpočty vytažené z `index.html`, porovnávají známé výsledky, ověřují hraniční hodnoty, validaci a koncové body grafů. Nevyžadují další balíčky. Ovládání posuvníků, scénářů, resetů, klávesnice a mobilního zobrazení se kontroluje také v prohlížeči.
+Testy spouštějí skutečné výpočty vytažené z `kalkulacky.html`, porovnávají známé výsledky, ověřují hraniční hodnoty, validaci a koncové body grafů. Nevyžadují další balíčky. Ovládání posuvníků, scénářů, resetů, klávesnice a mobilního zobrazení se kontroluje také v prohlížeči.
 
 ## Předpoklady modelů
 
