@@ -678,6 +678,33 @@ input[type=range]::-moz-range-thumb{
 }
 </style>
 
+<style id="about-page-layout">
+/* About: a compact portrait beside the introduction, followed by full-width content. */
+.about-page{background:linear-gradient(135deg,#111315 0%,#0b0c0e 58%,#080909 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);scroll-margin-top:80px}
+.about-page-inner{width:min(100%,1120px);margin:auto}
+.about-introduction{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.85fr);gap:clamp(32px,5vw,76px);align-items:start}
+.about-page h2{font-size:clamp(2.8rem,4.3vw,4.8rem);line-height:1.02}
+.about-page h2 em{color:var(--gold-light);font-style:italic}
+.about-page p{margin:22px 0 0;color:rgba(247,243,235,.74);font-size:1rem;line-height:1.85}
+.about-page .about-emphasis{color:var(--white);font-weight:600}
+.about-portrait{width:100%;max-width:360px;margin:8px 0 0;justify-self:end}
+.about-portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border:1px solid rgba(205,164,94,.22);border-radius:16px;filter:saturate(.9) contrast(1.02)}
+.about-portrait figcaption{margin-top:16px;color:var(--gold-light);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-align:center;text-transform:uppercase}
+.about-block{margin-top:clamp(56px,6vw,88px);padding-top:clamp(40px,4vw,58px);border-top:1px solid rgba(205,164,94,.2)}
+.about-page h3{max-width:900px;margin:0;font-family:"Instrument Serif",serif;font-size:clamp(2.2rem,3.4vw,3.7rem);font-weight:400;line-height:1.08;letter-spacing:-.02em}
+.about-experience p,.about-conversation>p{max-width:850px}
+.about-principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:54px;margin-top:32px}
+.about-principle{display:grid;grid-template-columns:34px minmax(0,1fr);gap:16px;padding:28px 0;border-top:1px solid rgba(205,164,94,.16)}
+.about-number{color:var(--gold-light);font-family:"Instrument Serif",serif;font-size:1.4rem;line-height:1.2}
+.about-page h4{margin:0;font-family:"Instrument Serif",serif;font-size:1.95rem;font-weight:400;line-height:1.1}
+.about-principle p{margin-top:12px;font-size:.92rem;line-height:1.8}
+.about-page .about-closing{margin-top:36px;color:var(--white);font-family:"Instrument Serif",serif;font-size:clamp(1.8rem,2.7vw,2.8rem);line-height:1.2}
+.about-closing em{color:var(--gold-light)}
+.about-conversation .button{margin-top:30px;max-width:100%;text-align:center}
+@media(max-width:800px){.about-introduction{grid-template-columns:1fr}.about-portrait{justify-self:center;max-width:320px;margin-top:0}.about-principles{grid-template-columns:1fr}.about-page h2{font-size:clamp(2.55rem,10vw,3.8rem)}}
+@media(max-width:390px){.about-page h4{font-size:1.75rem}.about-principle{gap:12px;grid-template-columns:28px minmax(0,1fr)}.about-conversation .button{padding:16px 20px}}
+</style>
+
 </head>
 <body>
   <header class="site-header">
@@ -702,41 +729,49 @@ input[type=range]::-moz-range-thumb{
       <div class="hero-badge"><span>Od roku</span><strong>2017</strong><span>ve financích</span></div>
     </section>
 
-    <section class="trust-section" id="o-mne">
-      <div class="trust-copy reveal">
-        <span class="section-label">Můj přístup</span>
-        <h2>Proč lidé spolupracují právě se mnou?</h2>
-        <p class="trust-lead"><strong>Neprodávám produkty.</strong> Pomáhám lidem dělat rozhodnutí, která dávají smysl dnes i za mnoho let. Každé doporučení vychází z vaší životní situace, cílů a plánů — ne z nabídky jedné instituce.</p>
-        <p class="trust-lead">Věřím, že dobré finanční rozhodnutí nevzniká během jedné schůzky. Vzniká pochopením toho, kam chcete směřovat, co potřebujete chránit a jaký život chcete dlouhodobě budovat. Proto spolupráci nestavím na jednorázových obchodech, ale na partnerství, které se dokáže přizpůsobovat vašemu životu.</p>
-        <div class="trust-points">
-          <article class="trust-point">
-            <span class="trust-point-number">01</span>
-            <div><h3>Řešení začíná u vás.</h3><p>Nejdřív potřebuji pochopit, co chcete vybudovat, ochránit nebo změnit. Teprve potom hledáme cestu, která vám bude dlouhodobě sedět.</p></div>
-          </article>
-          <article class="trust-point">
-            <span class="trust-point-number">02</span>
-            <div><h3>Finance musí fungovat jako celek.</h3><p>Bydlení, investice, rezervy i ochrana příjmu se navzájem ovlivňují. Proto je neřeším odděleně, ale jako jeden promyšlený plán.</p></div>
-          </article>
-          <article class="trust-point">
-            <span class="trust-point-number">03</span>
-            <div><h3>Jsem partner i po podpisu.</h3><p>Mým cílem není uzavřít jednu smlouvu. Chci být člověk, kterému můžete zavolat, když se váš život, cíle nebo možnosti změní.</p></div>
-          </article>
+    <section class="about-page section" id="o-mne" aria-labelledby="about-title">
+      <div class="about-page-inner">
+        <div class="about-introduction">
+          <div class="reveal">
+            <span class="section-label">O mně</span>
+            <h2 id="about-title">Za každým finančním plánem je člověk. <em>A jeho příběh.</em></h2>
+            <p>Jsem Ondřej Křapka. Ve financích působím od roku 2017 a svou práci stavím na jednoduchém přesvědčení: dobrý plán musí vycházet ze života člověka, pro kterého vzniká.</p>
+            <p>Někdo hledá cestu k vlastnímu bydlení. Jiný chce vytvořit jistotu pro rodinu nebo postupně vybudovat majetek, který mu jednou poskytne větší svobodu. Každý začíná jinde. Proto nejdřív naslouchám a teprve potom hledám řešení.</p>
+            <p class="about-emphasis">Pomáhám lidem dělat rozhodnutí, kterým rozumějí a o která se mohou dlouhodobě opřít.</p>
+          </div>
+          <figure class="about-portrait reveal">
+            <img src="business10.jpg" alt="Ondřej Křapka v obleku" loading="lazy" decoding="async">
+            <figcaption>Důvěra · Férovost · Vysoký standard</figcaption>
+          </figure>
         </div>
-        <p class="trust-closing">Důvěra se nebuduje podpisem smlouvy.</p>
-        <p class="trust-closing-sub">Buduje se dlouhodobou spoluprací.</p>
-        <a class="text-link" href="#sluzby">Podívat se, s čím vám mohu pomoci <span>→</span></a>
-      </div>
-      <div class="trust-photo" role="img" aria-label="Ondřej Křapka v obleku">
-        <div class="trust-authority" aria-label="Profesní zkušenosti">
-          <span>Zkušenosti, o které se můžete opřít</span>
-         <ul>
-    <li>Obchodní ředitel FinPor | BIDLI</li>
-    <li>Více než 8 let zkušeností ve finančním poradenství</li>
-    <li>Komplexní finanční plánování pro klienty</li>
-    <li>Vedení a rozvoj týmu finančních poradců</li>
-</ul>
+
+        <div class="about-experience about-block reveal">
+          <span class="section-label">Profesní cesta</span>
+          <h3>Zkušenosti, které přinášejí širší pohled.</h3>
+          <p>Moje profesní cesta vedla od osobní práce s klienty až k vedení a rozvoji finančních poradců. Dnes jako obchodní ředitel FinPor | BIDLI propojuji zkušenosti z poradenství s odpovědností za lidi a kvalitu jejich práce.</p>
+          <p>S každým dalším krokem roste i moje přesvědčení, že kvalita poradenství se ukazuje v běžném životě. V tom, zda člověk zvládne financovat své bydlení, má na co sáhnout při nečekané situaci a ví, jak postupovat směrem ke svým cílům.</p>
+          <p>Stejný přístup přenáším do práce s klienty i do vedení týmu: pochopit souvislosti, vysvětlit možnosti a nést odpovědnost za doporučení.</p>
         </div>
-        <div class="trust-signature">Důvěra · Férovost · Vysoký standard<strong>Finance jako dlouhodobý závazek.</strong></div>
+
+        <div class="about-block reveal">
+          <span class="section-label">Můj přístup</span>
+          <h3>Proč lidé spolupracují právě se mnou?</h3>
+          <div class="about-principles">
+            <article class="about-principle"><span class="about-number">01</span><div><h4>Řešení začíná u vás.</h4><p>Nejdřív potřebuji pochopit, co chcete vybudovat, ochránit nebo změnit. Zajímá mě vaše současná situace i to, kam chcete směřovat. Teprve potom hledáme cestu, která odpovídá vašim možnostem a prioritám.</p></div></article>
+            <article class="about-principle"><span class="about-number">02</span><div><h4>Finance musí fungovat jako celek.</h4><p>Bydlení, investice, rezervy i ochrana příjmu se navzájem ovlivňují. Každé rozhodnutí proto posuzuji v širších souvislostech. Plán má dávat smysl jako celek a ponechat vám prostor také pro život dnes.</p></div></article>
+            <article class="about-principle"><span class="about-number">03</span><div><h4>Rozhodnutím musíte rozumět.</h4><p>Chci, abyste věděli, proč konkrétní řešení navrhuji, co od něj můžete očekávat a jaká má omezení. Důvěra potřebuje otevřenou komunikaci. Patří do ní otázky, srozumitelné odpovědi i prostor všechno si promyslet.</p></div></article>
+            <article class="about-principle"><span class="about-number">04</span><div><h4>Jsem partner i po podpisu.</h4><p>Život se mění. Přichází nové bydlení, rodina, jiná práce i nové cíle. Chci být člověk, kterému můžete zavolat, když potřebujete svůj plán upravit nebo si ujasnit další krok.</p></div></article>
+          </div>
+        </div>
+
+        <div class="about-conversation about-block reveal">
+          <span class="section-label">První krok</span>
+          <h3>Spolupráce začíná rozhovorem.</h3>
+          <p>Nemusíte přicházet s hotovým plánem ani vědět, který produkt potřebujete. Stačí mít otázku, konkrétní situaci nebo představu, kterou chcete posunout dál.</p>
+          <p>Společně si ujasníme, kde právě jste, co je pro vás důležité a čemu dát přednost. Z toho může vzniknout plán s jasným směrem a konkrétními kroky.</p>
+          <p class="about-closing">Důvěra se nebuduje podpisem smlouvy.<br><em>Buduje se tím, co přichází po něm.</em></p>
+          <a class="button button-primary" href="#kontakt">Pojďme probrat, co je před vámi <span aria-hidden="true">&nbsp;→</span></a>
+        </div>
       </div>
     </section>
 
