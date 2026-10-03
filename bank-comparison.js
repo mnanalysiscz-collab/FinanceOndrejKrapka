@@ -30,11 +30,15 @@
     for(const bank of [...data.banks].sort((a,b)=>a.rate-b.rate)){
       const state=bankState(bank,input,today),ready=state==='ready',bankExpired=bank.status==='unavailable'||today>=(bank.expiresOn||data.expiresOn);
       const card=el('article','bank-card');
-      const heading=el('div','bank-heading');heading.append(el('span','bank-mark',bank.mark),el('h4','',bank.name));card.append(heading);
+      const heading=el('div','bank-heading');
+      const logoBox=el('span','bank-logo-box bank-logo-'+bank.id),logo=document.createElement('img');
+      logo.src='assets/banks/'+bank.id+'.svg';logo.alt='';logo.width=112;logo.height=40;logo.decoding='async';
+      logo.addEventListener('error',()=>{logoBox.replaceChildren(el('span','',bank.mark));});
+      logoBox.append(logo);heading.append(logoBox,el('h4','',bank.name));card.append(heading);
       card.append(el('span','bank-rate-label','Zveřejněná sazba od'),el('strong','bank-rate',bankExpired?'Čeká na ověření':percent(bank.rate)+' % p.a.'));
       card.append(el('p','bank-conditions',bank.conditions));
       const verified=bank.checkedAt?new Intl.DateTimeFormat('cs-CZ',{timeZone:'Europe/Prague',dateStyle:'short',timeStyle:'short'}).format(new Date(bank.checkedAt)):(bank.checkedOn||data.checkedOn).split('-').reverse().join('. ');
-      card.append(el('p','bank-source-note','Poslední ověření: '+verified+(bankExpired?' · Čeká na nové ověření':''))); 
+      card.append(el('p','bank-source-note','Poslední ověření: '+verified+(bankExpired?' · Čeká na nové ověření':'')));
       const payment=el('div','bank-payment');payment.append(el('span','','Modelová měsíční splátka'),el('strong','',ready?money(annuity(input.price-input.own,bank.rate/1200,input.years*12)):'—'));card.append(payment);
       if(state==='ltv'||state==='amount')card.append(el('p','bank-unavailable',state==='ltv'?'Tato sazba je určena pro LTV do '+bank.maxLtv+' %.':'Tato sazba vyžaduje úvěr nad '+money(bank.minLoanExclusive)+'.'));
       const ask=el('a','button button-primary','Poptat možnosti →');
