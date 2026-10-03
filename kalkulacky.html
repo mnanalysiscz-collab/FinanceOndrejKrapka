@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=bank-logos-1">
+    <link rel="stylesheet" href="styles.css?v=compact-banks-1">
 </head>
 <body class="calculator-page">
   <header class="site-header">
@@ -114,7 +114,7 @@
   <footer class="site-footer"><div><img src="logoHlavicka.png" alt="Ondřej Křapka" loading="lazy" decoding="async"></div><div class="footer-links"><a href="tel:+420601360355">601 360 355</a><a href="mailto:ondrej.krapka@bidli.cz">ondrej.krapka@bidli.cz</a></div><p>© <span id="year"></span> Ondřej Křapka. Všechna práva vyhrazena. Informace na webu mají obecný a orientační charakter.</p></footer>
   <script src="script.js?v=pages-1"></script>
   <script src="bank-rates-data.js?v=auto-2"></script>
-  <script src="bank-comparison.js?v=logos-3"></script>
+  <script src="bank-comparison.js?v=compact-4"></script>
   <script>
     const currency=new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'CZK',maximumFractionDigits:0}),decimal=new Intl.NumberFormat('cs-CZ',{maximumFractionDigits:1});
     const clamp=(value,min,max)=>Math.min(Math.max(value,min),max),raw=id=>{const el=document.getElementById(id),value=Number(el?.value);if(!Number.isFinite(value))return 0;const min=el?.min!==''?Number(el.min):-Infinity,max=el?.max!==''?Number(el.max):Infinity;return clamp(value,min,max)},get=id=>Math.max(raw(id),0),set=(id,value)=>{const el=document.getElementById(id);if(el&&el.textContent!==String(value))el.textContent=value},html=(id,value)=>{const el=document.getElementById(id);if(el&&el.innerHTML!==value)el.innerHTML=value},money=v=>Number.isFinite(v)?currency.format(v):'—',pct=v=>Number.isFinite(v)?decimal.format(v)+' %':'—';

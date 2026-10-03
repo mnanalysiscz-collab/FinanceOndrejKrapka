@@ -36,7 +36,7 @@
       logo.addEventListener('error',()=>{logoBox.replaceChildren(el('span','',bank.mark));});
       logoBox.append(logo);heading.append(logoBox,el('h4','',bank.name));card.append(heading);
       card.append(el('span','bank-rate-label','Zveřejněná sazba od'),el('strong','bank-rate',bankExpired?'Čeká na ověření':percent(bank.rate)+' % p.a.'));
-      card.append(el('p','bank-conditions',bank.conditions));
+      const details=el('details','bank-details');details.append(el('summary','','Podmínky sazby a zdroj'),el('p','bank-conditions',bank.conditions));
       const verified=bank.checkedAt?new Intl.DateTimeFormat('cs-CZ',{timeZone:'Europe/Prague',dateStyle:'short',timeStyle:'short'}).format(new Date(bank.checkedAt)):(bank.checkedOn||data.checkedOn).split('-').reverse().join('. ');
       card.append(el('p','bank-source-note','Poslední ověření: '+verified+(bankExpired?' · Čeká na nové ověření':'')));
       const payment=el('div','bank-payment');payment.append(el('span','','Modelová měsíční splátka'),el('strong','',ready?money(annuity(input.price-input.own,bank.rate/1200,input.years*12)):'—'));card.append(payment);
@@ -44,7 +44,7 @@
       const ask=el('a','button button-primary','Poptat možnosti →');
       // Only the bank identifier travels in the link; household amounts stay on this page.
       ask.href='index.html?banka='+encodeURIComponent(bank.id)+'#kontakt';ask.setAttribute('aria-label','Poptat možnosti – '+bank.name);card.append(ask);
-      const source=el('a','bank-source','Zdroj a podmínky banky ↗');source.href=bank.source;source.target='_blank';source.rel='noopener noreferrer';card.append(source);root.append(card);
+      const source=el('a','bank-source','Zdroj a podmínky banky ↗');source.href=bank.source;source.target='_blank';source.rel='noopener noreferrer';details.append(source);card.append(details);root.append(card);
     }
   };
 })();

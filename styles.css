@@ -777,32 +777,33 @@ input[type=range]::-moz-range-thumb{
 .main-nav a[aria-current="page"]{color:var(--gold-light)}
 @media(max-width:700px){.calculator-page .calculators{padding-top:106px}.calculator-page h1{font-size:clamp(2.7rem,11vw,3.8rem)}.calculator-page .calculator-back{width:calc(100% - 32px)}.calculator-teaser .button{width:100%;padding-inline:16px}}
 
-/* Bank rate snapshots: scoped to the mortgage panel. */
-.bank-comparison{margin-top:48px;padding:32px;border:1px solid var(--line);border-radius:18px;background:#0b0d0e;scroll-margin-top:95px}
-.bank-comparison-head{display:flex;justify-content:space-between;align-items:center;gap:20px}
-.bank-comparison h3{font-family:"Instrument Serif",serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:400;line-height:1.15;margin:0}
-.bank-sort{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-light);flex-shrink:0}
-.bank-intro,.bank-status{font-size:.85rem;color:var(--muted);line-height:1.8;max-width:900px}
-.bank-status{color:var(--gold-light);margin:22px 0}
-.bank-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.bank-card{display:flex;flex-direction:column;padding:24px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#181a1b,#0f1112);min-width:0}
-.bank-heading{display:flex;align-items:center;gap:12px;min-height:50px;margin-bottom:22px}
-.bank-mark{display:grid;place-items:center;flex-shrink:0;width:44px;height:44px;border-radius:10px;background:rgba(205,164,94,.09);color:var(--gold-light);font-size:.95rem;font-weight:700}
-.bank-card h4{margin:0;font:600 .97rem/1.4 Manrope,sans-serif}
-.bank-rate-label,.bank-payment>span{font-size:.7rem;color:var(--muted)}
-.bank-rate{font-size:1.6rem;color:var(--gold-light);margin-top:5px}
-.bank-conditions{font-size:.74rem;line-height:1.8;color:var(--muted);margin:18px 0 24px;flex:1}
-.bank-payment{display:flex;flex-direction:column;gap:7px;padding-top:18px;border-top:1px solid var(--line);margin-bottom:20px}
-.bank-payment strong{font-size:1.65rem;overflow-wrap:anywhere}
-.bank-card .button{width:100%;padding:14px 8px;font-size:.8rem;text-align:center}
-.bank-source{font-size:.7rem;color:var(--gold-light);margin-top:16px;text-align:center;text-decoration:underline;text-underline-offset:4px}
-.bank-source-note,.bank-unavailable{font-size:.72rem;line-height:1.8;color:var(--muted);margin-bottom:0}
-.bank-unavailable{color:var(--gold-light);margin:0 0 16px}
-.bank-comparison a:focus-visible{outline:2px solid var(--gold-light);outline-offset:4px}
-@media(max-width:1000px){.bank-cards{grid-template-columns:1fr}.bank-comparison-head{align-items:flex-start;flex-direction:column}.bank-conditions{max-width:650px}}
-@media(max-width:600px){.bank-comparison{padding:22px 16px}.bank-card{padding:22px}.bank-sort{font-size:.6rem}}
-
-.bank-heading{flex-direction:column;align-items:flex-start;gap:16px}
-.bank-logo-box{display:flex;align-items:center;justify-content:center;width:140px;height:64px;padding:12px 14px;border-radius:9px;background:#fff;color:#171717}
-.bank-logo-box img{display:block;width:112px;height:40px;object-fit:contain}
+/* Compact bank comparison. */
+.bank-comparison{margin-top:28px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#0b0d0e;scroll-margin-top:95px}
+.bank-comparison-head{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.bank-comparison .section-label{font-size:.65rem;margin-bottom:10px}
+.bank-comparison h3{font-family:"Instrument Serif",serif;font-size:clamp(1.65rem,2.2vw,2.1rem);font-weight:400;line-height:1.15;margin:0}
+.bank-sort{font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-light);flex-shrink:0}
+.bank-intro,.bank-status{font-size:.78rem;color:var(--muted);line-height:1.6;max-width:900px;margin:12px 0}
+.bank-status{color:var(--gold-light)}
+.bank-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+.bank-card{display:flex;flex-direction:column;padding:16px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(145deg,#181a1b,#0f1112);min-width:0}
+.bank-heading{display:flex;align-items:center;gap:10px;min-height:40px;margin-bottom:16px}
+.bank-card h4{margin:0;font:600 .8rem/1.4 Manrope,sans-serif}
+.bank-logo-box{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:80px;height:38px;padding:6px 8px;border-radius:6px;background:#fff;color:#171717}
+.bank-logo-box img{display:block;width:64px;height:26px;object-fit:contain}
 .bank-logo-csas{background:#1769d2}
+.bank-rate-label,.bank-payment>span{font-size:.68rem;color:var(--muted)}
+.bank-rate{font-size:1.3rem;color:var(--gold-light);margin-top:3px}
+.bank-conditions{font-size:.75rem;line-height:1.65;color:var(--muted);margin:10px 0}
+.bank-payment{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px solid var(--line);margin:12px 0}
+.bank-payment>span{max-width:90px}
+.bank-payment strong{font-size:1.25rem;overflow-wrap:anywhere}
+.bank-card .button{width:100%;padding:11px 8px;min-height:42px;font-size:.75rem;text-align:center}
+.bank-source{display:inline-block;font-size:.72rem;color:var(--gold-light);text-decoration:underline;text-underline-offset:4px}
+.bank-source-note,.bank-unavailable{font-size:.68rem;line-height:1.6;color:var(--muted);margin:9px 0 0}
+.bank-unavailable{color:var(--gold-light);margin:0 0 12px}
+.bank-details{margin-top:10px}
+.bank-details summary{cursor:pointer;color:var(--gold-light);font-size:.72rem;padding:5px 0}
+.bank-comparison a:focus-visible,.bank-details summary:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+@media(max-width:900px){.bank-cards{grid-template-columns:1fr}.bank-comparison-head{align-items:flex-start;flex-direction:column;gap:10px}.bank-conditions{max-width:650px}.bank-payment>span{max-width:none}}
+@media(max-width:600px){.bank-comparison{padding:16px 12px}.bank-card{padding:14px}.bank-sort{font-size:.58rem}}
