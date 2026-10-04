@@ -838,3 +838,6 @@ input[type=range]::-moz-range-thumb{
 .draft-process .process-number{border-color:#947446}
 .draft-process .draft-label{color:#674819;border-color:#96794b;background:rgba(255,255,255,.2)}
 @media(max-width:700px){.about-page,.draft-process{background-size:auto,700px 700px}}
+
+/* Public professional background and practical preparation. */
+.professional-note{padding:42px;border:1px solid rgba(194,161,104,.3);background:linear-gradient(130deg,#2c2923,#171817);align-self:stretch;display:flex;flex-direction:column;justify-content:center}.professional-note h3{font-family:"Instrument Serif",serif;font-size:clamp(2rem,3.2vw,3.2rem);font-weight:400;margin:15px 0}.professional-note p{color:#c9c5bd;line-height:1.8}.professional-note a{color:var(--gold);margin-top:20px}.meeting-checklist{padding-left:22px;color:#c9c5bd;line-height:1.9;margin:25px 0 32px}@media(max-width:700px){.professional-note{padding:26px}}
