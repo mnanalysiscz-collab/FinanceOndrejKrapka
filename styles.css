@@ -832,11 +832,10 @@ input[type=range]::-moz-range-thumb{
 .about-page{background-color:#282723;background-image:linear-gradient(105deg,rgba(24,23,21,.87),rgba(32,30,26,.80)),url('assets/textures/plaster.svg');background-size:auto,1000px 1000px;background-repeat:no-repeat,repeat}
 .about-page p{color:#d0cbc2}
 .about-page .about-emphasis{color:var(--white)}
-.draft-process{background-color:#c7c0b2;background-image:linear-gradient(105deg,rgba(219,213,201,.82),rgba(195,186,170,.85)),url('assets/textures/plaster.svg');background-size:auto,1000px 1000px;color:#282620;border-color:#a69a83}
-.draft-process .section-label,.draft-process h2 em,.draft-process .process-number,.draft-process .process-outcome{color:#715020}
-.draft-process .draft-lead,.draft-process .process-steps p{color:#49463e}
-.draft-process .process-number{border-color:#947446}
-.draft-process .draft-label{color:#674819;border-color:#96794b;background:rgba(255,255,255,.2)}
+.draft-process{background-color:#282723;background-image:linear-gradient(105deg,rgba(24,23,21,.87),rgba(32,30,26,.80)),url('assets/textures/plaster.svg');background-size:auto,1000px 1000px;color:var(--white);border-color:var(--line)}
+.draft-process .section-label,.draft-process h2 em,.draft-process .process-number,.draft-process .process-outcome{color:var(--gold-light)}
+.draft-process .draft-lead,.draft-process .process-steps p{color:#d0cbc2}
+.draft-process .process-number{border-color:var(--gold)}
 @media(max-width:700px){.about-page,.draft-process{background-size:auto,700px 700px}}
 
 /* Public professional background and practical preparation. */
