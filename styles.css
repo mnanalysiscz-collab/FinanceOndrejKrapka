@@ -827,3 +827,14 @@ input[type=range]::-moz-range-thumb{
 @media(max-width:900px){.process-steps{grid-template-columns:repeat(2,1fr)}.background-grid,.faq-layout{grid-template-columns:1fr;gap:32px}.photo-slot{min-height:300px}}
 @media(max-width:600px){.practice-grid,.story-grid,.process-steps{grid-template-columns:1fr}.story-card{padding:24px}.draft-banner{font-size:.72rem}.practice-grid{gap:24px}.process-steps{gap:24px}.draft-label{font-size:.65rem}.content-draft h2{font-size:2.6rem}}
 .content-preview .draft-banner{margin-top:100px}@media(max-width:700px){.content-preview .draft-banner{margin-top:75px}}
+
+/* Plaster surfaces echo the warm mineral texture of the original hero. */
+.about-page{background-color:#282723;background-image:linear-gradient(105deg,rgba(24,23,21,.87),rgba(32,30,26,.80)),url('assets/textures/plaster.svg');background-size:auto,1000px 1000px;background-repeat:no-repeat,repeat}
+.about-page p{color:#d0cbc2}
+.about-page .about-emphasis{color:var(--white)}
+.draft-process{background-color:#c7c0b2;background-image:linear-gradient(105deg,rgba(219,213,201,.82),rgba(195,186,170,.85)),url('assets/textures/plaster.svg');background-size:auto,1000px 1000px;color:#282620;border-color:#a69a83}
+.draft-process .section-label,.draft-process h2 em,.draft-process .process-number,.draft-process .process-outcome{color:#715020}
+.draft-process .draft-lead,.draft-process .process-steps p{color:#49463e}
+.draft-process .process-number{border-color:#947446}
+.draft-process .draft-label{color:#674819;border-color:#96794b;background:rgba(255,255,255,.2)}
+@media(max-width:700px){.about-page,.draft-process{background-size:auto,700px 700px}}
