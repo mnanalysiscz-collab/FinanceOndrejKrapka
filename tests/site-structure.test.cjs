@@ -1,6 +1,6 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');
-const pages=['index.html','kalkulacky.html'];
+const pages=['index.html','kalkulacky.html','spoluprace.html','kariera.html'];
 const contents=Object.fromEntries(pages.map(file=>[file,fs.readFileSync(path.join(root,file),'utf8')]));
 const routes=['mortgage','investment','insurance','pension','rentbuy','freedom'];
 let checks=0;
