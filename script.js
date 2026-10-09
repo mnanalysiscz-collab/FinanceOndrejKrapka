@@ -11,7 +11,7 @@
 
 
 
-    const movedSections={'#spoluprace-navrh':'spoluprace.html','#otazky-navrh':'spoluprace.html','#pruvodce-navrh':'spoluprace.html','#profesni-cesta':'kariera.html','#zazemi-navrh':'kariera.html'};
+    const movedSections={'#sluzby':'spoluprace.html','#spoluprace-navrh':'spoluprace.html','#otazky-navrh':'spoluprace.html','#pruvodce-navrh':'spoluprace.html','#profesni-cesta':'kariera.html','#zazemi-navrh':'kariera.html'};
     const redirectMovedSection=()=>{if(document.body.classList.contains('home-page')&&movedSections[location.hash])location.replace(movedSections[location.hash]+location.hash)};
     redirectMovedSection();window.addEventListener('hashchange',redirectMovedSection);
 
