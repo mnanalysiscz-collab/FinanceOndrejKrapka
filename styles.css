@@ -866,3 +866,6 @@ input[type=range]::-moz-range-thumb{
 .calculator-page .calculator-shell{max-width:none;width:100%}
 @media(max-width:980px){.home-page .about-introduction,.calculator-teaser-inner,.home-page .contact,.background-grid,.faq-layout{grid-template-columns:1fr;gap:32px}.about-portrait{justify-self:start}.background-grid>div:last-child{order:-1}}
 @media(max-width:700px){:root{--content-gutter:22px}.home-page .section,.subpage .section{padding-block:42px}.calculator-teaser h2,.home-page .contact h2,.subpage .section h2,.about-page h3{font-size:2.6rem}.home-page .about-introduction{gap:28px}}
+
+/* Personal, compact contact choices. */
+.contact-direct{display:flex;flex-direction:column;align-items:flex-start;gap:10px}.contact .future-option{padding:17px 20px}.contact .future-option strong{font-family:"Manrope",sans-serif;font-size:.94rem;line-height:1.5;font-weight:600}.contact .career-contact-option{grid-column:1/-1;margin-top:12px;border:0;border-top:1px solid var(--line);border-radius:0;background:none;padding:22px 0 0;gap:7px}.contact .career-contact-option>span{font-size:.8rem;color:var(--muted)}.contact .career-contact-option strong{color:var(--gold-light)}

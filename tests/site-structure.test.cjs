@@ -25,7 +25,7 @@ for(const [file,html] of Object.entries(contents)){
 assert.ok(!contents['index.html'].includes('class="calculator-view'),'Calculator panels must not be on home');checks++;
 assert.ok(!contents['index.html'].includes('function calcMortgage'),'Home must not execute calculator code');checks++;
 assert.ok(!contents['kalkulacky.html'].includes('id="contactForm"'),'Calculator page must link to the main contact');checks++;
-assert.equal((contents['index.html'].match(/Spolupráce začíná rozhovorem\./g)||[]).length,1);checks++;
+assert.equal((contents['index.html'].match(/Co právě řešíte\?/g)||[]).length,1);checks++;
 assert.equal((contents['kalkulacky.html'].match(/role="tabpanel"/g)||[]).length,6);checks++;
 new Function(fs.readFileSync(path.join(root,'script.js'),'utf8'));checks++;
 console.log(`PASS ${checks} page, link, asset and script checks`);
