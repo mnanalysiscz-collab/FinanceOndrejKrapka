@@ -8,7 +8,7 @@ function textFromHtml(html){
 function parseRate(id,html){
   const t=textFromHtml(html);let m;
   if(id==='moneta')m=t.match(/Platné podmínky pro (\d+,\d{2}) % pro každého Sazba \1 % ročně platí pro všechny žadatele o hypotéku s tříletou fixací úrokové sazby, s LTV do 80 % a s výší úvěru nad 1 milion korun\./);
-  if(id==='csas')m=t.match(/Hypotéka, která se vám přizpůsobí\. S úrokem od (\d+,\d{2}) % ročně/);
+  if(id==='csas')m=t.match(/Hypotéka, která se vám přizpůsobí\.? S úrokem od (\d+,\d{2}) % ročně/);
   if(id==='kb')m=t.match(/Jak získat úrokovou sazbu (\d+,\d{2}) % p\. a\. Výhodná úroková sazba při splnění těchto podmínek\s*:\s*Směřování vašich příjmů na u nás vedený účet Uzavření smlouvy o rizikovém životním pojištění u Komerční pojišťovny, a\. s\. Uzavření smlouvy o pojištění zastavené nemovitosti u Komerční pojišťovny, a\.s\. Předložení PENB v energetické třídě A nebo B k zastavené nemovitosti/);
   if(!m)throw Error('Sazba nebo očekávané podmínky nebyly jednoznačně nalezeny');
   const rate=Number(m[1].replace(',','.'));if(rate<0.1||rate>20)throw Error('Sazba mimo povolený rozsah');return rate;

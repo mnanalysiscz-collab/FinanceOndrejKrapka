@@ -4,6 +4,10 @@ const samples=Object.fromEntries(['moneta','csas','kb'].map(id=>[id,fs.readFileS
 (async()=>{
 for(const [id,rate] of Object.entries({moneta:4.99,csas:5.39,kb:5.49})){assert.equal(parseRate(id,samples[id]),rate);assert.throws(()=>parseRate(id,'Access denied 5,99 %'));}
 assert.equal(parseRate('csas',samples.csas.replace('5,39','5,69')),5.69);
+// The bank removed the heading's final full stop in October 2026.
+assert.equal(parseRate('csas',samples.csas.replace('přizpůsobí.', 'přizpůsobí')),5.39);
+assert.equal(parseRate('csas','<h1>Hypotéka, která se vám přizpůsobí</h1><p>S úrokem od <strong>5,39&nbsp;%</strong> ročně</p><p>Reprezentativní příklad: 6,09 %</p>'),5.39);
+assert.throws(()=>parseRate('csas','Hypotéka, která se vám přizpůsobí Reprezentativní příklad: úrok 6,09 % ročně'));
 assert.throws(()=>parseRate('moneta',samples.moneta.replace('80 %','70 %')));
 assert.throws(()=>parseRate('kb',samples.kb.replace('A nebo B','pouze A')));
 assert.equal(parseRate('csas','<script>Hypotéka, která se vám přizpůsobí. S úrokem od 1,00 % ročně</script>'+samples.csas),5.39);

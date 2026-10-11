@@ -4,6 +4,13 @@ on:
     # 01:00 Prague: UTC 23:00 in summer, UTC 00:00 in winter.
     - cron: '0 23 * * *'
     - cron: '0 0 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update-bank-rates.cjs'
+      - 'tests/bank-update.test.cjs'
+      - 'tests/fixtures/**'
+      - '.github/workflows/bank-rates.yml'
   workflow_dispatch:
 permissions:
   contents: write
