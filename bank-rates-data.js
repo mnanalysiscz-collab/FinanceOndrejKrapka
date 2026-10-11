@@ -12,11 +12,11 @@ window.mortgageBankData = {
       "maxLtv": 80,
       "conditions": "Fixace 3 roky, LTV do 80 %, úvěr nad 1 milion Kč. Schválení závisí na posouzení bankou.",
       "source": "https://www.moneta.cz/hypoteky/hypoteka",
-      "checkedOn": "2026-10-10",
-      "checkedAt": "2026-10-10T02:12:08.569Z",
-      "expiresOn": "2026-10-13",
+      "checkedOn": "2026-10-11",
+      "checkedAt": "2026-10-11T01:44:11.344Z",
+      "expiresOn": "2026-10-14",
       "status": "verified",
-      "lastAttemptAt": "2026-10-10T02:12:08.569Z"
+      "lastAttemptAt": "2026-10-11T01:44:11.344Z"
     },
     {
       "id": "csas",
@@ -29,7 +29,7 @@ window.mortgageBankData = {
       "checkedAt": "2026-10-08T02:36:50.496Z",
       "expiresOn": "2026-10-11",
       "status": "unavailable",
-      "lastAttemptAt": "2026-10-10T02:12:08.569Z"
+      "lastAttemptAt": "2026-10-11T01:44:11.344Z"
     },
     {
       "id": "kb",
@@ -38,11 +38,11 @@ window.mortgageBankData = {
       "rate": 5.49,
       "conditions": "Sazba „od“ při příjmu na účet KB, rizikovém životním pojištění a pojištění nemovitosti u Komerční pojišťovny a PENB A/B. Konkrétní fixaci a LTV ověříme.",
       "source": "https://www.kb.cz/cs/obcane/pujcky/hypoteky/hypoteka",
-      "checkedOn": "2026-10-10",
-      "checkedAt": "2026-10-10T02:12:08.569Z",
-      "expiresOn": "2026-10-13",
+      "checkedOn": "2026-10-11",
+      "checkedAt": "2026-10-11T01:44:11.344Z",
+      "expiresOn": "2026-10-14",
       "status": "verified",
-      "lastAttemptAt": "2026-10-10T02:12:08.569Z"
+      "lastAttemptAt": "2026-10-11T01:44:11.344Z"
     }
   ],
   "automatic": true
