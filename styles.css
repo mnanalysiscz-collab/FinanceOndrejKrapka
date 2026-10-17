@@ -918,9 +918,9 @@ input[type=range]::-moz-range-thumb{
 .career-hero-visual{width:min(100%,460px);justify-self:end}
 .career-hero-photo{width:100%;border-radius:155px 155px 16px 16px}
 .career-hero-photo img{height:min(55svh,560px)}
-.career-hero-motto{margin:18px 4px 0;padding:0 0 0 18px;border-left:1px solid rgba(237,199,127,.5);color:#d8d4cc;font:italic 400 1.02rem/1.45 "Instrument Serif",serif}
-.career-hero-motto cite{display:block;margin-top:9px;color:var(--gold-light);font:700 .66rem/1.45 "Manrope",sans-serif;letter-spacing:.035em;text-transform:none}
-.career-hero-motto cite span{color:#8f8c85;font-weight:500}
+.career-hero-motto{position:relative;margin:14px 0 0;padding:18px 20px 17px;border:1px solid rgba(237,199,127,.2);border-left:2px solid var(--gold-light);border-radius:2px 10px 10px 2px;background:linear-gradient(115deg,rgba(237,199,127,.075),rgba(255,255,255,.018));box-shadow:0 14px 36px rgba(0,0,0,.15);color:#e1ddd5;font:italic 400 1.04rem/1.48 "Instrument Serif",serif}
+.career-hero-motto cite{display:block;margin-top:11px;color:var(--gold-light);font:700 .67rem/1.45 "Manrope",sans-serif;letter-spacing:.04em;text-transform:none}
+.career-hero-motto cite span{color:var(--gold-light);font-weight:600;opacity:.88}
 .career-section-heading h2,.career-gallery-heading h2,.career-fit h2,.career-team-cta h2{font-size:clamp(2.55rem,3.8vw,4.25rem)}
 .career-gallery-section{padding-top:62px;padding-bottom:68px}
 .career-gallery-heading{margin-bottom:34px}
