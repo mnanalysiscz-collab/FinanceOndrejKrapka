@@ -958,6 +958,7 @@ input[type=range]::-moz-range-thumb{
   .site-header.scrolled{height:62px;min-height:62px;max-height:62px;padding:6px 18px;background:rgba(5,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
   .home-page .site-header:not(.scrolled){background:linear-gradient(180deg,rgba(5,6,6,.82) 0%,rgba(5,6,6,.38) 62%,transparent 100%);border-bottom:0}
   .home-page .hero{padding-top:0}
+  .home-page .hero-image{height:clamp(220px,60vw,250px);aspect-ratio:auto;object-fit:cover;object-position:center center}
   .menu-toggle{width:40px;height:40px}
   .menu-toggle span{width:22px;height:1.5px}
 }
