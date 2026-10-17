@@ -915,8 +915,12 @@ input[type=range]::-moz-range-thumb{
 .career-team-hero-copy h1{font-size:clamp(3.25rem,5.15vw,5.8rem);margin-top:16px;margin-bottom:20px}
 .career-team-hero-copy>p{font-size:.94rem;line-height:1.75}
 .career-hero-actions{margin-top:27px}
-.career-hero-photo{width:min(100%,460px);border-radius:155px 155px 16px 16px}
-.career-hero-photo img{height:min(64svh,650px)}
+.career-hero-visual{width:min(100%,460px);justify-self:end}
+.career-hero-photo{width:100%;border-radius:155px 155px 16px 16px}
+.career-hero-photo img{height:min(55svh,560px)}
+.career-hero-motto{margin:18px 4px 0;padding:0 0 0 18px;border-left:1px solid rgba(237,199,127,.5);color:#d8d4cc;font:italic 400 1.02rem/1.45 "Instrument Serif",serif}
+.career-hero-motto cite{display:block;margin-top:9px;color:var(--gold-light);font:700 .66rem/1.45 "Manrope",sans-serif;letter-spacing:.035em;text-transform:none}
+.career-hero-motto cite span{color:#8f8c85;font-weight:500}
 .career-section-heading h2,.career-gallery-heading h2,.career-fit h2,.career-team-cta h2{font-size:clamp(2.55rem,3.8vw,4.25rem)}
 .career-gallery-section{padding-top:62px;padding-bottom:68px}
 .career-gallery-heading{margin-bottom:34px}
@@ -936,8 +940,11 @@ input[type=range]::-moz-range-thumb{
   .career-team-page .section{padding-block:36px}
   .career-team-hero{padding:100px 22px 36px;gap:28px}
   .career-team-hero-copy h1{font-size:clamp(2.9rem,13.5vw,4.15rem)}
-  .career-hero-photo{width:min(100%,430px)}
-  .career-hero-photo img{height:59svh;min-height:430px}
+  .career-hero-visual{width:min(100%,430px);justify-self:start}
+  .career-hero-photo{width:100%}
+  .career-hero-photo img{height:54svh;min-height:400px}
+  .career-hero-motto{font-size:.96rem;margin-top:15px}
+  .career-hero-motto cite span{display:block;margin-top:2px}
   .career-gallery-section{padding:46px 22px 52px}
   .career-section-heading h2,.career-gallery-heading h2,.career-fit h2,.career-team-cta h2{font-size:clamp(2.35rem,11vw,3.35rem)}
 }
