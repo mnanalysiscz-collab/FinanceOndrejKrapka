@@ -925,6 +925,7 @@ input[type=range]::-moz-range-thumb{
 .career-gallery-section{padding-top:62px;padding-bottom:68px}
 .career-gallery-heading{margin-bottom:34px}
 .career-gallery{gap:13px;max-width:1180px}
+.career-growth .career-section-heading>p{max-width:720px;margin:22px 0 0;color:var(--muted);font-size:.9rem;line-height:1.8}
 .career-growth-grid{gap:28px;margin-top:36px}
 .career-growth-grid article{padding-top:20px}
 .career-growth-grid h3,.career-start-steps h3{font-size:clamp(1.55rem,1.9vw,1.95rem);margin-top:14px}
