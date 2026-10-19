@@ -1,6 +1,6 @@
 // Public rate snapshots are deliberately distinguished from individual offers.
 (() => {
-  const data = window.mortgageBankData;
+  let data = window.mortgageBankData;
   const money = value => new Intl.NumberFormat('cs-CZ', {style:'currency',currency:'CZK',maximumFractionDigits:0}).format(value);
   const percent = value => new Intl.NumberFormat('cs-CZ',{minimumFractionDigits:2,maximumFractionDigits:2}).format(value);
   function bankState(bank, input, today) {
@@ -17,8 +17,9 @@
     const node=document.createElement(tag);node.className=className;
     if(text!==undefined)node.textContent=text;return node;
   };
-  let previous='';
+  let previous='', lastRender;
   window.renderBankComparison = (input, annuity) => {
+    lastRender = [input, annuity];
     const root=document.getElementById('bank-cards');if(!root)return;
     const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Prague'}).format(new Date());
     const key=JSON.stringify([input,today]);if(key===previous)return;previous=key;
@@ -47,4 +48,31 @@
       const source=el('a','bank-source','Zdroj a podmínky banky ↗');source.href=bank.source;source.target='_blank';source.rel='noopener noreferrer';details.append(source);card.append(details);root.append(card);
     }
   };
+  // Revalidate the daily snapshot even when the bundled script is in browser cache.
+  // Parse JSON only: a refresh never executes downloaded JavaScript.
+  window.refreshMortgageBankData = async () => {
+    try {
+      const response = await fetch('bank-rates-data.js', {cache:'no-store'});
+      if (!response.ok) return false;
+      const source = await response.text();
+      const match = source.match(/window\.mortgageBankData\s*=\s*(\{[\s\S]*\})\s*;?\s*$/);
+      if (!match) return false;
+      const fresh = JSON.parse(match[1]);
+      if (!Array.isArray(fresh.banks) || fresh.banks.length !== data.banks.length) return false;
+      for (const bank of fresh.banks) {
+        const known = data.banks.find(item => item.id === bank.id);
+        if (!known || bank.source !== known.source || !Number.isFinite(bank.rate) || bank.rate <= 0 || bank.rate >= 20 ||
+            !['verified','unavailable'].includes(bank.status) || !/^\d{4}-\d{2}-\d{2}$/.test(bank.expiresOn) ||
+            !Number.isFinite(Date.parse(bank.checkedAt)) || typeof bank.conditions !== 'string' ||
+            Date.parse(bank.checkedAt) < Date.parse(known.checkedAt)) return false;
+      }
+      if (new Set(fresh.banks.map(bank => bank.id)).size !== fresh.banks.length) return false;
+      data = fresh;
+      window.mortgageBankData = fresh;
+      previous = '';
+      if (lastRender) window.renderBankComparison(...lastRender);
+      return true;
+    } catch { return false; } // Keep the bundled snapshot; normal expiry rules still apply.
+  };
+  if (typeof fetch === 'function') window.refreshMortgageBankData();
 })();
