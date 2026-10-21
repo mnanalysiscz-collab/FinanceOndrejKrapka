@@ -983,3 +983,24 @@ input[type=range]::-moz-range-thumb{
 .calculator-explanation summary{padding:15px 2px;color:var(--gold-light);font-size:.85rem;font-weight:700;cursor:pointer}
 .calculator-explanation summary:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
 .calculator-explanation p{margin:0;padding:0 2px 16px;color:var(--muted);font-size:.83rem;line-height:1.8}
+
+/* Compact calculator forms; keep touch inputs comfortably usable. */
+.calculator-page .calculator-panel{padding:20px}
+.calculator-page .calculator-panel h3{font-size:clamp(1.65rem,2vw,1.9rem);margin-bottom:5px}
+.calculator-page .calculator-intro{font-size:.8rem;line-height:1.55;margin-bottom:12px}
+.calculator-page .calc-field{gap:5px;margin-bottom:12px}
+.calculator-page .compact-grid{gap:10px}
+.calculator-page .compact-grid .calc-field{margin-bottom:8px}
+.calculator-page .calc-value-wrap{margin-bottom:3px}
+.calculator-page .calc-value-wrap input{padding:8px 10px;min-height:40px;font-size:.9rem}
+.calculator-page .calc-section-title{margin:13px 0 8px;padding-top:11px;letter-spacing:.1em}
+.calculator-page .premium-range-control{gap:6px}
+.calculator-page .premium-range-meta{grid-template-columns:1fr 1fr;gap:8px}
+.calculator-page .premium-range-value{display:none}
+.calculator-page .calc-note{margin-top:4px}
+.calculator-page .calculator-panel>.calc-note{margin-bottom:12px}
+@media(max-width:700px){
+  .calculator-page .calculator-panel{padding:18px 16px}
+  .calculator-page .calc-value-wrap input{font-size:16px;min-height:44px}
+  .calculator-page .premium-range-track{min-height:24px}
+}
