@@ -145,7 +145,10 @@
         </div>
 
         <div class="contact-step hidden" id="formStep" aria-hidden="true" inert>
-          <form class="contact-form" id="contactForm" novalidate>
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/ondrej.krapka@bidli.cz" method="POST" novalidate>
+            <input type="hidden" name="_subject" id="contactSubject" value="Nová poptávka z webu Ondřeje Křapky">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
             <div class="contact-form-head">
               <div><h3>Udělali jste první krok.</h3><div class="selected-future" id="selectedFuture">—</div></div>
               <button class="change-future" id="changeFuture" type="button">Změnit výběr</button>
@@ -155,8 +158,9 @@
             <label>E-mail<input type="email" name="email" autocomplete="email" required></label>
             <label>Co aktuálně řešíte? <span style="font-weight:400;color:rgba(255,255,255,.38)">(volitelné)</span><textarea name="zprava" rows="3" placeholder="Stačí pár vět..."></textarea></label>
             <label class="consent"><input type="checkbox" name="souhlas" value="ano" required><span>Souhlasím se zpracováním údajů za účelem zpětného kontaktování.</span></label>
-            <button class="button button-primary" type="submit">Připravit e-mail →</button>
-            <p class="contact-note" id="contactNote">Po potvrzení se otevře váš e-mailový program s připravenou zprávou. První rozhovor je nezávazný.</p>
+            <button class="button button-primary" type="submit">Odeslat zprávu →</button>
+            <p class="contact-note" id="contactNote">Zpráva bude odeslána na ondrej.krapka@bidli.cz. První rozhovor je nezávazný.</p>
+            <p class="contact-note">Odeslání zajišťuje <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a>. Před odesláním můžete být vyzváni k ověření proti spamu.</p>
             <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -175,9 +179,9 @@
       futureInput.value=option.dataset.message||option.dataset.future;
       selectedFuture.textContent=option.dataset.future;
       if(option.dataset.future==='Kariéra ve financích'){
-        contactNote.textContent='Po potvrzení se otevře váš e-mailový program. Rád vám představím fungování týmu i možnosti kariérního růstu.';
+        contactNote.textContent='Zpráva bude odeslána na ondrej.krapka@bidli.cz. Rád vám představím fungování týmu i možnosti kariérního růstu.';
       }else{
-        contactNote.textContent='Po potvrzení se otevře váš e-mailový program s připravenou zprávou. První rozhovor je nezávazný.';
+        contactNote.textContent='Zpráva bude odeslána na ondrej.krapka@bidli.cz. První rozhovor je nezávazný.';
       }
       formStatus.textContent='';
       showContactStep(futureStep,false);
@@ -197,16 +201,15 @@
       setTimeout(()=>document.querySelector('.future-option.active')?.focus(),280);
     });
     contactForm.addEventListener('submit',event=>{
-      event.preventDefault();
       formStatus.textContent='';
       if(!contactForm.checkValidity()){
+        event.preventDefault();
         formStatus.textContent='Prosím doplňte povinné údaje a potvrďte souhlas.';
         contactForm.reportValidity();
         return;
       }
-      const data=new FormData(contactForm),subject='Nezávazná konzultace – '+selectedFuture.textContent,body=['Téma: '+(data.get('tema')||selectedFuture.textContent),'Jméno: '+data.get('jmeno'),'Telefon: '+data.get('telefon'),'E-mail: '+data.get('email'),'','Co aktuálně řeším:',''+(data.get('zprava')||'—')].join('\n');
-      formStatus.textContent='Otevírám připravený e-mail. Pokud se nic nestane, napište na ondrej.krapka@bidli.cz.';
-      window.location.href='mailto:ondrej.krapka@bidli.cz?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      document.getElementById('contactSubject').value='Nezávazná konzultace – '+selectedFuture.textContent;
+      formStatus.textContent='Pokračujete k bezpečnostnímu ověření a odeslání zprávy.';
     });
 
   </script>
