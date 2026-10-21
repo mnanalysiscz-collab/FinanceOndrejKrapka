@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=social-follow-1">
+    <link rel="stylesheet" href="styles.css?v=calculator-guidance-1">
 </head>
 <body class="home-page">
   <header class="site-header">
@@ -188,7 +188,22 @@
       showContactStep(formStep,true);
       setTimeout(()=>formStep.querySelector('input:not([type="hidden"])')?.focus(),280);
     }));
-    if(new URLSearchParams(location.search).get('tema')==='kariera')document.querySelector('.future-option[data-future="Kariéra ve financích"]').click();
+    const contactTopics={
+      mortgage:['Vlastní bydlení','Hypotéka a financování bydlení'],
+      investment:['Finanční nezávislost','Investice a budování majetku'],
+      insurance:['Jistota pro rodinu','Ochrana příjmu a rodiny'],
+      pension:['Dlouhodobý finanční plán','Příprava na penzi'],
+      rentbuy:['Vlastní bydlení','Nájem nebo vlastní bydlení'],
+      freedom:['Dlouhodobý finanční plán','Plán finanční svobody'],
+      kariera:['Kariéra ve financích','Kariéra ve financích']
+    };
+    const topicKey=new URLSearchParams(location.search).get('tema');
+    if(Object.hasOwn(contactTopics,topicKey)){
+      const [option,title]=contactTopics[topicKey];
+      document.querySelector('.future-option[data-future="'+option+'"]').click();
+      selectedFuture.textContent=title;
+      futureInput.value=title;
+    }
     const requestedBank={moneta:'MONETA Money Bank',csas:'Česká spořitelna',kb:'Komerční banka'}[new URLSearchParams(location.search).get('banka')];
     if(requestedBank){
       document.querySelector('.future-option[data-future="Vlastní bydlení"]').click();

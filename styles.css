@@ -977,3 +977,9 @@ input[type=range]::-moz-range-thumb{
 .home-page .calculator-teaser{background:radial-gradient(ellipse at 14% 46%,rgba(205,164,94,.075),transparent 54%),linear-gradient(135deg,#090b0c 0%,#0d1012 100%)}
 .home-page .contact{background:radial-gradient(circle at 85% 18%,rgba(205,164,94,.06),transparent 32%),linear-gradient(135deg,#17150f 0%,#0b0c0d 56%,#070808 100%)}
 @media(max-width:700px){.home-page .about-page{padding-bottom:0}.home-page #profesni-cesta{padding-block:32px 40px}}
+
+/* Compact, keyboard-accessible guidance beside calculator results. */
+.calculator-explanation{margin:18px 0;border-block:1px solid var(--line)}
+.calculator-explanation summary{padding:15px 2px;color:var(--gold-light);font-size:.85rem;font-weight:700;cursor:pointer}
+.calculator-explanation summary:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+.calculator-explanation p{margin:0;padding:0 2px 16px;color:var(--muted);font-size:.83rem;line-height:1.8}
