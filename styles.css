@@ -1004,3 +1004,16 @@ input[type=range]::-moz-range-thumb{
   .calculator-page .calc-value-wrap input{font-size:16px;min-height:44px}
   .calculator-page .premium-range-track{min-height:24px}
 }
+
+/* Consent-aware analytics: compact, readable and equally easy to accept or reject. */
+.analytics-consent{position:fixed;z-index:1000;left:50%;bottom:22px;width:min(940px,calc(100% - 40px));display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;padding:24px 26px;border:1px solid rgba(237,199,127,.28);border-radius:14px;background:rgba(13,15,15,.97);box-shadow:0 24px 80px rgba(0,0,0,.48);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transform:translate(-50%,18px);opacity:0;transition:opacity .22s ease,transform .22s ease}
+.analytics-consent[hidden]{display:none}.analytics-consent.is-visible{transform:translate(-50%,0);opacity:1}
+.analytics-consent-kicker{display:block;margin-bottom:7px;color:var(--gold-light);font-size:.63rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.analytics-consent h2{margin:0 0 6px;color:var(--white);font:400 1.75rem/1.05 "Instrument Serif",serif}
+.analytics-consent p{max-width:610px;margin:0;color:#bcb8b0;font-size:.76rem;line-height:1.65}
+.analytics-consent-actions{display:flex;gap:10px;align-items:center}
+.analytics-consent-button{min-height:44px;padding:0 17px;border:1px solid rgba(237,199,127,.45);border-radius:8px;color:var(--white);background:transparent;font:700 .72rem "Manrope",sans-serif;cursor:pointer;white-space:nowrap;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.analytics-consent-button:hover,.analytics-consent-button:focus-visible{border-color:var(--gold-light);outline:0}.analytics-consent-accept{border-color:var(--gold-light);color:#111;background:var(--gold-light)}.analytics-consent-accept:hover,.analytics-consent-accept:focus-visible{background:#f4d391}
+.analytics-settings{display:block;margin:12px auto 0;padding:4px;border:0;color:rgba(255,255,255,.48);background:transparent;font:500 .67rem "Manrope",sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}.analytics-settings:hover,.analytics-settings:focus-visible{color:var(--gold-light);outline:0}
+@media(max-width:760px){.analytics-consent{bottom:12px;width:calc(100% - 24px);grid-template-columns:1fr;gap:17px;padding:20px}.analytics-consent h2{font-size:1.55rem}.analytics-consent-actions{display:grid;grid-template-columns:1fr 1fr}.analytics-consent-button{padding-inline:12px;white-space:normal}}
+@media(max-width:390px){.analytics-consent-actions{grid-template-columns:1fr}.analytics-consent-button{width:100%}}
