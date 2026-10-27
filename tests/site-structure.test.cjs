@@ -20,7 +20,10 @@ for(const [file,html] of Object.entries(contents)){
       assert.ok(calculatorRoute||document?.includes('id="'+anchor+'"'),file+' -> missing anchor '+ref);checks++;
     }
   }
-  for(const script of html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g))new Function(script[1]);checks++;
+  for(const script of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)){
+    if(/type=["']application\/ld\+json["']/.test(script[1])){JSON.parse(script[2]);checks++;continue;}
+    new Function(script[2]);checks++;
+  }
 }
 assert.ok(!contents['index.html'].includes('class="calculator-view'),'Calculator panels must not be on home');checks++;
 assert.ok(!contents['index.html'].includes('function calcMortgage'),'Home must not execute calculator code');checks++;
