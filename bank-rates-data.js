@@ -12,11 +12,11 @@ window.mortgageBankData = {
       "maxLtv": 80,
       "conditions": "Fixace 3 roky, LTV do 80 %, úvěr nad 1 milion Kč. Schválení závisí na posouzení bankou.",
       "source": "https://www.moneta.cz/hypoteky/hypoteka",
-      "checkedOn": "2026-10-31",
-      "checkedAt": "2026-10-31T04:23:06.204Z",
-      "expiresOn": "2026-11-03",
+      "checkedOn": "2026-11-01",
+      "checkedAt": "2026-11-01T04:41:58.218Z",
+      "expiresOn": "2026-11-04",
       "status": "verified",
-      "lastAttemptAt": "2026-10-31T04:23:06.204Z"
+      "lastAttemptAt": "2026-11-01T04:41:58.218Z"
     },
     {
       "id": "csas",
@@ -25,11 +25,11 @@ window.mortgageBankData = {
       "rate": 5.49,
       "conditions": "Veřejně uváděná sazba „od“. Konkrétní fixaci, LTV a podmínky zvýhodnění je nutné ověřit individuálně.",
       "source": "https://www.csas.cz/cs/osobni-finance/hypoteky/hypoteka",
-      "checkedOn": "2026-10-31",
-      "checkedAt": "2026-10-31T04:23:06.204Z",
-      "expiresOn": "2026-11-03",
+      "checkedOn": "2026-11-01",
+      "checkedAt": "2026-11-01T04:41:58.218Z",
+      "expiresOn": "2026-11-04",
       "status": "verified",
-      "lastAttemptAt": "2026-10-31T04:23:06.204Z"
+      "lastAttemptAt": "2026-11-01T04:41:58.218Z"
     },
     {
       "id": "kb",
@@ -38,11 +38,11 @@ window.mortgageBankData = {
       "rate": 5.69,
       "conditions": "Sazba „od“ při příjmu na účet KB, rizikovém životním pojištění a pojištění nemovitosti u Komerční pojišťovny a PENB A/B. Konkrétní fixaci a LTV ověříme.",
       "source": "https://www.kb.cz/cs/obcane/pujcky/hypoteky/hypoteka",
-      "checkedOn": "2026-10-30",
-      "checkedAt": "2026-10-30T04:39:32.321Z",
-      "expiresOn": "2026-11-02",
-      "status": "unavailable",
-      "lastAttemptAt": "2026-10-31T04:23:06.204Z"
+      "checkedOn": "2026-11-01",
+      "checkedAt": "2026-11-01T04:41:58.218Z",
+      "expiresOn": "2026-11-04",
+      "status": "verified",
+      "lastAttemptAt": "2026-11-01T04:41:58.218Z"
     }
   ],
   "automatic": true
