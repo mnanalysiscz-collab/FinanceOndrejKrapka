@@ -12,11 +12,11 @@ window.mortgageBankData = {
       "maxLtv": 80,
       "conditions": "Fixace 3 roky, LTV do 80 %, úvěr nad 1 milion Kč. Schválení závisí na posouzení bankou.",
       "source": "https://www.moneta.cz/hypoteky/hypoteka",
-      "checkedOn": "2026-11-01",
-      "checkedAt": "2026-11-01T04:41:58.218Z",
-      "expiresOn": "2026-11-04",
+      "checkedOn": "2026-11-02",
+      "checkedAt": "2026-11-02T04:43:55.698Z",
+      "expiresOn": "2026-11-05",
       "status": "verified",
-      "lastAttemptAt": "2026-11-01T04:41:58.218Z"
+      "lastAttemptAt": "2026-11-02T04:43:55.698Z"
     },
     {
       "id": "csas",
@@ -25,11 +25,11 @@ window.mortgageBankData = {
       "rate": 5.49,
       "conditions": "Veřejně uváděná sazba „od“. Konkrétní fixaci, LTV a podmínky zvýhodnění je nutné ověřit individuálně.",
       "source": "https://www.csas.cz/cs/osobni-finance/hypoteky/hypoteka",
-      "checkedOn": "2026-11-01",
-      "checkedAt": "2026-11-01T04:41:58.218Z",
-      "expiresOn": "2026-11-04",
+      "checkedOn": "2026-11-02",
+      "checkedAt": "2026-11-02T04:43:55.698Z",
+      "expiresOn": "2026-11-05",
       "status": "verified",
-      "lastAttemptAt": "2026-11-01T04:41:58.218Z"
+      "lastAttemptAt": "2026-11-02T04:43:55.698Z"
     },
     {
       "id": "kb",
@@ -41,8 +41,8 @@ window.mortgageBankData = {
       "checkedOn": "2026-11-01",
       "checkedAt": "2026-11-01T04:41:58.218Z",
       "expiresOn": "2026-11-04",
-      "status": "verified",
-      "lastAttemptAt": "2026-11-01T04:41:58.218Z"
+      "status": "unavailable",
+      "lastAttemptAt": "2026-11-02T04:43:55.698Z"
     }
   ],
   "automatic": true
