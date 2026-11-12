@@ -16,7 +16,7 @@ window.mortgageBankData = {
       "checkedAt": "2026-11-03T05:35:48.267Z",
       "expiresOn": "2026-11-06",
       "status": "unavailable",
-      "lastAttemptAt": "2026-11-11T04:56:51.282Z"
+      "lastAttemptAt": "2026-11-12T05:58:52.667Z"
     },
     {
       "id": "csas",
@@ -25,11 +25,11 @@ window.mortgageBankData = {
       "rate": 5.49,
       "conditions": "Veřejně uváděná sazba „od“. Konkrétní fixaci, LTV a podmínky zvýhodnění je nutné ověřit individuálně.",
       "source": "https://www.csas.cz/cs/osobni-finance/hypoteky/hypoteka",
-      "checkedOn": "2026-11-11",
-      "checkedAt": "2026-11-11T04:56:51.282Z",
-      "expiresOn": "2026-11-14",
+      "checkedOn": "2026-11-12",
+      "checkedAt": "2026-11-12T05:58:52.667Z",
+      "expiresOn": "2026-11-15",
       "status": "verified",
-      "lastAttemptAt": "2026-11-11T04:56:51.282Z"
+      "lastAttemptAt": "2026-11-12T05:58:52.667Z"
     },
     {
       "id": "kb",
@@ -38,11 +38,11 @@ window.mortgageBankData = {
       "rate": 5.69,
       "conditions": "Sazba „od“ při příjmu na účet KB, rizikovém životním pojištění a pojištění nemovitosti u Komerční pojišťovny a PENB A/B. Konkrétní fixaci a LTV ověříme.",
       "source": "https://www.kb.cz/cs/obcane/pujcky/hypoteky/hypoteka",
-      "checkedOn": "2026-11-11",
-      "checkedAt": "2026-11-11T04:56:51.282Z",
-      "expiresOn": "2026-11-14",
+      "checkedOn": "2026-11-12",
+      "checkedAt": "2026-11-12T05:58:52.667Z",
+      "expiresOn": "2026-11-15",
       "status": "verified",
-      "lastAttemptAt": "2026-11-11T04:56:51.282Z"
+      "lastAttemptAt": "2026-11-12T05:58:52.667Z"
     }
   ],
   "automatic": true
